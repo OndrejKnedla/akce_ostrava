@@ -21,7 +21,10 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Partner logos marquee */}
-      <div className="bg-black py-8 overflow-hidden">
+      <div className="relative py-8 overflow-hidden bg-ostrava-blue/5 backdrop-blur-sm">
+        {/* Blur edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-white to-transparent z-10" />
         <div
           className="flex w-max"
           style={{
@@ -30,7 +33,7 @@ export default function HomePage() {
         >
           {[...Array(6)].map((_, setIdx) => (
             <div key={setIdx} className="flex items-center gap-20 px-10 shrink-0">
-              <img src="https://www.slezskoostravskyhrad.cz/images/logo-slezsko-ostravsky-hrad.png" alt="Slezskoostravský hrad" className="h-14 md:h-20" />
+              <img src="https://www.slezskoostravskyhrad.cz/images/logo-slezsko-ostravsky-hrad.png" alt="Slezskoostravský hrad" className="h-14 md:h-20 mix-blend-multiply" />
               <img src="https://restarticket.com/restart-logo.png" alt="Restart Ticket" className="h-14 md:h-20" />
               <img src="https://restarticket.com/ticketlive-logo-new.png" alt="TicketLive" className="h-14 md:h-20" />
             </div>
