@@ -212,6 +212,71 @@ Ostrava je jednou z mála zastávek v České republice. Neváhejte s nákupem v
       { question: 'Kdy se otevírají brány?', answer: 'Brány arény se otevírají v 18:30, tedy 90 minut před začátkem show.' },
     ],
   },
+  {
+    id: '4',
+    slug: 'festacek-ostrava-2026',
+    title: 'Fesťáček Ostrava 2026',
+    subtitle: 'Největší dětský festival plný hudby, zábavy a nezapomenutelných zážitků pro celou rodinu',
+    category: 'festival',
+    date: '2026-07-11',
+    time: '08:30',
+    endTime: '18:00',
+    venue: {
+      name: 'Výukové centrum Bělský les',
+      address: 'Bělský les, Ostrava',
+      city: 'Ostrava',
+      mapQuery: 'Výukové+centrum+Bělský+les+Ostrava',
+      transport: 'MHD zastávka Bělský les. Parkování v okolí areálu.',
+    },
+    description: `Fesťáček přijíždí do Ostravy!!! Jeden z největších dětských festivalů v Česku, který každoročně přitahuje tisíce dětí a rodin. Živé koncerty oblíbených dětských interpretů, interaktivní aktivity, vzdělávací zóny a zábavní atrakce.
+
+Skákací hrady, malování na obličej, jízdy vláčkem, balónkové aktivity, klauni, maskoti, kolotoče, kontaktní zoo, pěnové party, trampolíny a mnoho dalšího!!!
+
+Organizátoři kladou důraz na vytváření nezapomenutelných rodinných zážitků prostřednictvím hudby, zábavy a vzdělávání. Stáhněte si aplikaci Fesťáček pro aktuální informace o festivalu.`,
+    image: 'https://festacekfestival.cz/wp-content/uploads/2025/06/Plnime-detske-sny-na-640-x-360-px-1000-x-500-px-1.png',
+    gallery: [
+      'https://festacekfestival.cz/wp-content/uploads/2024/03/23-1024x731.png',
+      'https://festacekfestival.cz/wp-content/uploads/2024/03/Kopie-navrhu-bg-festacek24-1-1-1024x556.png',
+      'https://festacekfestival.cz/wp-content/uploads/2024/03/bezpecnost-1024x804.png',
+      'https://festacekfestival.cz/wp-content/uploads/2024/03/game-1024x870.png',
+    ],
+    tickets: [
+      {
+        id: 't4-1',
+        name: '3. vlna',
+        price: 599,
+        originalPrice: 299,
+        features: ['Vstup na festival', 'Přístup ke všem zónám', 'Všechny atrakce v ceně'],
+        available: 200,
+        total: 800,
+        purchaseUrl: 'https://tvujticket.cz/festacek-ostrava-2026',
+      },
+      {
+        id: 't4-2',
+        name: 'Na místě',
+        price: 650,
+        features: ['Vstup na festival', 'Přístup ke všem zónám', 'Všechny atrakce v ceně'],
+        available: 300,
+        total: 300,
+        purchaseUrl: 'https://tvujticket.cz/festacek-ostrava-2026',
+      },
+    ],
+    lineup: [
+      { name: 'Karol a Kvído', genre: 'Dětský program', image: 'https://festacekfestival.cz/wp-content/uploads/2024/08/karolkvido-1024x1024.png' },
+      { name: 'Štístko a Poupěnka', genre: 'Dětský program', image: 'https://festacekfestival.cz/wp-content/uploads/2024/08/stistkopoupenka-min-1024x1024.png' },
+      { name: 'Bibi Bum', genre: 'Dětský program', image: 'https://festacekfestival.cz/wp-content/uploads/2025/10/bibibum-1024x1024.png' },
+      { name: 'Míša Růžičková', genre: 'Dětský program', image: 'https://festacekfestival.cz/wp-content/uploads/2025/03/misa-ruzuickova-1.png' },
+    ],
+    status: 'on-sale',
+    totalCapacity: 3000,
+    ticketsSold: 2130,
+    featured: false,
+    faq: [
+      { question: 'Je festival vhodný pro malé děti?', answer: 'Ano! Festival je určen pro děti všech věkových kategorií. Nejmenší děti do 3 let mají vstup zdarma.' },
+      { question: 'Co je v ceně vstupenky?', answer: 'Vstupenka zahrnuje vstup na festival, přístup ke všem zónám a atrakcím včetně skákacích hradů, trampolín, kolotočů a dalších aktivit.' },
+      { question: 'Mohu přinést vlastní jídlo?', answer: 'Vlastní jídlo a pití není povoleno. Na festivalu je k dispozici food court s nabídkou pro děti i dospělé.' },
+    ],
+  },
 ];
 
 export function getEventBySlug(slug: string): EventData | undefined {
