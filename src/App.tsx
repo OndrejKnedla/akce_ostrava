@@ -8,7 +8,7 @@ import { BackToTop } from '@/components/ui/BackToTop';
 import { SkipLink } from '@/components/ui/SkipLink';
 import { CookieBanner } from '@/components/ui/CookieBanner';
 import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup';
-import { NewsletterPopup } from '@/components/ui/NewsletterPopup';
+
 import { SocialProofToast } from '@/components/ui/SocialProofToast';
 import { useEffect } from 'react';
 
@@ -42,7 +42,6 @@ export default function App() {
       {/* Overlays */}
       <CookieBanner />
       <ExitIntentPopup />
-      <NewsletterPopup />
       <SocialProofToast />
       <BackToTop />
     </>

@@ -81,10 +81,15 @@ export function Navbar() {
           ) : (
             <button
               onClick={() => setMenuOpen(true)}
-              className={cn('p-2', scrolled ? 'text-ostrava-blue' : 'text-white')}
+              className={cn(
+                'p-3 rounded-lg transition-colors',
+                scrolled
+                  ? 'text-ostrava-blue hover:bg-ostrava-blue/10'
+                  : 'text-white bg-white/10 hover:bg-white/20'
+              )}
               aria-label="Otevřít menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-7 h-7" />
             </button>
           )}
         </div>

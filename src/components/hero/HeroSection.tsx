@@ -35,8 +35,8 @@ export function HeroSection() {
           <Button variant="cta" size="lg" href="/akce">
             Zobrazit akce
           </Button>
-          <Button variant="ghost" size="lg" href="#newsletter">
-            Odběr novinek
+          <Button variant="ghost" size="lg" href="/kontakt">
+            Kontaktujte nás
           </Button>
         </motion.div>
       </div>

@@ -1,30 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 import { HeroSection } from '@/components/hero/HeroSection';
-import { HorizontalScroll } from '@/components/events/HorizontalScroll';
+import { EventShowcase } from '@/components/events/EventShowcase';
 import { StatsSection } from '@/components/sections/StatsSection';
-
-import { AboutMini } from '@/components/sections/AboutMini';
-import { Testimonials } from '@/components/sections/Testimonials';
-import { Newsletter } from '@/components/sections/Newsletter';
-import { InstagramGrid } from '@/components/sections/InstagramGrid';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { getUpcomingEvents } from '@/data/events';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const filterTabs = [
-  { value: 'all', label: 'Vše' },
-  { value: 'koncert', label: 'Koncerty' },
-  { value: 'festival', label: 'Festivaly' },
-  { value: 'show', label: 'VIP Akce' },
-];
-
 export default function HomePage() {
-  const [filter, setFilter] = useState('all');
-  const allEvents = getUpcomingEvents();
-  const events = filter === 'all' ? allEvents : allEvents.filter((e) => e.category === filter);
+  const events = getUpcomingEvents();
 
   return (
     <PageTransition>
@@ -53,35 +38,39 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Upcoming Events */}
+      {/* === EVENTS — Main Section === */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="font-heading text-3xl md:text-4xl uppercase text-ostrava-blue mb-6">
-              <SplitText text="Nejbližší akce" onView />
-              <span className="text-ostrava-red">!!!</span>
-            </h2>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {filterTabs.map((tab) => (
-                <button
-                  key={tab.value}
-                  onClick={() => setFilter(tab.value)}
-                  className={`px-4 py-2 rounded-lg font-heading text-xs uppercase tracking-wider transition-all ${
-                    filter === tab.value
-                      ? 'bg-ostrava-cyan text-white shadow-[0_0_15px_rgba(0,175,210,0.3)]'
-                      : 'bg-ostrava-blue/10 text-ostrava-blue/60 hover:text-ostrava-blue'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+          <div className="text-center mb-12 md:mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-heading text-3xl md:text-5xl uppercase text-ostrava-blue mb-4">
+                <SplitText text="Nejbližší akce" onView />
+                <span className="text-ostrava-red">!!!</span>
+              </h2>
+              <p className="text-ostrava-blue/50 text-lg max-w-xl mx-auto">
+                Tři akce, které musíš letos v Ostravě zažít. Kup vstupenky, než bude pozdě.
+              </p>
+            </motion.div>
           </div>
 
-          <HorizontalScroll events={events} />
+          {/* Event showcases */}
+          <div className="flex flex-col gap-12 md:gap-16">
+            {events.map((event, i) => (
+              <EventShowcase
+                key={event.id}
+                event={event}
+                index={i}
+                reversed={i % 2 === 1}
+              />
+            ))}
+          </div>
 
           <motion.div
-            className="text-center mt-10"
+            className="text-center mt-12"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -106,11 +95,6 @@ export default function HomePage() {
       </div>
 
       <StatsSection />
-
-      <AboutMini />
-      <Testimonials />
-      <Newsletter />
-      <InstagramGrid />
     </PageTransition>
   );
 }

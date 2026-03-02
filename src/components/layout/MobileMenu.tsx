@@ -40,53 +40,47 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[9000] bg-dark/98"
-          initial={{ x: '100%' }}
-          animate={{ x: 0 }}
-          exit={{ x: '100%' }}
-          transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+          className="fixed inset-0 flex flex-col items-center justify-center"
+          style={{ zIndex: 9999, backgroundColor: '#003C69' }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
         >
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 text-white/70 hover:text-white p-2"
+            className="absolute top-5 right-5 text-white/80 hover:text-white p-3"
             aria-label="Zavřít menu"
           >
             <X className="w-8 h-8" />
           </button>
 
-          <div className="flex flex-col items-center justify-center h-full gap-2">
-            <div className="mb-8 font-heading text-2xl">
-              <span className="text-white">AKCE </span>
-              <span className="text-ostrava-cyan">OSTRAVA</span>
-              <span className="text-ostrava-red">!!!</span>
-            </div>
-
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.to}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 + i * 0.05 }}
-              >
-                <Link
-                  to={link.to}
-                  onClick={onClose}
-                  className={`font-heading text-3xl uppercase tracking-wider py-3 px-8 block transition-colors ${
-                    location.pathname === link.to
-                      ? 'text-ostrava-cyan border-l-4 border-ostrava-cyan'
-                      : 'text-white/70 hover:text-white border-l-4 border-transparent'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
-
-            {/* Decorative !!! */}
-            <div className="absolute bottom-10 text-ostrava-red/5 font-heading text-[200px] leading-none select-none pointer-events-none">
-              !!!
-            </div>
+          <div className="mb-10 font-heading text-2xl">
+            <span className="text-white">AKCE </span>
+            <span className="text-ostrava-cyan">OSTRAVA</span>
+            <span className="text-ostrava-red">!!!</span>
           </div>
+
+          {navLinks.map((link, i) => (
+            <motion.div
+              key={link.to}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 + i * 0.06 }}
+            >
+              <Link
+                to={link.to}
+                onClick={onClose}
+                className={`font-heading text-2xl uppercase tracking-wider py-3 px-8 block text-center transition-colors ${
+                  location.pathname === link.to
+                    ? 'text-ostrava-cyan'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
       )}
     </AnimatePresence>
