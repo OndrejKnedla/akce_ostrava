@@ -176,7 +176,7 @@ Ostrava je jednou z mála zastávek v České republice. Neváhejte s nákupem v
       {
         id: 't3-1',
         name: 'Tribuna',
-        price: 1290,
+        price: 975,
         features: ['Vstup na show', 'Sedadlo na tribuně', 'Přístup k barům'],
         available: 500,
         total: 1200,
