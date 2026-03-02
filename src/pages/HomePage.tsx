@@ -33,7 +33,7 @@ export default function HomePage() {
         >
           {[...Array(6)].map((_, setIdx) => (
             <div key={setIdx} className="flex items-center gap-20 px-10 shrink-0">
-              <img src="https://www.slezskoostravskyhrad.cz/images/logo-slezsko-ostravsky-hrad.png" alt="Slezskoostravský hrad" className="h-14 md:h-20 rounded-lg" />
+              <img src="https://www.slezskoostravskyhrad.cz/images/logo-slezsko-ostravsky-hrad.png" alt="Slezskoostravský hrad" className="h-14 md:h-20 mix-blend-screen" />
               <img src="https://restarticket.com/restart-logo.png" alt="Restart Stage Production" className="h-14 md:h-20" />
               <img src="https://restarticket.com/ticketlive-logo-new.png" alt="TicketLive" className="h-14 md:h-20" />
             </div>
