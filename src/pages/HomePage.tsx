@@ -26,15 +26,15 @@ export default function HomePage() {
         <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
         <div
-          className="flex w-max items-center opacity-40"
+          className="flex w-max items-center opacity-70"
           style={{
             animation: 'marquee-scroll 20s linear infinite',
           }}
         >
           {[...Array(6)].map((_, setIdx) => (
             <div key={setIdx} className="flex items-center gap-24 px-12 shrink-0">
-              <img src="https://restarticket.com/restart-logo.png" alt="Restart Stage Production" className="h-10 md:h-14 grayscale" />
-              <img src="https://restarticket.com/ticketlive-logo-new.png" alt="TicketLive" className="h-10 md:h-14 grayscale" />
+              <img src="https://restarticket.com/restart-logo.png" alt="Restart Stage Production" className="h-12 md:h-16" />
+              <img src="https://restarticket.com/ticketlive-logo-new.png" alt="TicketLive" className="h-12 md:h-16" />
             </div>
           ))}
         </div>
