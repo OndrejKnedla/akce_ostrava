@@ -90,7 +90,7 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
             od {lowestPrice.toLocaleString('cs-CZ')} Kč
           </span>
           {!isSoldOut ? (
-            <Button variant="primary" size="sm" href={`/akce/${event.slug}`}>
+            <Button variant="primary" size="sm" href={event.tickets[0].purchaseUrl} external>
               Koupit!!!
             </Button>
           ) : (

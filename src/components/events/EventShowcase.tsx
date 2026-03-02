@@ -108,7 +108,7 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
               {lowestPrice.toLocaleString('cs-CZ')} Kč
             </div>
           </div>
-          <Button variant="cta" size="md" href={`/akce/${event.slug}`}>
+          <Button variant="cta" size="md" href={event.tickets[0].purchaseUrl} external>
             Koupit
             <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
