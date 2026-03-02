@@ -21,20 +21,21 @@ export default function HomePage() {
       <HeroSection />
 
       {/* Partner logos marquee */}
-      <div className="relative py-10 overflow-hidden bg-white">
+      <div className="relative py-8 overflow-hidden bg-ostrava-blue">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-ostrava-blue to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-ostrava-blue to-transparent z-10 pointer-events-none" />
         <div
-          className="flex w-max items-center opacity-70"
+          className="flex w-max items-center"
           style={{
             animation: 'marquee-scroll 20s linear infinite',
           }}
         >
           {[...Array(6)].map((_, setIdx) => (
-            <div key={setIdx} className="flex items-center gap-24 px-12 shrink-0">
-              <img src="https://restarticket.com/restart-logo.png" alt="Restart Stage Production" className="h-12 md:h-16" />
-              <img src="https://restarticket.com/ticketlive-logo-new.png" alt="TicketLive" className="h-12 md:h-16" />
+            <div key={setIdx} className="flex items-center gap-20 px-10 shrink-0">
+              <img src="https://www.slezskoostravskyhrad.cz/images/logo-slezsko-ostravsky-hrad.png" alt="Slezskoostravský hrad" className="h-14 md:h-20 brightness-0 invert" />
+              <img src="https://restarticket.com/restart-logo.png" alt="Restart Stage Production" className="h-14 md:h-20 brightness-0 invert" />
+              <img src="https://restarticket.com/ticketlive-logo-new.png" alt="TicketLive" className="h-14 md:h-20 brightness-0 invert" />
             </div>
           ))}
         </div>
