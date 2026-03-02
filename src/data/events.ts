@@ -233,7 +233,7 @@ Ostrava je jednou z mála zastávek v České republice. Neváhejte s nákupem v
 Skákací hrady, malování na obličej, jízdy vláčkem, balónkové aktivity, klauni, maskoti, kolotoče, kontaktní zoo, pěnové party, trampolíny a mnoho dalšího!!!
 
 Organizátoři kladou důraz na vytváření nezapomenutelných rodinných zážitků prostřednictvím hudby, zábavy a vzdělávání. Stáhněte si aplikaci Fesťáček pro aktuální informace o festivalu.`,
-    image: 'https://festacekfestival.cz/wp-content/uploads/2025/06/Plnime-detske-sny-na-640-x-360-px-1000-x-500-px-1.png',
+    image: 'https://tvujticket.cz/wp-content/uploads/2026/02/ostrava-26.jpg',
     gallery: [
       'https://festacekfestival.cz/wp-content/uploads/2024/03/23-1024x731.png',
       'https://festacekfestival.cz/wp-content/uploads/2024/03/Kopie-navrhu-bg-festacek24-1-1-1024x556.png',
