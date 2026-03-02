@@ -1,0 +1,60 @@
+import { useEffect, useState } from 'react';
+import { usePopupStore } from '@/store/usePopupStore';
+import { getFeaturedEvent } from '@/data/events';
+import { Modal } from './Modal';
+import { Button } from './Button';
+
+export function ExitIntentPopup() {
+  const [show, setShow] = useState(false);
+  const { canShowExitIntent, showExitIntent, setActiveModal } = usePopupStore();
+  const event = getFeaturedEvent();
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && canShowExitIntent()) {
+        showExitIntent();
+        setShow(true);
+      }
+    };
+
+    timer = setTimeout(() => {
+      document.addEventListener('mouseleave', handleMouseLeave);
+    }, 15000);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [canShowExitIntent, showExitIntent]);
+
+  const handleClose = () => {
+    setShow(false);
+    setActiveModal(null);
+  };
+
+  return (
+    <Modal isOpen={show} onClose={handleClose} title="Exit intent">
+      <div className="text-center">
+        <img
+          src={event.image}
+          alt={event.title}
+          className="w-full h-40 object-cover rounded-lg mb-4"
+        />
+        <h3 className="font-heading text-2xl uppercase text-ostrava-blue mb-2">
+          Nechcete přijít o {event.title}?!!
+        </h3>
+        <p className="text-ostrava-blue/60 text-sm mb-6">{event.subtitle}</p>
+        <div className="flex flex-col gap-3">
+          <Button variant="cta" onClick={handleClose} href={`/akce/${event.slug}`}>
+            Koupit vstupenky!!!
+          </Button>
+          <button onClick={handleClose} className="text-ostrava-cyan text-sm hover:underline">
+            Přihlásit k odběru
+          </button>
+        </div>
+      </div>
+    </Modal>
+  );
+}
