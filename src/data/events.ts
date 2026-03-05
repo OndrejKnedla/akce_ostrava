@@ -131,7 +131,6 @@ Tohle je festival pro všechny generace!!! Slezskoostravský hrad nabízí jedin
     faq: [
       { question: 'Je festival vhodný pro děti?', answer: 'Ano! Festival je vhodný pro všechny věkové kategorie.' },
       { question: 'Co si vzít s sebou?', answer: 'Doporučujeme pohodlné oblečení a obuv, pláštěnku (open-air), sluneční brýle. Vlastní jídlo a pití není povoleno.' },
-      { question: 'V kolik začíná hlavní program?', answer: 'Brány se otevírají v 15:00. Hlavní hvězdy hrají od 19:00. Přesný harmonogram zveřejníme před akcí.' },
     ],
   },
   {
