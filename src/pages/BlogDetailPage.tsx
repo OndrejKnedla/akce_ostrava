@@ -109,28 +109,38 @@ export default function BlogDetailPage() {
         <link rel="canonical" href={`https://akceostrava.cz/blog/${article.slug}`} />
       </Helmet>
 
-      {/* Hero */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80">
-        <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
+      {/* Hero with image */}
+      <section className="relative pt-20 md:pt-24">
+        {/* Background image */}
+        <div className="absolute inset-0 h-[360px] md:h-[420px]">
+          <img
+            src={article.image.replace('w=800', 'w=1400').replace('h=500', 'h=600')}
+            alt={article.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ostrava-blue via-ostrava-blue/80 to-ostrava-blue/40" />
+        </div>
+
+        <div className="relative max-w-content mx-auto px-4 md:px-6 lg:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
           <Link
             to="/blog"
             className="inline-flex items-center gap-2 text-white/50 hover:text-ostrava-cyan text-sm mb-6 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Zpět na blog
+            Zpet na blog
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className="px-3 py-1 rounded text-xs font-heading uppercase tracking-wider bg-ostrava-cyan/20 text-ostrava-cyan">
+            <span className="px-3 py-1 rounded text-xs font-semibold bg-ostrava-cyan/20 text-ostrava-cyan border border-ostrava-cyan/30">
               {clusterLabel}
             </span>
-            <div className="flex items-center gap-1.5 text-white/40 text-xs">
+            <div className="flex items-center gap-1.5 text-white/50 text-xs">
               <Calendar className="w-3.5 h-3.5" />
               <span>{new Date(article.date).toLocaleDateString('cs-CZ')}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-white/40 text-xs">
+            <div className="flex items-center gap-1.5 text-white/50 text-xs">
               <Clock className="w-3.5 h-3.5" />
-              <span>{article.readingTime} min</span>
+              <span>{article.readingTime} min cteni</span>
             </div>
           </div>
 
@@ -183,17 +193,27 @@ export default function BlogDetailPage() {
                 <Link
                   key={rel.id}
                   to={`/blog/${rel.slug}`}
-                  className="group block bg-white border border-ostrava-blue/10 rounded-xl p-5 hover:shadow-md hover:border-ostrava-cyan/20 transition-all"
+                  className="group block bg-white border border-ostrava-blue/10 rounded-xl overflow-hidden hover:shadow-md hover:border-ostrava-cyan/20 transition-all"
                 >
-                  <h3 className="font-heading text-sm uppercase text-ostrava-blue mb-2 line-clamp-2 group-hover:text-ostrava-cyan transition-colors">
-                    {rel.title}
-                  </h3>
-                  <p className="text-ostrava-blue/50 text-xs leading-relaxed line-clamp-2 mb-3">
-                    {rel.excerpt}
-                  </p>
-                  <span className="flex items-center gap-1 text-ostrava-cyan text-xs font-heading uppercase">
-                    Číst <ChevronRight className="w-3 h-3" />
-                  </span>
+                  <div className="overflow-hidden" style={{ aspectRatio: '16/9' }}>
+                    <img
+                      src={rel.image}
+                      alt={rel.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-sm text-ostrava-blue mb-2 line-clamp-2 group-hover:text-ostrava-cyan transition-colors">
+                      {rel.title}
+                    </h3>
+                    <p className="text-ostrava-blue/50 text-xs leading-relaxed line-clamp-2 mb-3">
+                      {rel.excerpt}
+                    </p>
+                    <span className="flex items-center gap-1 text-ostrava-cyan text-xs font-semibold">
+                      Cist dale <ChevronRight className="w-3 h-3" />
+                    </span>
+                  </div>
                 </Link>
               ))}
             </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Youtube } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 import { SplitText } from '@/components/ui/SplitText';
 import { Button } from '@/components/ui/Button';
 import { useToast } from '@/components/ui/Toast';
@@ -58,10 +58,15 @@ export default function ContactPage() {
               <div className="mb-8" />
 
               <div className="flex gap-3 mb-8">
-                {[Instagram, Facebook, Youtube].map((Icon, i) => (
+                {[
+                  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/restartstage_production/' },
+                  { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61569886395898' },
+                ].map(({ icon: Icon, label, href }) => (
                   <a
-                    key={i}
-                    href="#"
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg bg-ostrava-ice border border-ostrava-blue/10 flex items-center justify-center text-ostrava-blue/50 hover:text-ostrava-cyan hover:border-ostrava-cyan/30 transition-all"
                   >
                     <Icon className="w-5 h-5" />

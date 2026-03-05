@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Youtube } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 import { OstravaSkyline } from '@/components/svg/OstravaSkyline';
 
 export function Footer() {
@@ -50,13 +50,14 @@ export function Footer() {
             <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-3">Sociální sítě</h4>
             <div className="flex items-center gap-3">
               {[
-                { icon: Instagram, label: 'Instagram' },
-                { icon: Facebook, label: 'Facebook' },
-                { icon: Youtube, label: 'YouTube' },
-              ].map(({ icon: Icon, label }) => (
+                { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/restartstage_production/' },
+                { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61569886395898' },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-ostrava-cyan hover:border-ostrava-cyan/30 hover:shadow-[0_0_15px_rgba(0,175,210,0.2)] transition-all"
                   aria-label={label}
                 >

@@ -10,6 +10,7 @@ export interface BlogArticle {
   date: string;
   excerpt: string;
   body: string;
+  image: string;
   readingTime: number;
   wordCount: number;
 }
