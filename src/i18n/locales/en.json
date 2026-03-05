@@ -1,0 +1,300 @@
+{
+  "nav": {
+    "home": "Home",
+    "events": "Events",
+    "blog": "Blog",
+    "contact": "Contact",
+    "search": "Search",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "footer": {
+    "tagline": "The steel heart of entertainment. The best concerts, festivals and shows in Ostrava and beyond.",
+    "navigation": "Navigation",
+    "info": "Information",
+    "terms": "Terms & Conditions",
+    "gdpr": "Privacy Policy",
+    "social": "Social Media",
+    "copyright": "© 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104",
+    "taglineBrand": "The steel heart of entertainment!!!"
+  },
+  "hero": {
+    "title": "Discover the world of <1>entertainment</1> in <3>Ostrava</3><5>!!!</5>",
+    "subtitle": "Concerts, festivals and shows you have to experience",
+    "cta": "View events",
+    "contact": "Contact us"
+  },
+  "home": {
+    "seoTitle": "AKCE OSTRAVA!!! — Concerts, Festivals, Experiences",
+    "seoDesc": "The best concerts, festivals and shows in Ostrava. The steel heart of entertainment!!!",
+    "upcomingEvents": "Upcoming events",
+    "upcomingEventsDesc": "Three events you have to experience in Ostrava this year. Get your tickets before it's too late.",
+    "comingSoon": "More events coming soon",
+    "comingSoonDesc": "Follow our website and social media so you don't miss a thing.",
+    "viewAll": "View all events"
+  },
+  "events": {
+    "seoTitle": "All events",
+    "seoDesc": "Browse our full lineup of concerts, festivals and shows in Ostrava.",
+    "title": "All events",
+    "loadMore": "Load more!!!",
+    "noResults": "No events match your filter. Try a different selection.",
+    "notFound": "Event not found",
+    "backToEvents": "← Back to events",
+    "copied": "Copied!!!",
+    "linkCopied": "Link copied",
+    "countdownLabel": "Time until the event starts",
+    "aboutEvent": "About the event",
+    "lineup": "Line-up",
+    "tickets": "Tickets",
+    "venue": "Venue",
+    "gallery": "Gallery",
+    "faq": "Frequently asked questions",
+    "share": "Share:",
+    "copyLink": "Copy link",
+    "addToCalendar": "Add to calendar",
+    "relatedEvents": "You might also like",
+    "mapTitle": "Map - {{name}}"
+  },
+  "eventCard": {
+    "soldOut": "Sold Out",
+    "lastTickets": "Last tickets!!!",
+    "earlyBird": "Early Bird",
+    "soon": "Soon!!!",
+    "announceSoon": "Announcing soon!!!",
+    "preparing": "Coming soon",
+    "buy": "Buy!!!",
+    "buyTickets": "Buy tickets!!!",
+    "fromPrice": "from {{price}} Kč",
+    "followUs": "Follow our pages"
+  },
+  "eventShowcase": {
+    "concert": "Concert",
+    "festival": "Festival",
+    "show": "VIP Show",
+    "inDays": "in <1>{{days}}</1> days",
+    "ticketsFrom": "Tickets from",
+    "buy": "Buy"
+  },
+  "filter": {
+    "all": "All",
+    "concert": "Concert",
+    "festival": "Festival",
+    "show": "Show",
+    "date": "Date",
+    "price": "Price",
+    "name": "Name"
+  },
+  "countdown": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
+  "ticket": {
+    "mostPopular": "Most Popular",
+    "save": "Save {{amount}} Kč!!!",
+    "remaining": "{{count}} tickets left!!!",
+    "remainingOf": "{{available}} of {{total}} remaining",
+    "buy": "Buy",
+    "buyHighlight": "Buy!!!"
+  },
+  "purchase": {
+    "lastTickets": "Last tickets!!!",
+    "earlyBirdUntil": "Early Bird until {{date}}",
+    "viewing": "{{count}} people are viewing right now"
+  },
+  "cookie": {
+    "title": "Protecting your privacy",
+    "description": "We use cookies for proper website functionality and traffic analysis.",
+    "moreInfo": "privacy policy",
+    "moreInfoPrefix": "Learn more in our ",
+    "acceptAll": "Accept all",
+    "rejectOptional": "Essential only",
+    "settings": "Settings",
+    "saveSettings": "Save settings",
+    "necessary": "Essential",
+    "necessaryDesc": "Ensure basic website functions such as navigation and access to secure areas. The website cannot function properly without these cookies.",
+    "analytics": "Analytics",
+    "analyticsDesc": "Help us understand how visitors use the website. Data is anonymized (Vercel Analytics).",
+    "alwaysActive": "Always active"
+  },
+  "exitIntent": {
+    "dontMiss": "Don't want to miss {{title}}?!!",
+    "buyTickets": "Buy tickets!!!",
+    "subscribe": "Subscribe"
+  },
+  "newsletter": {
+    "title": "Be the first",
+    "description": "Be the first to know about new events. Subscribers get tickets 48 hours early.",
+    "placeholder": "Your email",
+    "submit": "Subscribe!!!",
+    "presale": "Exclusive presale",
+    "discounts": "Discounts",
+    "insider": "Insider info",
+    "thanks": "Thanks for subscribing!!!"
+  },
+  "newsletterPopup": {
+    "title": "Subscribers get tickets 48 hours early!!!",
+    "description": "Be the first to know about new events.",
+    "placeholder": "Your email",
+    "submit": "Subscribe!!!",
+    "thanks": "Thanks for subscribing!!!"
+  },
+  "socialProof": {
+    "bought_male": "{{name}} from {{city}} just bought {{tickets}} for {{event}}",
+    "bought_female": "{{name}} from {{city}} just bought {{tickets}} for {{event}}",
+    "ticket_one": "ticket",
+    "ticket_few": "tickets",
+    "ticket_many": "tickets"
+  },
+  "contact": {
+    "seoTitle": "Contact",
+    "seoDesc": "Contact RESTARTSTAGE PRODUCTION — event organizers in Ostrava.",
+    "title": "Contact",
+    "connectTitle": "Get in touch",
+    "formTitle": "Write to us",
+    "nameLabel": "Name *",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "your@email.com",
+    "subjectLabel": "Subject",
+    "subjectGeneral": "General inquiry",
+    "subjectCooperation": "Partnership",
+    "subjectComplaint": "Complaint",
+    "subjectOther": "Other",
+    "messageLabel": "Message *",
+    "messagePlaceholder": "Your message...",
+    "submit": "Send message!!!",
+    "validEmail": "Please enter a valid email",
+    "minLength": "Message must be at least 10 characters",
+    "success": "Message sent!!! We'll get back to you within 24 hours."
+  },
+  "about": {
+    "seoTitle": "About Us | AKCE OSTRAVA!!!",
+    "seoDesc": "The story of RESTARTSTAGE PRODUCTION — how we turned Ostrava into a cultural metropolis.",
+    "title": "About Us",
+    "story1": "RESTARTSTAGE PRODUCTION has been bringing the best of world entertainment to Ostrava since 2016. We started with small club events and today we fill the biggest venues in the region.",
+    "story2": "Our mission is to transform Ostrava's industrial soul into a vibrant entertainment hub. Every concert, every festival, every show — that's our way of telling the world:",
+    "ostravaLives": " Ostrava lives!!!",
+    "timeline": "Our journey",
+    "team": "Our team",
+    "cooperate": "Partner with us",
+    "cooperateDesc": "Interested in a partnership or want to organize your own event? Get in touch.",
+    "contactUs": "Contact us!!!",
+    "t2016": "Founded",
+    "t2016d": "RESTARTSTAGE PRODUCTION founded. First club events in Ostrava.",
+    "t2018": "Ostravar Aréna",
+    "t2018d": "First event at the Ostravar Aréna — 5,000 thrilled fans.",
+    "t2020": "Online streaming",
+    "t2020d": "\"Ostrava from Home\" series — online concerts during lockdown.",
+    "t2022": "Dolní Vítkovice",
+    "t2022d": "Expansion to Dolní Vítkovice. First open-air festivals.",
+    "t2024": "50,000th visitor",
+    "t2024d": "Milestone — 50,000th visitor at our events!!!",
+    "t2026": "Record-breaking season",
+    "t2026d": "The most ambitious season in history. 6 major events.",
+    "member1": "Jakub Novotný",
+    "role1": "Founder & CEO",
+    "bio1": "Ostrava born and raised. 15 years in event production.",
+    "member2": "Tereza Kovářová",
+    "role2": "Creative Director",
+    "bio2": "The visionary behind every visual and branding.",
+    "member3": "Martin Svoboda",
+    "role3": "Production Manager",
+    "bio3": "Logistics genius. Handles anything under pressure."
+  },
+  "faqPage": {
+    "seoTitle": "FAQ | AKCE OSTRAVA!!!",
+    "seoDesc": "Frequently asked questions about events, tickets and venues.",
+    "title": "FAQ",
+    "searchPlaceholder": "Search questions...",
+    "all": "All",
+    "catTickets": "Tickets",
+    "catVenue": "Venue",
+    "catRefund": "Refunds",
+    "catVip": "VIP",
+    "catGeneral": "General",
+    "noResults": "We couldn't find an answer to your question.",
+    "contactUs": "Write to us!!!"
+  },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDesc": "Your guide to concerts, festivals and cultural life in Ostrava. Tips, reviews and news from the world of live music.",
+    "title": "Blog",
+    "subtitle": "Your guide to concerts, festivals and cultural life in Ostrava",
+    "searchPlaceholder": "Search articles...",
+    "readTime": "{{time}} min read",
+    "readMore": "Read more",
+    "loadMore": "Load more ({{count}} remaining)",
+    "noSearchResults": "No articles for \"{{query}}\". Try a different term.",
+    "noArticles": "No articles in this category.",
+    "backToBlog": "Back to blog",
+    "keywords": "Keywords",
+    "relatedArticles": "Related articles"
+  },
+  "blogClusters": {
+    "all": "All",
+    "koncerty_ostrava": "Concerts",
+    "festivaly": "Festivals",
+    "venues": "Venues",
+    "vstupenky": "Tickets",
+    "tipy_navstevnici": "Tips",
+    "ostrava_kultura": "Ostrava",
+    "zanry": "Genres",
+    "sezona": "Season",
+    "zakulisi": "Backstage",
+    "rodiny": "Families"
+  },
+  "stats": {
+    "title": "Ostrava lives",
+    "visitors": "Visitors",
+    "visitorsLabel": "annually",
+    "eventsCount": "Events",
+    "eventsLabel": "organized",
+    "artists": "Artists",
+    "artistsLabel": "international",
+    "experience": "Experience",
+    "experienceLabel": "years on stage"
+  },
+  "aboutMini": {
+    "title": "Why Ostrava",
+    "description": "Ostrava — the steel heart of the republic. A city where you can feel the energy in every street, every concert, every moment. We transform that energy into unforgettable experiences.",
+    "worldArtists": "World-class artists",
+    "worldArtistsDesc": "We bring the best performers from the global stage straight to Ostrava.",
+    "iconicVenues": "Iconic venues",
+    "iconicVenuesDesc": "From the Ostravar Aréna to the industrial Dolní Vítkovice — unique settings for unforgettable shows.",
+    "unforgettable": "Unforgettable experiences",
+    "unforgettableDesc": "Every event is carefully produced to give you more than just music.",
+    "moreAbout": "More about us →"
+  },
+  "notFound": {
+    "seoTitle": "404 — Page Not Found",
+    "seoDesc": "Page not found. Check out our events in Ostrava.",
+    "title": "Nothing here",
+    "cta": "But we've got events →",
+    "checkOut": "In the meantime, check out:"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "events": "Events",
+    "blog": "Blog"
+  },
+  "skipLink": "Skip to content",
+  "months": {
+    "full": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "short": ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+  },
+  "gdprPage": {
+    "seoTitle": "Privacy Policy",
+    "seoDesc": "Privacy policy (GDPR) of RESTARTSTAGE PRODUCTION s.r.o.",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: March 1, 2026"
+  },
+  "termsPage": {
+    "seoTitle": "Terms & Conditions",
+    "seoDesc": "Terms and conditions of RESTARTSTAGE PRODUCTION s.r.o. for purchasing tickets to events in Ostrava.",
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last updated: March 1, 2026"
+  }
+}

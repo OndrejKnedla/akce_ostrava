@@ -4,15 +4,17 @@ import { Button } from '@/components/ui/Button';
 import { EventCard } from '@/components/events/EventCard';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { events } from '@/data/events';
+import { useLocale } from '@/i18n/useLocale';
 
 export default function NotFoundPage() {
   const randomEvent = events[Math.floor(Math.random() * events.length)];
+  const { t, localePath } = useLocale();
 
   return (
     <PageTransition>
       <SeoHead
-        title="404 — Stránka nenalezena"
-        description="Stránka nebyla nalezena. Podívejte se na naše akce v Ostravě."
+        title={t('notFound.seoTitle')}
+        description={t('notFound.seoDesc')}
         noindex
       />
 
@@ -43,7 +45,7 @@ export default function NotFoundPage() {
           </motion.div>
 
           <div className="mb-2">
-            <span className="font-heading text-2xl md:text-3xl text-white">Tady nic není</span>
+            <span className="font-heading text-2xl md:text-3xl text-white">{t('notFound.title')}</span>
             {[0, 1, 2].map((i) => (
               <motion.span
                 key={i}
@@ -63,8 +65,8 @@ export default function NotFoundPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
           >
-            <Button variant="cta" size="lg" href="/">
-              Ale akce máme →
+            <Button variant="cta" size="lg" href={localePath('home')}>
+              {t('notFound.cta')}
             </Button>
           </motion.div>
 
@@ -73,7 +75,7 @@ export default function NotFoundPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
           >
-            <p className="text-white/40 text-sm mb-4 font-heading uppercase">Zatím se podívejte na:</p>
+            <p className="text-white/40 text-sm mb-4 font-heading uppercase">{t('notFound.checkOut')}</p>
             <div className="max-w-sm mx-auto">
               <EventCard event={randomEvent} />
             </div>

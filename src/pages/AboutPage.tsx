@@ -1,39 +1,43 @@
-import { Helmet } from 'react-helmet-async';
+import { SeoHead } from '@/seo/SeoHead';
 import { motion } from 'framer-motion';
 import { SplitText } from '@/components/ui/SplitText';
 import { StatsSection } from '@/components/sections/StatsSection';
 import { OstravaSkyline } from '@/components/svg/OstravaSkyline';
 import { Button } from '@/components/ui/Button';
 import { PageTransition } from '@/components/layout/PageTransition';
-
-const timeline = [
-  { year: '2016', title: 'Založení', desc: 'Založení RESTARTSTAGE PRODUCTION. První klubové akce v Ostravě.' },
-  { year: '2018', title: 'Ostravar Aréna', desc: 'První akce v Ostravar Aréně — 5 000 nadšených diváků.' },
-  { year: '2020', title: 'Online streaming', desc: 'Série "Ostrava z domova" — online koncerty v době lockdownu.' },
-  { year: '2022', title: 'Dolní Vítkovice', desc: 'Expansion do Dolních Vítkovic. První open-air festivaly.' },
-  { year: '2024', title: '50 000. návštěvník', desc: 'Milník — 50 000. návštěvník na našich akcích!!!' },
-  { year: '2026', title: 'Rekordní sezóna', desc: 'Nejambicióznější sezóna v historii. 6 velkých akcí.' },
-];
-
-const team = [
-  { name: 'Jakub Novotný', role: 'Zakladatel & CEO', bio: 'Ostravák tělem i duší. 15 let v event production.' },
-  { name: 'Tereza Kovářová', role: 'Kreativní ředitelka', bio: 'Vizionářka za každým vizuálem a brandingem.' },
-  { name: 'Martin Svoboda', role: 'Produkční manažer', bio: 'Logistický génius. Zvládne cokoliv pod tlakem.' },
-];
+import { useLocale } from '@/i18n/useLocale';
 
 export default function AboutPage() {
+  const { t, localePath } = useLocale();
+
+  const timeline = [
+    { year: '2016', title: t('about.t2016'), desc: t('about.t2016d') },
+    { year: '2018', title: t('about.t2018'), desc: t('about.t2018d') },
+    { year: '2020', title: t('about.t2020'), desc: t('about.t2020d') },
+    { year: '2022', title: t('about.t2022'), desc: t('about.t2022d') },
+    { year: '2024', title: t('about.t2024'), desc: t('about.t2024d') },
+    { year: '2026', title: t('about.t2026'), desc: t('about.t2026d') },
+  ];
+
+  const team = [
+    { name: t('about.member1'), role: t('about.role1'), bio: t('about.bio1') },
+    { name: t('about.member2'), role: t('about.role2'), bio: t('about.bio2') },
+    { name: t('about.member3'), role: t('about.role3'), bio: t('about.bio3') },
+  ];
+
   return (
     <PageTransition>
-      <Helmet>
-        <title>O nás | AKCE OSTRAVA!!!</title>
-        <meta name="description" content="Příběh RESTARTSTAGE PRODUCTION — jak jsme z Ostravy udělali kulturní metropoli." />
-      </Helmet>
+      <SeoHead
+        title={t('about.seoTitle')}
+        description={t('about.seoDesc')}
+        canonical="https://akceostrava.cz/o-nas"
+      />
 
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center relative overflow-hidden">
         <OstravaSkyline className="absolute bottom-0 left-0 right-0 text-white/5" />
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white relative z-10">
-          <SplitText text="O nás" />
+          <SplitText text={t('about.title')} />
           <span className="text-ostrava-cyan">!!!</span>
         </h1>
       </section>
@@ -48,8 +52,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              RESTARTSTAGE PRODUCTION přináší do Ostravy to nejlepší ze světové zábavy od roku 2016.
-              Začínali jsme s malými klubovými akcemi a dnes plníme největší haly v regionu.
+              {t('about.story1')}
             </motion.p>
             <motion.p
               className="text-ostrava-blue/70 text-lg leading-relaxed"
@@ -58,9 +61,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Naším posláním je proměnit industriální duši Ostravy v pulzující centrum zábavy.
-              Každý koncert, každý festival, každá show — to je náš způsob, jak říct světu:
-              <span className="text-ostrava-red font-heading"> Ostrava žije!!!</span>
+              {t('about.story2')}
+              <span className="text-ostrava-red font-heading">{t('about.ostravaLives')}</span>
             </motion.p>
           </div>
         </div>
@@ -70,7 +72,7 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-ostrava-ice">
         <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
           <h2 className="font-heading text-3xl md:text-4xl uppercase text-ostrava-blue mb-12 text-center">
-            Naše cesta<span className="text-ostrava-red">!!!</span>
+            {t('about.timeline')}<span className="text-ostrava-red">!!!</span>
           </h2>
 
           <div className="relative">
@@ -119,7 +121,7 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="font-heading text-3xl md:text-4xl uppercase text-ostrava-blue mb-12 text-center">Náš tým</h2>
+          <h2 className="font-heading text-3xl md:text-4xl uppercase text-ostrava-blue mb-12 text-center">{t('about.team')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {team.map((member, i) => (
               <motion.div
@@ -150,13 +152,13 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 bg-gradient-to-r from-ostrava-blue to-ostrava-blue/90 text-center">
         <div className="max-w-content mx-auto px-4">
           <h2 className="font-heading text-3xl md:text-4xl uppercase text-white mb-6">
-            Spolupracujte s námi<span className="text-ostrava-cyan">!!!</span>
+            {t('about.cooperate')}<span className="text-ostrava-cyan">!!!</span>
           </h2>
           <p className="text-white/60 mb-8 max-w-lg mx-auto">
-            Máte zájem o spolupráci nebo chcete uspořádat vlastní akci? Ozvěte se nám.
+            {t('about.cooperateDesc')}
           </p>
-          <Button variant="cta" size="lg" href="/kontakt">
-            Kontaktujte nás!!!
+          <Button variant="cta" size="lg" href={localePath('contact')}>
+            {t('about.contactUs')}
           </Button>
         </div>
       </section>

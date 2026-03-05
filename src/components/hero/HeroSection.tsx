@@ -1,8 +1,12 @@
 import { ParticleCanvas } from './ParticleCanvas';
 import { Button } from '@/components/ui/Button';
 import { motion } from 'framer-motion';
+import { Trans } from 'react-i18next';
+import { useLocale } from '@/i18n/useLocale';
 
 export function HeroSection() {
+  const { t, localePath } = useLocale();
+
   return (
     <section className="relative h-screen min-h-[600px] flex flex-col items-center justify-center overflow-hidden">
       <ParticleCanvas />
@@ -14,7 +18,9 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Objev svět <span className="text-ostrava-yellow">zábavy</span> v <span className="text-ostrava-cyan">Ostravě</span><span className="text-ostrava-red">!!!</span>
+          <Trans i18nKey="hero.title">
+            Objev svět <span className="text-ostrava-yellow">zábavy</span> v <span className="text-ostrava-cyan">Ostravě</span><span className="text-ostrava-red">!!!</span>
+          </Trans>
         </motion.h1>
 
         <motion.p
@@ -23,7 +29,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
-          Koncerty, festivaly a show, které musíš zažít
+          {t('hero.subtitle')}
         </motion.p>
 
         <motion.div
@@ -32,11 +38,11 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <Button variant="cta" size="lg" href="/akce">
-            Zobrazit akce
+          <Button variant="cta" size="lg" href={localePath('events')}>
+            {t('hero.cta')}
           </Button>
-          <Button variant="ghost" size="lg" href="/kontakt">
-            Kontaktujte nás
+          <Button variant="ghost" size="lg" href={localePath('contact')}>
+            {t('hero.contact')}
           </Button>
         </motion.div>
       </div>

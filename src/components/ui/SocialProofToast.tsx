@@ -3,8 +3,10 @@ import { usePopupStore } from '@/store/usePopupStore';
 import { useToast } from './Toast';
 import { socialProofPool } from '@/data/socialProof';
 import { events } from '@/data/events';
+import { useTranslation } from 'react-i18next';
 
 export function SocialProofToast() {
+  const { t } = useTranslation();
   const { canShowToast, incrementToast } = usePopupStore();
   const { addToast } = useToast();
 
@@ -17,11 +19,16 @@ export function SocialProofToast() {
       if (canShowToast()) {
         const person = socialProofPool[Math.floor(Math.random() * socialProofPool.length)];
         const event = events[Math.floor(Math.random() * events.length)];
-        const verb = person.name.endsWith('a') ? 'koupila' : 'koupil';
-        addToast(
-          `${person.name} z ${person.city} právě ${verb} ${person.tickets} ${person.tickets === 1 ? 'vstupenku' : person.tickets < 5 ? 'vstupenky' : 'vstupenek'} na ${event.title}`,
-          'info'
-        );
+        const ticketStr = person.tickets === 1
+          ? t('socialProof.ticket_one')
+          : person.tickets < 5
+            ? t('socialProof.ticket_few')
+            : t('socialProof.ticket_many');
+        const isFemale = person.name.endsWith('a');
+        const message = isFemale
+          ? t('socialProof.bought_female', { name: person.name, city: person.city, tickets: ticketStr, event: event.title })
+          : t('socialProof.bought_male', { name: person.name, city: person.city, tickets: ticketStr, event: event.title });
+        addToast(message, 'info');
         incrementToast();
       }
       timer = setTimeout(showProof, getRandomInterval());
@@ -30,7 +37,7 @@ export function SocialProofToast() {
     timer = setTimeout(showProof, getRandomInterval());
 
     return () => clearTimeout(timer);
-  }, [canShowToast, incrementToast, addToast]);
+  }, [canShowToast, incrementToast, addToast, t]);
 
   return null;
 }

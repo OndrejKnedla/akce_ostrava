@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { getArticleBySlug, getRelatedArticles, blogClusters } from '@/data/blogArticles';
+import { useLocale } from '@/i18n/useLocale';
 
 function renderMarkdown(body: string): string {
   let html = body;
@@ -93,6 +94,7 @@ function renderMarkdown(body: string): string {
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const article = slug ? getArticleBySlug(slug) : undefined;
+  const { t, localePath } = useLocale();
 
   const related = useMemo(
     () => (article ? getRelatedArticles(article, 3) : []),
@@ -100,11 +102,11 @@ export default function BlogDetailPage() {
   );
 
   if (!article) {
-    return <Navigate to="/blog" replace />;
+    return <Navigate to={localePath('blog')} replace />;
   }
 
   const htmlContent = renderMarkdown(article.body);
-  const clusterLabel = blogClusters.find((c) => c.id === article.cluster)?.label || article.cluster;
+  const clusterLabel = t(`blogClusters.${article.cluster}`);
 
   return (
     <PageTransition>
@@ -123,8 +125,8 @@ export default function BlogDetailPage() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: 'Domů', url: 'https://akceostrava.cz/' },
-          { name: 'Blog', url: 'https://akceostrava.cz/blog' },
+          { name: t('breadcrumb.home'), url: 'https://akceostrava.cz/' },
+          { name: t('breadcrumb.blog'), url: `https://akceostrava.cz${localePath('blog')}` },
           { name: article.title, url: `https://akceostrava.cz/blog/${article.slug}` },
         ]}
       />
@@ -154,11 +156,11 @@ export default function BlogDetailPage() {
         <div className="absolute bottom-0 left-0 right-0">
           <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 pb-10 md:pb-14">
             <Link
-              to="/blog"
+              to={localePath('blog')}
               className="inline-flex items-center gap-2 text-white/50 hover:text-ostrava-cyan text-sm mb-5 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Zpet na blog
+              {t('blog.backToBlog')}
             </Link>
 
             <div className="flex items-center gap-3 mb-4">
@@ -197,7 +199,7 @@ export default function BlogDetailPage() {
             {/* Keywords */}
             {article.keywords.length > 0 && (
               <div className="mt-14 pt-6 border-t border-ostrava-blue/10">
-                <p className="text-xs text-ostrava-blue/30 mb-3 font-medium uppercase tracking-wider">Klicova slova</p>
+                <p className="text-xs text-ostrava-blue/30 mb-3 font-medium uppercase tracking-wider">{t('blog.keywords')}</p>
                 <div className="flex flex-wrap gap-2">
                   {article.keywords.map((kw) => (
                     <span
@@ -219,13 +221,13 @@ export default function BlogDetailPage() {
         <section className="py-14 bg-[#f8f9fb]">
           <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
             <h2 className="text-xl font-bold text-ostrava-blue mb-8 text-center">
-              Souvisejici clanky
+              {t('blog.relatedArticles')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {related.map((rel) => (
                 <Link
                   key={rel.id}
-                  to={`/blog/${rel.slug}`}
+                  to={localePath('blogPost', { slug: rel.slug })}
                   className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-ostrava-cyan/15"
                 >
                   <div className="overflow-hidden" style={{ aspectRatio: '16/9' }}>
@@ -244,7 +246,7 @@ export default function BlogDetailPage() {
                       {rel.excerpt}
                     </p>
                     <span className="flex items-center gap-1 text-ostrava-cyan text-xs font-semibold">
-                      Cist dale <ChevronRight className="w-3 h-3" />
+                      {t('blog.readMore')} <ChevronRight className="w-3 h-3" />
                     </span>
                   </div>
                 </Link>

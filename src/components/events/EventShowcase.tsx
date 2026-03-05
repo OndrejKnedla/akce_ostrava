@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { formatCzechDate } from '@/utils/formatCzechDate';
-import { getDaysUntil } from '@/utils/formatCzechDate';
+import { formatDate, getDaysUntil } from '@/utils/formatDate';
+import { useLocale } from '@/i18n/useLocale';
 import type { EventData } from '@/types';
 
 interface EventShowcaseProps {
@@ -13,13 +13,14 @@ interface EventShowcaseProps {
 }
 
 export function EventShowcase({ event, index, reversed = false }: EventShowcaseProps) {
+  const { t, lang, localePath } = useLocale();
   const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const daysLeft = getDaysUntil(event.date);
   const isAnnounced = event.status === 'announced';
   const categoryLabels: Record<string, string> = {
-    koncert: 'Koncert',
-    festival: 'Festival',
-    show: 'VIP Show',
+    koncert: t('eventShowcase.concert'),
+    festival: t('eventShowcase.festival'),
+    show: t('eventShowcase.show'),
   };
 
   return (
@@ -32,7 +33,7 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
     >
       {/* Image */}
       <Link
-        to={`/akce/${event.slug}`}
+        to={localePath('event', { slug: event.slug })}
         className="relative lg:w-3/5 overflow-hidden rounded-t-2xl lg:rounded-2xl group"
         style={{ aspectRatio: '16/9' }}
       >
@@ -52,7 +53,7 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
         {/* Days left */}
         {daysLeft > 0 && (
           <div className="absolute top-4 right-4 bg-white/95 text-ostrava-blue font-heading text-xs px-3 py-1.5 rounded-lg">
-            za <span className="font-mono font-bold text-ostrava-red">{daysLeft}</span> dní
+            {t('eventShowcase.inDays', { days: daysLeft })}
           </div>
         )}
 
@@ -67,7 +68,7 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
       {/* Content */}
       <div className="lg:w-2/5 flex flex-col justify-center p-6 lg:p-0 bg-white lg:bg-transparent rounded-b-2xl lg:rounded-none border border-ostrava-blue/10 lg:border-0">
         <h3 className="hidden lg:block font-heading text-2xl xl:text-3xl uppercase text-ostrava-blue leading-tight mb-3">
-          <Link to={`/akce/${event.slug}`} className="hover:text-ostrava-cyan transition-colors">
+          <Link to={localePath('event', { slug: event.slug })} className="hover:text-ostrava-cyan transition-colors">
             {event.title}
           </Link>
         </h3>
@@ -79,7 +80,7 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
         <div className="flex flex-col gap-2 mb-5">
           <div className="flex items-center gap-2 text-ostrava-blue/70 text-sm">
             <Calendar className="w-4 h-4 text-ostrava-cyan flex-shrink-0" />
-            <span>{formatCzechDate(event.date, event.time)}</span>
+            <span>{formatDate(event.date, lang, event.time)}</span>
           </div>
           <div className="flex items-center gap-2 text-ostrava-blue/70 text-sm">
             <MapPin className="w-4 h-4 text-ostrava-cyan flex-shrink-0" />
@@ -105,19 +106,19 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
         <div className="flex items-center gap-4 mt-auto">
           {isAnnounced ? (
             <div className="bg-ostrava-yellow/20 border border-ostrava-yellow/40 rounded-lg px-5 py-3">
-              <div className="font-heading text-ostrava-blue uppercase text-sm">Brzy oznámíme!!!</div>
-              <div className="text-ostrava-blue/50 text-xs">Sledujte naše stránky</div>
+              <div className="font-heading text-ostrava-blue uppercase text-sm">{t('eventCard.announceSoon')}</div>
+              <div className="text-ostrava-blue/50 text-xs">{t('eventCard.followUs')}</div>
             </div>
           ) : (
             <>
               <div>
-                <div className="text-ostrava-blue/40 text-xs font-heading uppercase">Vstupenky od</div>
+                <div className="text-ostrava-blue/40 text-xs font-heading uppercase">{t('eventShowcase.ticketsFrom')}</div>
                 <div className="font-mono text-2xl font-bold text-ostrava-blue">
                   {lowestPrice.toLocaleString('cs-CZ')} Kč
                 </div>
               </div>
               <Button variant="cta" size="md" href={event.tickets[0]?.purchaseUrl} external>
-                Koupit
+                {t('eventShowcase.buy')}
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </>

@@ -3,8 +3,10 @@ import { usePopupStore } from '@/store/usePopupStore';
 import { getFeaturedEvent } from '@/data/events';
 import { Modal } from './Modal';
 import { Button } from './Button';
+import { useLocale } from '@/i18n/useLocale';
 
 export function ExitIntentPopup() {
+  const { t, localePath } = useLocale();
   const [show, setShow] = useState(false);
   const { canShowExitIntent, showExitIntent, setActiveModal } = usePopupStore();
   const event = getFeaturedEvent();
@@ -43,15 +45,15 @@ export function ExitIntentPopup() {
           className="w-full h-40 object-cover rounded-lg mb-4"
         />
         <h3 className="font-heading text-2xl uppercase text-ostrava-blue mb-2">
-          Nechcete přijít o {event.title}?!!
+          {t('exitIntent.dontMiss', { title: event.title })}
         </h3>
         <p className="text-ostrava-blue/60 text-sm mb-6">{event.subtitle}</p>
         <div className="flex flex-col gap-3">
-          <Button variant="cta" onClick={handleClose} href={`/akce/${event.slug}`}>
-            Koupit vstupenky!!!
+          <Button variant="cta" onClick={handleClose} href={localePath('event', { slug: event.slug })}>
+            {t('exitIntent.buyTickets')}
           </Button>
           <button onClick={handleClose} className="text-ostrava-cyan text-sm hover:underline">
-            Přihlásit k odběru
+            {t('exitIntent.subscribe')}
           </button>
         </div>
       </div>

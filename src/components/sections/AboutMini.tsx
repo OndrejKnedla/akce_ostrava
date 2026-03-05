@@ -3,14 +3,17 @@ import { Music, Landmark, Flame } from 'lucide-react';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { OstravaSkyline } from '@/components/svg/OstravaSkyline';
 import { Link } from 'react-router-dom';
-
-const features = [
-  { icon: Music, title: 'Světoví umělci', desc: 'Přivážíme ty nejlepší interprety ze světové scény přímo do Ostravy.' },
-  { icon: Landmark, title: 'Ikonická místa', desc: 'Od Ostravar Arény po industriální Dolní Vítkovice — unikátní kulisy pro nezapomenutelné show.' },
-  { icon: Flame, title: 'Nezapomenutelné zážitky', desc: 'Každá akce je pečlivě produkovaná, aby vám dala víc, než jen hudbu.' },
-];
+import { useLocale } from '@/i18n/useLocale';
 
 export function AboutMini() {
+  const { t, localePath } = useLocale();
+
+  const features = [
+    { icon: Music, title: t('aboutMini.worldArtists'), desc: t('aboutMini.worldArtistsDesc') },
+    { icon: Landmark, title: t('aboutMini.iconicVenues'), desc: t('aboutMini.iconicVenuesDesc') },
+    { icon: Flame, title: t('aboutMini.unforgettable'), desc: t('aboutMini.unforgettableDesc') },
+  ];
+
   return (
     <section className="relative py-16 md:py-24 bg-ostrava-ice overflow-hidden">
       <OstravaSkyline className="absolute bottom-0 right-0 w-1/2 text-ostrava-blue/5" />
@@ -22,7 +25,7 @@ export function AboutMini() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Proč Ostrava<span className="text-ostrava-cyan">!!!</span>
+          {t('aboutMini.title')}<span className="text-ostrava-cyan">!!!</span>
         </motion.h2>
 
         <motion.p
@@ -32,8 +35,7 @@ export function AboutMini() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          Ostrava – ocelové srdce republiky. Město, kde se energie cítí v každé ulici,
-          v každém koncertě, v každém okamžiku. My tu energii přeměňujeme v nezapomenutelné zážitky.
+          {t('aboutMini.description')}
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -58,8 +60,8 @@ export function AboutMini() {
         </div>
 
         <div className="text-center">
-          <Link to="/o-nas" className="text-ostrava-cyan font-heading uppercase text-sm tracking-wider hover:underline">
-            Více o nás →
+          <Link to={localePath('about')} className="text-ostrava-cyan font-heading uppercase text-sm tracking-wider hover:underline">
+            {t('aboutMini.moreAbout')}
           </Link>
         </div>
       </div>

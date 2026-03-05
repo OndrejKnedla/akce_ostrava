@@ -1,5 +1,8 @@
 {
   "rewrites": [
+    { "source": "/en/(.*)", "destination": "/index.html" },
+    { "source": "/uk/(.*)", "destination": "/index.html" },
+    { "source": "/sk/(.*)", "destination": "/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

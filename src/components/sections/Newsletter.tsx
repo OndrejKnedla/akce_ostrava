@@ -2,18 +2,20 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { useToast } from '@/components/ui/Toast';
+import { useTranslation } from 'react-i18next';
 
 export function Newsletter() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const { addToast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      addToast('Zadejte platný e-mail', 'info');
+      addToast(t('contact.validEmail'), 'info');
       return;
     }
-    addToast('Díky za přihlášení!!!');
+    addToast(t('newsletter.thanks'));
     setEmail('');
   };
 
@@ -42,7 +44,7 @@ export function Newsletter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Buďte první<span className="text-ostrava-cyan">!!!</span>
+          {t('newsletter.title')}<span className="text-ostrava-cyan">!!!</span>
         </motion.h2>
 
         <motion.p
@@ -52,7 +54,7 @@ export function Newsletter() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          Buďte první, kdo se dozví o nových akcích. Odběratelé získávají vstupenky o 48 hodin dříve.
+          {t('newsletter.description')}
         </motion.p>
 
         <motion.form
@@ -67,19 +69,19 @@ export function Newsletter() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Váš e-mail"
+            placeholder={t('newsletter.placeholder')}
             className="flex-1 bg-white/10 border border-white/20 rounded-lg px-5 py-3 text-white placeholder:text-white/40 focus:border-ostrava-cyan focus:outline-none focus:shadow-[0_0_15px_rgba(0,175,210,0.2)] transition-all"
             required
           />
           <Button type="submit" variant="primary" size="md">
-            Přihlásit se!!!
+            {t('newsletter.submit')}
           </Button>
         </motion.form>
 
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-white/50">
-          <span className="border border-white/20 rounded-full px-3 py-1">Exkluzivní předprodej</span>
-          <span className="border border-white/20 rounded-full px-3 py-1">Slevy</span>
-          <span className="border border-white/20 rounded-full px-3 py-1">Insider info</span>
+          <span className="border border-white/20 rounded-full px-3 py-1">{t('newsletter.presale')}</span>
+          <span className="border border-white/20 rounded-full px-3 py-1">{t('newsletter.discounts')}</span>
+          <span className="border border-white/20 rounded-full px-3 py-1">{t('newsletter.insider')}</span>
         </div>
       </div>
     </section>

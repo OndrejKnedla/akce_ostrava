@@ -2,21 +2,24 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLocale } from '@/i18n/useLocale';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const navLinks = [
-  { to: '/', label: 'Úvod' },
-  { to: '/akce', label: 'Akce' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/kontakt', label: 'Kontakt' },
-];
-
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const location = useLocation();
+  const { t, localePath } = useLocale();
+
+  const navLinks = [
+    { to: localePath('home'), label: t('nav.home') },
+    { to: localePath('events'), label: t('nav.events') },
+    { to: localePath('blog'), label: t('nav.blog') },
+    { to: localePath('contact'), label: t('nav.contact') },
+  ];
 
   useEffect(() => {
     if (isOpen) {
@@ -49,7 +52,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <button
             onClick={onClose}
             className="absolute top-5 right-5 text-white/80 hover:text-white p-3"
-            aria-label="Zavřít menu"
+            aria-label={t('nav.closeMenu')}
           >
             <X className="w-8 h-8" />
           </button>
@@ -80,6 +83,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </Link>
             </motion.div>
           ))}
+
+          <div className="mt-8">
+            <LanguageSwitcher mobile />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

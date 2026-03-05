@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook } from 'lucide-react';
 import { OstravaSkyline } from '@/components/svg/OstravaSkyline';
+import { useLocale } from '@/i18n/useLocale';
 
 export function Footer() {
+  const { t, localePath } = useLocale();
+
+  const navLinks = [
+    { to: localePath('events'), label: t('nav.events') },
+    { to: localePath('blog'), label: t('nav.blog') },
+    { to: localePath('contact'), label: t('nav.contact') },
+  ];
+
   return (
     <footer className="bg-ostrava-blue relative overflow-hidden">
       <OstravaSkyline className="text-white/5 absolute top-0 left-0 right-0" />
@@ -11,25 +20,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="font-heading text-2xl tracking-wider inline-block mb-4">
+            <Link to={localePath('home')} className="font-heading text-2xl tracking-wider inline-block mb-4">
               <span className="text-white">AKCE </span>
               <span className="text-ostrava-cyan">OSTRAVA</span>
               <span className="text-ostrava-red">!!!</span>
             </Link>
             <p className="text-white/50 text-sm mb-6 max-w-sm">
-              Ocelové srdce zábavy. Nejlepší koncerty, festivaly a show v Ostravě a okolí.
+              {t('footer.tagline')}
             </p>
           </div>
 
           {/* Nav */}
           <div>
-            <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-4">Navigace</h4>
+            <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-4">{t('footer.navigation')}</h4>
             <ul className="space-y-2">
-              {[
-                { to: '/akce', label: 'Akce' },
-                { to: '/blog', label: 'Blog' },
-                { to: '/kontakt', label: 'Kontakt' },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">
                     {link.label}
@@ -41,13 +46,13 @@ export function Footer() {
 
           {/* Legal + Social */}
           <div>
-            <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-4">Informace</h4>
+            <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-4">{t('footer.info')}</h4>
             <ul className="space-y-2 mb-6">
-              <li><Link to="/obchodni-podminky" className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">Obchodní podmínky</Link></li>
-              <li><Link to="/gdpr" className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">Zásady GDPR</Link></li>
+              <li><Link to={localePath('terms')} className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">{t('footer.terms')}</Link></li>
+              <li><Link to={localePath('gdpr')} className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">{t('footer.gdpr')}</Link></li>
             </ul>
 
-            <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-3">Sociální sítě</h4>
+            <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-3">{t('footer.social')}</h4>
             <div className="flex items-center gap-3">
               {[
                 { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/restartstage_production/' },
@@ -70,8 +75,8 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <span>© 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104</span>
-          <span>Ocelové srdce zábavy!!!</span>
+          <span>{t('footer.copyright')}</span>
+          <span>{t('footer.taglineBrand')}</span>
         </div>
       </div>
     </footer>

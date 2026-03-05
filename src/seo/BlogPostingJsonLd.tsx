@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import { langFromPath } from '@/i18n/routes';
 
 interface BlogPostingJsonLdProps {
   title: string;
@@ -21,6 +23,9 @@ export function BlogPostingJsonLd({
   wordCount,
   section,
 }: BlogPostingJsonLdProps) {
+  const location = useLocation();
+  const lang = langFromPath(location.pathname);
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -32,7 +37,7 @@ export function BlogPostingJsonLd({
     keywords: keywords.join(', '),
     wordCount,
     articleSection: section,
-    inLanguage: 'cs',
+    inLanguage: lang,
     author: {
       '@type': 'Organization',
       name: 'RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod',

@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/Button';
+import { useTranslation } from 'react-i18next';
 import type { EventData } from '@/types';
 
 interface MobilePurchaseBarProps {
@@ -6,6 +7,7 @@ interface MobilePurchaseBarProps {
 }
 
 export function MobilePurchaseBar({ event }: MobilePurchaseBarProps) {
+  const { t } = useTranslation();
   const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const isSoldOut = event.status === 'sold-out';
   const isAnnounced = event.status === 'announced';
@@ -17,7 +19,7 @@ export function MobilePurchaseBar({ event }: MobilePurchaseBarProps) {
       <div className="flex items-center justify-between max-w-content mx-auto">
         <div>
           <span className="font-mono text-lg font-bold text-ostrava-blue">
-            od {lowestPrice.toLocaleString('cs-CZ')} Kč
+            {t('eventCard.fromPrice', { price: lowestPrice.toLocaleString('cs-CZ') })}
           </span>
         </div>
         <Button
@@ -25,7 +27,7 @@ export function MobilePurchaseBar({ event }: MobilePurchaseBarProps) {
           size="sm"
           onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          Koupit!!!
+          {t('eventCard.buy')}
         </Button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { getTimeUntil } from '@/utils/formatCzechDate';
+import { getTimeUntil } from '@/utils/formatDate';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface CountdownProps {
   targetDate: string;
@@ -27,6 +28,7 @@ function FlipDigit({ value }: { value: string }) {
 }
 
 export function Countdown({ targetDate, targetTime }: CountdownProps) {
+  const { t } = useTranslation();
   const [time, setTime] = useState(() => getTimeUntil(targetDate, targetTime));
 
   useEffect(() => {
@@ -37,10 +39,10 @@ export function Countdown({ targetDate, targetTime }: CountdownProps) {
   }, [targetDate, targetTime]);
 
   const segments = [
-    { value: time.days, label: 'dní' },
-    { value: time.hours, label: 'hodin' },
-    { value: time.minutes, label: 'minut' },
-    { value: time.seconds, label: 'sekund' },
+    { value: time.days, label: t('countdown.days') },
+    { value: time.hours, label: t('countdown.hours') },
+    { value: time.minutes, label: t('countdown.minutes') },
+    { value: time.seconds, label: t('countdown.seconds') },
   ];
 
   return (

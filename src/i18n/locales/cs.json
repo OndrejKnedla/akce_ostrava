@@ -1,0 +1,300 @@
+{
+  "nav": {
+    "home": "Úvod",
+    "events": "Akce",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "search": "Hledat",
+    "openMenu": "Otevřít menu",
+    "closeMenu": "Zavřít menu"
+  },
+  "footer": {
+    "tagline": "Ocelové srdce zábavy. Nejlepší koncerty, festivaly a show v Ostravě a okolí.",
+    "navigation": "Navigace",
+    "info": "Informace",
+    "terms": "Obchodní podmínky",
+    "gdpr": "Zásady GDPR",
+    "social": "Sociální sítě",
+    "copyright": "© 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104",
+    "taglineBrand": "Ocelové srdce zábavy!!!"
+  },
+  "hero": {
+    "title": "Objev svět <1>zábavy</1> v <3>Ostravě</3><5>!!!</5>",
+    "subtitle": "Koncerty, festivaly a show, které musíš zažít",
+    "cta": "Zobrazit akce",
+    "contact": "Kontaktujte nás"
+  },
+  "home": {
+    "seoTitle": "AKCE OSTRAVA!!! — Koncerty, Festivaly, Zážitky",
+    "seoDesc": "Nejlepší koncerty, festivaly a show v Ostravě. Ocelové srdce zábavy!!!",
+    "upcomingEvents": "Nejbližší akce",
+    "upcomingEventsDesc": "Tři akce, které musíš letos v Ostravě zažít. Kup vstupenky, než bude pozdě.",
+    "comingSoon": "Brzy oznámíme další akce",
+    "comingSoonDesc": "Sledujte naše stránky a sociální sítě, ať vám nic neunikne.",
+    "viewAll": "Zobrazit všechny akce"
+  },
+  "events": {
+    "seoTitle": "Všechny akce",
+    "seoDesc": "Prohlédněte si kompletní nabídku koncertů, festivalů a show v Ostravě.",
+    "title": "Všechny akce",
+    "loadMore": "Načíst další!!!",
+    "noResults": "Žádné akce neodpovídají filtru. Zkuste jiný výběr.",
+    "notFound": "Akce nenalezena",
+    "backToEvents": "← Zpět na akce",
+    "copied": "Zkopírováno!!!",
+    "linkCopied": "Odkaz zkopírován",
+    "countdownLabel": "Do začátku akce zbývá",
+    "aboutEvent": "O akci",
+    "lineup": "Line-up",
+    "tickets": "Vstupenky",
+    "venue": "Místo konání",
+    "gallery": "Galerie",
+    "faq": "Často kladené otázky",
+    "share": "Sdílet:",
+    "copyLink": "Kopírovat odkaz",
+    "addToCalendar": "Přidat do kalendáře",
+    "relatedEvents": "Mohlo by vás také zajímat",
+    "mapTitle": "Mapa - {{name}}"
+  },
+  "eventCard": {
+    "soldOut": "Vyprodáno",
+    "lastTickets": "Poslední vstupenky!!!",
+    "earlyBird": "Early Bird",
+    "soon": "Brzy!!!",
+    "announceSoon": "Brzy oznámíme!!!",
+    "preparing": "Připravujeme",
+    "buy": "Koupit!!!",
+    "buyTickets": "Koupit vstupenky!!!",
+    "fromPrice": "od {{price}} Kč",
+    "followUs": "Sledujte naše stránky"
+  },
+  "eventShowcase": {
+    "concert": "Koncert",
+    "festival": "Festival",
+    "show": "VIP Show",
+    "inDays": "za <1>{{days}}</1> dní",
+    "ticketsFrom": "Vstupenky od",
+    "buy": "Koupit"
+  },
+  "filter": {
+    "all": "Vše",
+    "concert": "Koncert",
+    "festival": "Festival",
+    "show": "Show",
+    "date": "Datum",
+    "price": "Cena",
+    "name": "Název"
+  },
+  "countdown": {
+    "days": "dní",
+    "hours": "hodin",
+    "minutes": "minut",
+    "seconds": "sekund"
+  },
+  "ticket": {
+    "mostPopular": "Nejoblíbenější",
+    "save": "Ušetříte {{amount}} Kč!!!",
+    "remaining": "Zbývá {{count}} vstupenek!!!",
+    "remainingOf": "Zbývá {{available}} z {{total}}",
+    "buy": "Koupit",
+    "buyHighlight": "Koupit!!!"
+  },
+  "purchase": {
+    "lastTickets": "Poslední vstupenky!!!",
+    "earlyBirdUntil": "Early Bird do {{date}}",
+    "viewing": "Právě si prohlíží {{count}} lidí"
+  },
+  "cookie": {
+    "title": "Ochrana vašeho soukromí",
+    "description": "Používáme cookies pro správné fungování webu a analýzu návštěvnosti.",
+    "moreInfo": "zásadách ochrany osobních údajů",
+    "moreInfoPrefix": "Více informací najdete v ",
+    "acceptAll": "Přijmout vše",
+    "rejectOptional": "Pouze nezbytné",
+    "settings": "Nastavení",
+    "saveSettings": "Uložit nastavení",
+    "necessary": "Nezbytné",
+    "necessaryDesc": "Zajišťují základní funkce webu, jako je navigace a přístup k zabezpečeným oblastem. Bez těchto cookies web nemůže správně fungovat.",
+    "analytics": "Analytické",
+    "analyticsDesc": "Pomáhají nám porozumět, jak návštěvníci web používají. Data jsou anonymizována (Vercel Analytics).",
+    "alwaysActive": "Vždy aktivní"
+  },
+  "exitIntent": {
+    "dontMiss": "Nechcete přijít o {{title}}?!!",
+    "buyTickets": "Koupit vstupenky!!!",
+    "subscribe": "Přihlásit k odběru"
+  },
+  "newsletter": {
+    "title": "Buďte první",
+    "description": "Buďte první, kdo se dozví o nových akcích. Odběratelé získávají vstupenky o 48 hodin dříve.",
+    "placeholder": "Váš e-mail",
+    "submit": "Přihlásit se!!!",
+    "presale": "Exkluzivní předprodej",
+    "discounts": "Slevy",
+    "insider": "Insider info",
+    "thanks": "Díky za přihlášení!!!"
+  },
+  "newsletterPopup": {
+    "title": "Odběratelé dostávají vstupenky o 48 hodin dříve!!!",
+    "description": "Buďte první, kdo se dozví o nových akcích.",
+    "placeholder": "Váš e-mail",
+    "submit": "Přihlásit!!!",
+    "thanks": "Díky za přihlášení!!!"
+  },
+  "socialProof": {
+    "bought_male": "{{name}} z {{city}} právě koupil {{tickets}} na {{event}}",
+    "bought_female": "{{name}} z {{city}} právě koupila {{tickets}} na {{event}}",
+    "ticket_one": "vstupenku",
+    "ticket_few": "vstupenky",
+    "ticket_many": "vstupenek"
+  },
+  "contact": {
+    "seoTitle": "Kontakt",
+    "seoDesc": "Kontaktujte RESTARTSTAGE PRODUCTION — organizátory akcí v Ostravě.",
+    "title": "Kontakt",
+    "connectTitle": "Spojte se s námi",
+    "formTitle": "Napište nám",
+    "nameLabel": "Jméno *",
+    "namePlaceholder": "Vaše jméno",
+    "emailLabel": "E-mail *",
+    "emailPlaceholder": "vas@email.cz",
+    "subjectLabel": "Předmět",
+    "subjectGeneral": "Obecný dotaz",
+    "subjectCooperation": "Spolupráce",
+    "subjectComplaint": "Reklamace",
+    "subjectOther": "Jiné",
+    "messageLabel": "Zpráva *",
+    "messagePlaceholder": "Vaše zpráva...",
+    "submit": "Odeslat zprávu!!!",
+    "validEmail": "Zadejte platný e-mail",
+    "minLength": "Zpráva musí mít alespoň 10 znaků",
+    "success": "Zpráva odeslána!!! Ozveme se do 24 hodin."
+  },
+  "about": {
+    "seoTitle": "O nás | AKCE OSTRAVA!!!",
+    "seoDesc": "Příběh RESTARTSTAGE PRODUCTION — jak jsme z Ostravy udělali kulturní metropoli.",
+    "title": "O nás",
+    "story1": "RESTARTSTAGE PRODUCTION přináší do Ostravy to nejlepší ze světové zábavy od roku 2016. Začínali jsme s malými klubovými akcemi a dnes plníme největší haly v regionu.",
+    "story2": "Naším posláním je proměnit industriální duši Ostravy v pulzující centrum zábavy. Každý koncert, každý festival, každá show — to je náš způsob, jak říct světu:",
+    "ostravaLives": " Ostrava žije!!!",
+    "timeline": "Naše cesta",
+    "team": "Náš tým",
+    "cooperate": "Spolupracujte s námi",
+    "cooperateDesc": "Máte zájem o spolupráci nebo chcete uspořádat vlastní akci? Ozvěte se nám.",
+    "contactUs": "Kontaktujte nás!!!",
+    "t2016": "Založení",
+    "t2016d": "Založení RESTARTSTAGE PRODUCTION. První klubové akce v Ostravě.",
+    "t2018": "Ostravar Aréna",
+    "t2018d": "První akce v Ostravar Aréně — 5 000 nadšených diváků.",
+    "t2020": "Online streaming",
+    "t2020d": "Série \"Ostrava z domova\" — online koncerty v době lockdownu.",
+    "t2022": "Dolní Vítkovice",
+    "t2022d": "Expansion do Dolních Vítkovic. První open-air festivaly.",
+    "t2024": "50 000. návštěvník",
+    "t2024d": "Milník — 50 000. návštěvník na našich akcích!!!",
+    "t2026": "Rekordní sezóna",
+    "t2026d": "Nejambicióznější sezóna v historii. 6 velkých akcí.",
+    "member1": "Jakub Novotný",
+    "role1": "Zakladatel & CEO",
+    "bio1": "Ostravák tělem i duší. 15 let v event production.",
+    "member2": "Tereza Kovářová",
+    "role2": "Kreativní ředitelka",
+    "bio2": "Vizionářka za každým vizuálem a brandingem.",
+    "member3": "Martin Svoboda",
+    "role3": "Produkční manažer",
+    "bio3": "Logistický génius. Zvládne cokoliv pod tlakem."
+  },
+  "faqPage": {
+    "seoTitle": "FAQ | AKCE OSTRAVA!!!",
+    "seoDesc": "Často kladené otázky o akcích, vstupenkách a místech konání.",
+    "title": "FAQ",
+    "searchPlaceholder": "Hledejte v otázkách...",
+    "all": "Vše",
+    "catTickets": "Vstupenky",
+    "catVenue": "Místo konání",
+    "catRefund": "Vrácení",
+    "catVip": "VIP",
+    "catGeneral": "Obecné",
+    "noResults": "Nenašli jsme odpověď na vaši otázku.",
+    "contactUs": "Napište nám!!!"
+  },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDesc": "Pruvodce koncerty, festivaly a kulturnim zivotem v Ostrave. Tipy, recenze a novinky ze sveta zive hudby.",
+    "title": "Blog",
+    "subtitle": "Pruvodce koncerty, festivaly a kulturnim zivotem v Ostrave",
+    "searchPlaceholder": "Hledat clanky...",
+    "readTime": "{{time}} min cteni",
+    "readMore": "Cist dale",
+    "loadMore": "Nacist dalsi ({{count}} zbyvajicich)",
+    "noSearchResults": "Zadne clanky pro \"{{query}}\". Zkuste jiny vyraz.",
+    "noArticles": "Zadne clanky v teto kategorii.",
+    "backToBlog": "Zpet na blog",
+    "keywords": "Klicova slova",
+    "relatedArticles": "Souvisejici clanky"
+  },
+  "blogClusters": {
+    "all": "Vše",
+    "koncerty_ostrava": "Koncerty",
+    "festivaly": "Festivaly",
+    "venues": "Místa",
+    "vstupenky": "Vstupenky",
+    "tipy_navstevnici": "Tipy",
+    "ostrava_kultura": "Ostrava",
+    "zanry": "Žánry",
+    "sezona": "Sezóna",
+    "zakulisi": "Zákulisí",
+    "rodiny": "Rodiny"
+  },
+  "stats": {
+    "title": "Ostrava žije",
+    "visitors": "Návštěvníků",
+    "visitorsLabel": "ročně",
+    "eventsCount": "Akcí",
+    "eventsLabel": "uspořádáno",
+    "artists": "Umělců",
+    "artistsLabel": "mezinárodních",
+    "experience": "Zkušeností",
+    "experienceLabel": "let na scéně"
+  },
+  "aboutMini": {
+    "title": "Proč Ostrava",
+    "description": "Ostrava – ocelové srdce republiky. Město, kde se energie cítí v každé ulici, v každém koncertě, v každém okamžiku. My tu energii přeměňujeme v nezapomenutelné zážitky.",
+    "worldArtists": "Světoví umělci",
+    "worldArtistsDesc": "Přivážíme ty nejlepší interprety ze světové scény přímo do Ostravy.",
+    "iconicVenues": "Ikonická místa",
+    "iconicVenuesDesc": "Od Ostravar Arény po industriální Dolní Vítkovice — unikátní kulisy pro nezapomenutelné show.",
+    "unforgettable": "Nezapomenutelné zážitky",
+    "unforgettableDesc": "Každá akce je pečlivě produkovaná, aby vám dala víc, než jen hudbu.",
+    "moreAbout": "Více o nás →"
+  },
+  "notFound": {
+    "seoTitle": "404 — Stránka nenalezena",
+    "seoDesc": "Stránka nebyla nalezena. Podívejte se na naše akce v Ostravě.",
+    "title": "Tady nic není",
+    "cta": "Ale akce máme →",
+    "checkOut": "Zatím se podívejte na:"
+  },
+  "breadcrumb": {
+    "home": "Domů",
+    "events": "Akce",
+    "blog": "Blog"
+  },
+  "skipLink": "Přeskočit na obsah",
+  "months": {
+    "full": ["ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"],
+    "short": ["LED", "ÚNO", "BŘE", "DUB", "KVĚ", "ČVN", "ČVC", "SRP", "ZÁŘ", "ŘÍJ", "LIS", "PRO"]
+  },
+  "gdprPage": {
+    "seoTitle": "Zásady ochrany osobních údajů",
+    "seoDesc": "Zásady ochrany osobních údajů (GDPR) společnosti RESTARTSTAGE PRODUCTION s.r.o.",
+    "title": "Zásady GDPR",
+    "lastUpdated": "Poslední aktualizace: 1. 3. 2026"
+  },
+  "termsPage": {
+    "seoTitle": "Obchodní podmínky",
+    "seoDesc": "Obchodní podmínky RESTARTSTAGE PRODUCTION s.r.o. pro nákup vstupenek na akce v Ostravě.",
+    "title": "Obchodní podmínky",
+    "lastUpdated": "Poslední aktualizace: 1. 3. 2026"
+  }
+}

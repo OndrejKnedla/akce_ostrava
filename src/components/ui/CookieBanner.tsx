@@ -4,29 +4,30 @@ import { Link } from 'react-router-dom';
 import { Settings, Shield, BarChart3, ChevronDown } from 'lucide-react';
 import { usePopupStore } from '@/store/usePopupStore';
 import { Button } from './Button';
+import { useLocale } from '@/i18n/useLocale';
 
 interface CookieCategory {
   id: string;
-  label: string;
-  description: string;
+  labelKey: string;
+  descriptionKey: string;
   icon: React.ReactNode;
   required: boolean;
   defaultOn: boolean;
 }
 
-const categories: CookieCategory[] = [
+const categoryDefs: CookieCategory[] = [
   {
     id: 'necessary',
-    label: 'Nezbytné',
-    description: 'Zajišťují základní funkce webu, jako je navigace a přístup k zabezpečeným oblastem. Bez těchto cookies web nemůže správně fungovat.',
+    labelKey: 'cookie.necessary',
+    descriptionKey: 'cookie.necessaryDesc',
     icon: <Shield className="w-4 h-4" />,
     required: true,
     defaultOn: true,
   },
   {
     id: 'analytics',
-    label: 'Analytické',
-    description: 'Pomáhají nám porozumět, jak návštěvníci web používají. Data jsou anonymizována (Vercel Analytics).',
+    labelKey: 'cookie.analytics',
+    descriptionKey: 'cookie.analyticsDesc',
     icon: <BarChart3 className="w-4 h-4" />,
     required: false,
     defaultOn: true,
@@ -34,11 +35,12 @@ const categories: CookieCategory[] = [
 ];
 
 export function CookieBanner() {
+  const { t, localePath } = useLocale();
   const { cookieDismissed, dismissCookie } = usePopupStore();
   const [visible, setVisible] = useState(!cookieDismissed);
   const [showSettings, setShowSettings] = useState(false);
   const [consent, setConsent] = useState<Record<string, boolean>>(
-    Object.fromEntries(categories.map((c) => [c.id, c.defaultOn]))
+    Object.fromEntries(categoryDefs.map((c) => [c.id, c.defaultOn]))
   );
 
   const handleAcceptAll = () => {
@@ -78,28 +80,28 @@ export function CookieBanner() {
                   <Shield className="w-5 h-5 text-ostrava-cyan" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-heading text-sm uppercase text-ostrava-blue mb-1">Ochrana vašeho soukromí</h3>
+                  <h3 className="font-heading text-sm uppercase text-ostrava-blue mb-1">{t('cookie.title')}</h3>
                   <p className="text-sm text-ostrava-blue/60 leading-relaxed">
-                    Používáme cookies pro správné fungování webu a analýzu návštěvnosti.
-                    Více informací najdete v{' '}
-                    <Link to="/gdpr" className="text-ostrava-cyan hover:underline">zásadách ochrany osobních údajů</Link>.
+                    {t('cookie.description')}{' '}
+                    {t('cookie.moreInfoPrefix')}{' '}
+                    <Link to={localePath('gdpr')} className="text-ostrava-cyan hover:underline">{t('cookie.moreInfo')}</Link>.
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <Button variant="cta" size="sm" onClick={handleAcceptAll} className="flex-shrink-0">
-                  Přijmout vše
+                  {t('cookie.acceptAll')}
                 </Button>
                 <Button variant="primary" size="sm" onClick={handleRejectOptional} className="flex-shrink-0">
-                  Pouze nezbytné
+                  {t('cookie.rejectOptional')}
                 </Button>
                 <button
                   onClick={() => setShowSettings(!showSettings)}
                   className="flex items-center justify-center gap-2 text-ostrava-blue/50 text-sm hover:text-ostrava-blue transition-colors py-2"
                 >
                   <Settings className="w-4 h-4" />
-                  Nastavení
+                  {t('cookie.settings')}
                   <ChevronDown className={`w-3 h-3 transition-transform ${showSettings ? 'rotate-180' : ''}`} />
                 </button>
               </div>
@@ -117,16 +119,16 @@ export function CookieBanner() {
                 >
                   <div className="border-t border-ostrava-blue/10 px-6 py-5 bg-ostrava-ice/50">
                     <div className="space-y-4 mb-5">
-                      {categories.map((cat) => (
+                      {categoryDefs.map((cat) => (
                         <div key={cat.id} className="flex items-start gap-4">
                           <div className="w-8 h-8 rounded-lg bg-white border border-ostrava-blue/10 flex items-center justify-center flex-shrink-0 mt-0.5 text-ostrava-blue/50">
                             {cat.icon}
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between gap-4">
-                              <span className="font-heading text-xs uppercase text-ostrava-blue">{cat.label}</span>
+                              <span className="font-heading text-xs uppercase text-ostrava-blue">{t(cat.labelKey)}</span>
                               {cat.required ? (
-                                <span className="text-[10px] uppercase text-ostrava-blue/30 font-heading flex-shrink-0">Vždy aktivní</span>
+                                <span className="text-[10px] uppercase text-ostrava-blue/30 font-heading flex-shrink-0">{t('cookie.alwaysActive')}</span>
                               ) : (
                                 <button
                                   onClick={() => setConsent((c) => ({ ...c, [cat.id]: !c[cat.id] }))}
@@ -142,13 +144,13 @@ export function CookieBanner() {
                                 </button>
                               )}
                             </div>
-                            <p className="text-xs text-ostrava-blue/50 leading-relaxed mt-1">{cat.description}</p>
+                            <p className="text-xs text-ostrava-blue/50 leading-relaxed mt-1">{t(cat.descriptionKey)}</p>
                           </div>
                         </div>
                       ))}
                     </div>
                     <Button variant="primary" size="sm" onClick={handleSaveSettings}>
-                      Uložit nastavení
+                      {t('cookie.saveSettings')}
                     </Button>
                   </div>
                 </motion.div>

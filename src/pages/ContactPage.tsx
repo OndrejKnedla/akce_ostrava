@@ -6,24 +6,26 @@ import { SplitText } from '@/components/ui/SplitText';
 import { Button } from '@/components/ui/Button';
 import { useToast } from '@/components/ui/Toast';
 import { PageTransition } from '@/components/layout/PageTransition';
+import { useLocale } from '@/i18n/useLocale';
 
 export default function ContactPage() {
   const { addToast } = useToast();
-  const [form, setForm] = useState({ name: '', email: '', subject: 'Obecný dotaz', message: '' });
+  const { t } = useLocale();
+  const [form, setForm] = useState({ name: '', email: '', subject: t('contact.subjectGeneral'), message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      addToast('Zadejte platný e-mail', 'info');
+      addToast(t('contact.validEmail'), 'info');
       return;
     }
     if (form.message.length < 10) {
-      addToast('Zpráva musí mít alespoň 10 znaků', 'info');
+      addToast(t('contact.minLength'), 'info');
       return;
     }
-    addToast('Zpráva odeslána!!! Ozveme se do 24 hodin.');
-    setForm({ name: '', email: '', subject: 'Obecný dotaz', message: '' });
+    addToast(t('contact.success'));
+    setForm({ name: '', email: '', subject: t('contact.subjectGeneral'), message: '' });
   };
 
   const inputClass = 'w-full bg-ostrava-ice border border-ostrava-blue/10 rounded-lg px-5 py-3 text-ostrava-blue placeholder:text-ostrava-blue/30 focus:border-ostrava-cyan focus:outline-none focus:shadow-[0_0_15px_rgba(0,175,210,0.2)] transition-all text-sm';
@@ -31,15 +33,15 @@ export default function ContactPage() {
   return (
     <PageTransition>
       <SeoHead
-        title="Kontakt"
-        description="Kontaktujte RESTARTSTAGE PRODUCTION — organizátory akcí v Ostravě."
+        title={t('contact.seoTitle')}
+        description={t('contact.seoDesc')}
         canonical="https://akceostrava.cz/kontakt"
       />
 
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white">
-          <SplitText text="Kontakt" />
+          <SplitText text={t('contact.title')} />
           <span className="text-ostrava-cyan">!!!</span>
         </h1>
       </section>
@@ -54,7 +56,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Spojte se s námi</h2>
+              <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('contact.connectTitle')}</h2>
 
               <div className="mb-8" />
 
@@ -83,59 +85,59 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
             >
-              <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Napište nám</h2>
+              <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('contact.formTitle')}</h2>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="text-ostrava-blue/40 text-xs uppercase block mb-2">Jméno *</label>
+                  <label htmlFor="name" className="text-ostrava-blue/40 text-xs uppercase block mb-2">{t('contact.nameLabel')}</label>
                   <input
                     id="name"
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                     className={inputClass}
-                    placeholder="Vaše jméno"
+                    placeholder={t('contact.namePlaceholder')}
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="text-ostrava-blue/40 text-xs uppercase block mb-2">E-mail *</label>
+                  <label htmlFor="email" className="text-ostrava-blue/40 text-xs uppercase block mb-2">{t('contact.emailLabel')}</label>
                   <input
                     id="email"
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                     className={inputClass}
-                    placeholder="vas@email.cz"
+                    placeholder={t('contact.emailPlaceholder')}
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="text-ostrava-blue/40 text-xs uppercase block mb-2">Předmět</label>
+                  <label htmlFor="subject" className="text-ostrava-blue/40 text-xs uppercase block mb-2">{t('contact.subjectLabel')}</label>
                   <select
                     id="subject"
                     value={form.subject}
                     onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
                     className={inputClass}
                   >
-                    <option>Obecný dotaz</option>
-                    <option>Spolupráce</option>
-                    <option>Reklamace</option>
-                    <option>Jiné</option>
+                    <option>{t('contact.subjectGeneral')}</option>
+                    <option>{t('contact.subjectCooperation')}</option>
+                    <option>{t('contact.subjectComplaint')}</option>
+                    <option>{t('contact.subjectOther')}</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="text-ostrava-blue/40 text-xs uppercase block mb-2">Zpráva *</label>
+                  <label htmlFor="message" className="text-ostrava-blue/40 text-xs uppercase block mb-2">{t('contact.messageLabel')}</label>
                   <textarea
                     id="message"
                     value={form.message}
                     onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     className={`${inputClass} min-h-[150px] resize-y`}
-                    placeholder="Vaše zpráva..."
+                    placeholder={t('contact.messagePlaceholder')}
                     required
                   />
                 </div>
                 <Button type="submit" variant="cta" size="lg" className="w-full sm:w-auto">
-                  Odeslat zprávu!!!
+                  {t('contact.submit')}
                 </Button>
               </form>
             </motion.div>
@@ -146,7 +148,7 @@ export default function ContactPage() {
 
       <div className="py-6 bg-white border-t border-ostrava-blue/10 text-center">
         <p className="text-ostrava-blue/40 text-xs">
-          &copy; 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104
+          {t('footer.copyright')}
         </p>
       </div>
     </PageTransition>

@@ -8,10 +8,12 @@ import { FilterBar } from '@/components/events/FilterBar';
 import { Button } from '@/components/ui/Button';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { events } from '@/data/events';
+import { useLocale } from '@/i18n/useLocale';
 
 export default function EventsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [visibleCount, setVisibleCount] = useState(6);
+  const { t } = useLocale();
 
   const category = searchParams.get('kategorie') || 'all';
   const sortBy = searchParams.get('razeni') || 'date';
@@ -53,15 +55,15 @@ export default function EventsPage() {
   return (
     <PageTransition>
       <SeoHead
-        title="Všechny akce"
-        description="Prohlédněte si kompletní nabídku koncertů, festivalů a show v Ostravě."
+        title={t('events.seoTitle')}
+        description={t('events.seoDesc')}
         canonical="https://akceostrava.cz/akce"
       />
 
       {/* Mini hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white">
-          <SplitText text="Všechny akce" />
+          <SplitText text={t('events.title')} />
           <span className="text-ostrava-cyan">!!!</span>
         </h1>
       </section>
@@ -87,7 +89,7 @@ export default function EventsPage() {
                   viewport={{ once: true }}
                 >
                   <Button variant="ghost" onClick={() => setVisibleCount((c) => c + 6)}>
-                    Načíst další!!!
+                    {t('events.loadMore')}
                   </Button>
                 </motion.div>
               )}
@@ -95,7 +97,7 @@ export default function EventsPage() {
           ) : (
             <div className="text-center py-20">
               <div className="text-6xl mb-4">🎭</div>
-              <p className="text-ostrava-blue/50 text-lg">Žádné akce neodpovídají filtru. Zkuste jiný výběr.</p>
+              <p className="text-ostrava-blue/50 text-lg">{t('events.noResults')}</p>
             </div>
           )}
         </div>

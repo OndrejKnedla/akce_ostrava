@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/utils/cn';
+import { useTranslation } from 'react-i18next';
 import type { TicketTier as TicketTierType } from '@/types';
 
 interface TicketTierProps {
@@ -10,6 +11,7 @@ interface TicketTierProps {
 }
 
 export function TicketTier({ tier, index }: TicketTierProps) {
+  const { t } = useTranslation();
   const pct = tier.total > 0 ? (tier.available / tier.total) * 100 : 0;
   const isLow = pct < 20;
   const hasSavings = tier.originalPrice && tier.originalPrice > tier.price;
@@ -28,7 +30,7 @@ export function TicketTier({ tier, index }: TicketTierProps) {
     >
       {tier.highlighted && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-ostrava-yellow text-ostrava-blue text-xs font-heading uppercase font-bold px-4 py-1 rounded-full">
-          Nejoblíbenější
+          {t('ticket.mostPopular')}
         </div>
       )}
 
@@ -47,7 +49,7 @@ export function TicketTier({ tier, index }: TicketTierProps) {
 
       {hasSavings && (
         <div className="text-success text-sm font-heading mb-4">
-          Ušetříte {savings.toLocaleString('cs-CZ')} Kč!!!
+          {t('ticket.save', { amount: savings.toLocaleString('cs-CZ') })}
         </div>
       )}
 
@@ -74,10 +76,10 @@ export function TicketTier({ tier, index }: TicketTierProps) {
         <p className={cn('text-xs mt-1', isLow ? 'text-ostrava-red' : 'text-ostrava-blue/40')}>
           {isLow && tier.available <= 50 ? (
             <motion.span animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>
-              Zbývá {tier.available} vstupenek!!!
+              {t('ticket.remaining', { count: tier.available })}
             </motion.span>
           ) : (
-            `Zbývá ${tier.available} z ${tier.total}`
+            t('ticket.remainingOf', { available: tier.available, total: tier.total })
           )}
         </p>
       </div>
@@ -88,7 +90,7 @@ export function TicketTier({ tier, index }: TicketTierProps) {
         external
         className="w-full"
       >
-        Koupit{tier.highlighted ? '!!!' : ''}
+        {tier.highlighted ? t('ticket.buyHighlight') : t('ticket.buy')}
       </Button>
     </motion.div>
   );

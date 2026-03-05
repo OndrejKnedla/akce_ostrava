@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
-
-const stats = [
-  { target: 50000, suffix: '+', label: 'Návštěvníků', sublabel: 'ročně' },
-  { target: 100, suffix: '+', label: 'Akcí', sublabel: 'uspořádáno' },
-  { target: 30, suffix: '+', label: 'Umělců', sublabel: 'mezinárodních' },
-  { target: 10, suffix: '+', label: 'Zkušeností', sublabel: 'let na scéně' },
-];
+import { useTranslation } from 'react-i18next';
 
 export function StatsSection() {
+  const { t } = useTranslation();
+
+  const stats = [
+    { target: 50000, suffix: '+', label: t('stats.visitors'), sublabel: t('stats.visitorsLabel') },
+    { target: 100, suffix: '+', label: t('stats.eventsCount'), sublabel: t('stats.eventsLabel') },
+    { target: 30, suffix: '+', label: t('stats.artists'), sublabel: t('stats.artistsLabel') },
+    { target: 10, suffix: '+', label: t('stats.experience'), sublabel: t('stats.experienceLabel') },
+  ];
+
   return (
     <section className="relative py-16 md:py-24 bg-ostrava-ice overflow-hidden">
       {/* Watermark !!! */}
@@ -25,7 +28,7 @@ export function StatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Ostrava žije<span className="text-ostrava-cyan">!!!</span>
+          {t('stats.title')}<span className="text-ostrava-cyan">!!!</span>
         </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

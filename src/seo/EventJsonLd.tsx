@@ -1,4 +1,6 @@
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import { langFromPath } from '@/i18n/routes';
 import type { EventData } from '@/types';
 
 interface EventJsonLdProps {
@@ -6,6 +8,8 @@ interface EventJsonLdProps {
 }
 
 export function EventJsonLd({ event }: EventJsonLdProps) {
+  const location = useLocation();
+  const lang = langFromPath(location.pathname);
   const [h, m] = event.time.split(':');
   const startDate = `${event.date}T${h}:${m}:00+01:00`;
 
@@ -19,6 +23,7 @@ export function EventJsonLd({ event }: EventJsonLdProps) {
     startDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    inLanguage: lang,
     location: {
       '@type': 'Place',
       name: event.venue.name,

@@ -1,16 +1,18 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { formatCzechDate } from '@/utils/formatCzechDate';
+import { formatDate } from '@/utils/formatDate';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { getFeaturedEvent } from '@/data/events';
+import { useLocale } from '@/i18n/useLocale';
 
 export function FeaturedSpotlight() {
   const event = getFeaturedEvent();
   const containerRef = useRef<HTMLDivElement>(null);
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const reduced = useReducedMotion();
+  const { t, lang, localePath } = useLocale();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -46,7 +48,7 @@ export function FeaturedSpotlight() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            {formatCzechDate(event.date, event.time)} · {event.venue.name}
+            {formatDate(event.date, lang, event.time)} · {event.venue.name}
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
@@ -54,8 +56,8 @@ export function FeaturedSpotlight() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <Button variant="cta" size="lg" href={`/akce/${event.slug}`}>
-              Zajistit místo!!!
+            <Button variant="cta" size="lg" href={localePath('event', { slug: event.slug })}>
+              {t('eventCard.buyTickets')}
             </Button>
           </motion.div>
         </div>
@@ -80,13 +82,13 @@ export function FeaturedSpotlight() {
           </motion.h2>
           <motion.div style={{ opacity: detailsOpacity }}>
             <p className="text-white/60 text-xl mb-2">
-              {formatCzechDate(event.date, event.time)}
+              {formatDate(event.date, lang, event.time)}
             </p>
             <p className="text-white/40 text-lg mb-8">{event.venue.name}</p>
           </motion.div>
           <motion.div style={{ opacity: ctaOpacity }}>
-            <Button variant="cta" size="lg" href={`/akce/${event.slug}`}>
-              Zajistit místo!!!
+            <Button variant="cta" size="lg" href={localePath('event', { slug: event.slug })}>
+              {t('eventCard.buyTickets')}
             </Button>
           </motion.div>
         </div>

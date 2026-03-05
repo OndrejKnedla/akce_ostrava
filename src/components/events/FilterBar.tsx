@@ -1,4 +1,5 @@
 import { cn } from '@/utils/cn';
+import { useTranslation } from 'react-i18next';
 
 interface FilterBarProps {
   activeCategory: string;
@@ -7,14 +8,16 @@ interface FilterBarProps {
   onSortChange: (sort: string) => void;
 }
 
-const categories = [
-  { value: 'all', label: 'Vše' },
-  { value: 'koncert', label: 'Koncert' },
-  { value: 'festival', label: 'Festival' },
-  { value: 'show', label: 'Show' },
-];
-
 export function FilterBar({ activeCategory, onCategoryChange, sortBy, onSortChange }: FilterBarProps) {
+  const { t } = useTranslation();
+
+  const categories = [
+    { value: 'all', label: t('filter.all') },
+    { value: 'koncert', label: t('filter.concert') },
+    { value: 'festival', label: t('filter.festival') },
+    { value: 'show', label: t('filter.show') },
+  ];
+
   return (
     <div className="glass sticky top-16 md:top-20 z-[6000] mb-8">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 p-4">
@@ -40,9 +43,9 @@ export function FilterBar({ activeCategory, onCategoryChange, sortBy, onSortChan
           onChange={(e) => onSortChange(e.target.value)}
           className="bg-ostrava-ice border border-ostrava-blue/10 rounded-lg px-4 py-2 text-sm text-ostrava-blue/70 focus:border-ostrava-cyan focus:outline-none"
         >
-          <option value="date">Datum</option>
-          <option value="price">Cena</option>
-          <option value="name">Název</option>
+          <option value="date">{t('filter.date')}</option>
+          <option value="price">{t('filter.price')}</option>
+          <option value="name">{t('filter.name')}</option>
         </select>
       </div>
     </div>

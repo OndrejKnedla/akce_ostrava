@@ -4,7 +4,7 @@ import { SeoHead } from '@/seo/SeoHead';
 import { BreadcrumbJsonLd } from '@/seo/BreadcrumbJsonLd';
 import { Calendar, MapPin, Share2 } from 'lucide-react';
 import { getEventBySlug, getRelatedEvents } from '@/data/events';
-import { formatCzechDate } from '@/utils/formatCzechDate';
+import { formatDate } from '@/utils/formatDate';
 import { downloadICS } from '@/utils/generateICS';
 import { TicketTier } from '@/components/events/TicketTier';
 import { PurchaseSidebar } from '@/components/events/PurchaseSidebar';
@@ -19,6 +19,7 @@ import { EventJsonLd } from '@/seo/EventJsonLd';
 import { useToast } from '@/components/ui/Toast';
 import { cn } from '@/utils/cn';
 import { useState, useCallback } from 'react';
+import { useLocale } from '@/i18n/useLocale';
 
 export default function EventDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -26,6 +27,7 @@ export default function EventDetailPage() {
   const { addToast } = useToast();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  const { t, lang, localePath } = useLocale();
 
   const openLightbox = useCallback((i: number) => {
     setLightboxIndex(i);
@@ -37,8 +39,8 @@ export default function EventDetailPage() {
       <PageTransition>
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
-            <h1 className="font-heading text-4xl text-ostrava-blue mb-4">Akce nenalezena</h1>
-            <Link to="/akce" className="text-ostrava-cyan hover:underline">← Zpět na akce</Link>
+            <h1 className="font-heading text-4xl text-ostrava-blue mb-4">{t('events.notFound')}</h1>
+            <Link to={localePath('events')} className="text-ostrava-cyan hover:underline">{t('events.backToEvents')}</Link>
           </div>
         </div>
       </PageTransition>
@@ -53,9 +55,9 @@ export default function EventDetailPage() {
     const url = window.location.href;
     try {
       await navigator.clipboard.writeText(url);
-      addToast('Zkopírováno!!!');
+      addToast(t('events.copied'));
     } catch {
-      addToast('Odkaz zkopírován', 'info');
+      addToast(t('events.linkCopied'), 'info');
     }
   };
 
@@ -80,8 +82,8 @@ export default function EventDetailPage() {
       <EventJsonLd event={event} />
       <BreadcrumbJsonLd
         items={[
-          { name: 'Domů', url: 'https://akceostrava.cz/' },
-          { name: 'Akce', url: 'https://akceostrava.cz/akce' },
+          { name: t('breadcrumb.home'), url: 'https://akceostrava.cz/' },
+          { name: t('breadcrumb.events'), url: `https://akceostrava.cz${localePath('events')}` },
           { name: event.title, url: `https://akceostrava.cz/akce/${event.slug}` },
         ]}
       />
@@ -112,7 +114,7 @@ export default function EventDetailPage() {
             >
               <span className="glass px-4 py-2 text-sm flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-ostrava-cyan" />
-                {formatCzechDate(event.date, event.time)}
+                {formatDate(event.date, lang, event.time)}
               </span>
               <a
                 href="#venue"
@@ -124,7 +126,7 @@ export default function EventDetailPage() {
               </a>
               {isAnnounced ? (
                 <span className="glass px-4 py-2 text-sm font-heading uppercase text-ostrava-yellow">
-                  Brzy oznámíme!!!
+                  {t('eventCard.announceSoon')}
                 </span>
               ) : (
                 <span className="glass px-4 py-2 text-sm font-mono font-bold">
@@ -149,7 +151,7 @@ export default function EventDetailPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  <p className="text-ostrava-blue/40 text-sm mb-3 font-heading uppercase tracking-wider">Do začátku akce zbývá</p>
+                  <p className="text-ostrava-blue/40 text-sm mb-3 font-heading uppercase tracking-wider">{t('events.countdownLabel')}</p>
                   <Countdown targetDate={event.date} targetTime={event.time} />
                 </motion.div>
               )}
@@ -161,7 +163,7 @@ export default function EventDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-4">O akci</h2>
+                <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-4">{t('events.aboutEvent')}</h2>
                 {event.description.split('\n\n').map((p, i) => (
                   <p key={i} className={cn(
                     'text-ostrava-blue/70 leading-relaxed mb-4',
@@ -180,7 +182,7 @@ export default function EventDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Line-up</h2>
+                  <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('events.lineup')}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {event.lineup.map((artist) => (
                       <div key={artist.name} className="glass p-4 text-center group">
@@ -201,7 +203,7 @@ export default function EventDetailPage() {
               {/* Tickets */}
               <div id="tickets" className="mb-12 scroll-mt-24">
                 <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">
-                  Vstupenky<span className="text-ostrava-cyan">!!!</span>
+                  {t('events.tickets')}<span className="text-ostrava-cyan">!!!</span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {event.tickets.map((tier, i) => (
@@ -212,7 +214,7 @@ export default function EventDetailPage() {
 
               {/* Venue */}
               <div id="venue" className="mb-12 scroll-mt-24">
-                <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Místo konání</h2>
+                <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('events.venue')}</h2>
                 <div className="glass p-6">
                   <h3 className="font-heading text-lg text-ostrava-blue mb-2">{event.venue.name}</h3>
                   <p className="text-ostrava-blue/60 text-sm mb-2">{event.venue.address}</p>
@@ -222,7 +224,7 @@ export default function EventDetailPage() {
                       src={`https://maps.google.com/maps?q=${event.venue.mapQuery}&output=embed`}
                       className="w-full h-full border-0"
                       loading="lazy"
-                      title={`Mapa - ${event.venue.name}`}
+                      title={t('events.mapTitle', { name: event.venue.name })}
                       allowFullScreen
                     />
                   </div>
@@ -232,7 +234,7 @@ export default function EventDetailPage() {
               {/* Gallery */}
               {event.gallery.length > 0 && (
                 <div className="mb-12">
-                  <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Galerie</h2>
+                  <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('events.gallery')}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {event.gallery.map((img, i) => (
                       <motion.button
@@ -242,7 +244,7 @@ export default function EventDetailPage() {
                         onClick={() => openLightbox(i)}
                         whileHover={{ scale: 1.02 }}
                       >
-                        <img src={img} alt={`Galerie ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                        <img src={img} alt={`${t('events.gallery')} ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
                       </motion.button>
                     ))}
                   </div>
@@ -260,7 +262,7 @@ export default function EventDetailPage() {
               {/* FAQ */}
               {event.faq.length > 0 && (
                 <div className="mb-12">
-                  <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Často kladené otázky</h2>
+                  <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('events.faq')}</h2>
                   <Accordion items={event.faq} />
                 </div>
               )}
@@ -268,11 +270,11 @@ export default function EventDetailPage() {
               {/* Share */}
               <div className="glass p-6 flex flex-wrap items-center gap-3">
                 <Share2 className="w-5 h-5 text-ostrava-cyan" />
-                <span className="text-ostrava-blue/60 text-sm mr-2">Sdílet:</span>
+                <span className="text-ostrava-blue/60 text-sm mr-2">{t('events.share')}</span>
                 <Button variant="ghost" size="sm" onClick={handleWhatsApp}>WhatsApp</Button>
                 <Button variant="ghost" size="sm" onClick={handleFacebook}>Facebook</Button>
-                <Button variant="ghost" size="sm" onClick={handleShare}>Kopírovat odkaz</Button>
-                <Button variant="ghost" size="sm" onClick={() => downloadICS(event)}>Přidat do kalendáře</Button>
+                <Button variant="ghost" size="sm" onClick={handleShare}>{t('events.copyLink')}</Button>
+                <Button variant="ghost" size="sm" onClick={() => downloadICS(event)}>{t('events.addToCalendar')}</Button>
               </div>
             </div>
 
@@ -286,7 +288,7 @@ export default function EventDetailPage() {
           {related.length > 0 && (
             <div className="mt-16">
               <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-8 text-center">
-                Mohlo by vás také zajímat<span className="text-ostrava-cyan">!!!</span>
+                {t('events.relatedEvents')}<span className="text-ostrava-cyan">!!!</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {related.map((e, i) => (

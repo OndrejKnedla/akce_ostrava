@@ -1,26 +1,29 @@
 import { SeoHead } from '@/seo/SeoHead';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
+import { useLocale } from '@/i18n/useLocale';
 
 export default function TermsPage() {
+  const { t } = useLocale();
+
   return (
     <PageTransition>
       <SeoHead
-        title="Obchodní podmínky"
-        description="Obchodní podmínky RESTARTSTAGE PRODUCTION s.r.o. pro nákup vstupenek na akce v Ostravě."
+        title={t('termsPage.seoTitle')}
+        description={t('termsPage.seoDesc')}
         canonical="https://akceostrava.cz/obchodni-podminky"
       />
 
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white">
-          <SplitText text="Obchodní podmínky" />
+          <SplitText text={t('termsPage.title')} />
           <span className="text-ostrava-cyan">!!!</span>
         </h1>
       </section>
 
       <section className="py-12 md:py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8 prose-ostrava">
-          <p className="text-ostrava-blue/50 text-sm mb-8">Poslední aktualizace: 1. 3. 2026</p>
+          <p className="text-ostrava-blue/50 text-sm mb-8">{t('termsPage.lastUpdated')}</p>
 
           <h2>1. Úvodní ustanovení</h2>
           <p>

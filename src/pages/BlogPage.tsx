@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { blogArticles, blogClusters } from '@/data/blogArticles';
 import { cn } from '@/utils/cn';
+import { useLocale } from '@/i18n/useLocale';
 
 const ARTICLES_PER_PAGE = 12;
 
@@ -15,6 +16,7 @@ export default function BlogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [visibleCount, setVisibleCount] = useState(ARTICLES_PER_PAGE);
   const [searchQuery, setSearchQuery] = useState('');
+  const { t, localePath } = useLocale();
 
   const activeCluster = searchParams.get('tema') || 'all';
 
@@ -55,19 +57,19 @@ export default function BlogPage() {
   return (
     <PageTransition>
       <SeoHead
-        title="Blog"
-        description="Pruvodce koncerty, festivaly a kulturnim zivotem v Ostrave. Tipy, recenze a novinky ze sveta zive hudby."
+        title={t('blog.seoTitle')}
+        description={t('blog.seoDesc')}
         canonical="https://akceostrava.cz/blog"
       />
 
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white">
-          <SplitText text="Blog" />
+          <SplitText text={t('blog.title')} />
           <span className="text-ostrava-cyan">!!!</span>
         </h1>
         <p className="text-white/60 mt-4 max-w-lg mx-auto px-4">
-          Pruvodce koncerty, festivaly a kulturnim zivotem v Ostrave
+          {t('blog.subtitle')}
         </p>
       </section>
 
@@ -80,7 +82,7 @@ export default function BlogPage() {
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ostrava-blue/30" />
               <input
                 type="text"
-                placeholder="Hledat clanky..."
+                placeholder={t('blog.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
@@ -108,7 +110,7 @@ export default function BlogPage() {
                         : 'bg-white text-ostrava-blue/60 hover:bg-ostrava-blue/5 hover:text-ostrava-blue border border-ostrava-blue/10'
                     )}
                   >
-                    {cluster.label}
+                    {t(`blogClusters.${cluster.id}`)}
                   </button>
                 );
               })}
@@ -128,7 +130,7 @@ export default function BlogPage() {
                     transition={{ delay: Math.min(i * 0.04, 0.25) }}
                   >
                     <Link
-                      to={`/blog/${article.slug}`}
+                      to={localePath('blogPost', { slug: article.slug })}
                       className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-transparent hover:border-ostrava-cyan/15"
                     >
                       {/* Image */}
@@ -147,11 +149,11 @@ export default function BlogPage() {
                         {/* Badge + reading time */}
                         <div className="flex items-center gap-3 mb-3">
                           <span className="px-2.5 py-1 rounded text-[11px] font-semibold bg-ostrava-cyan/10 text-ostrava-cyan border border-ostrava-cyan/20">
-                            {blogClusters.find((c) => c.id === article.cluster)?.label || article.cluster}
+                            {t(`blogClusters.${article.cluster}`)}
                           </span>
                           <span className="flex items-center gap-1 text-ostrava-blue/40 text-xs">
                             <Clock className="w-3 h-3" />
-                            {article.readingTime} min cteni
+                            {t('blog.readTime', { time: article.readingTime })}
                           </span>
                         </div>
 
@@ -171,7 +173,7 @@ export default function BlogPage() {
                             {formatDate(article.date)}
                           </span>
                           <span className="flex items-center gap-1 text-ostrava-cyan text-xs font-semibold group-hover:gap-2 transition-all">
-                            Cist dale
+                            {t('blog.readMore')}
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
@@ -189,7 +191,7 @@ export default function BlogPage() {
                   viewport={{ once: true }}
                 >
                   <Button variant="ghost" onClick={() => setVisibleCount((c) => c + ARTICLES_PER_PAGE)}>
-                    Nacist dalsi ({filtered.length - visibleCount} zbyvajicich)
+                    {t('blog.loadMore', { count: filtered.length - visibleCount })}
                   </Button>
                 </motion.div>
               )}
@@ -198,8 +200,8 @@ export default function BlogPage() {
             <div className="text-center py-20">
               <p className="text-ostrava-blue/50 text-lg">
                 {searchQuery
-                  ? `Zadne clanky pro "${searchQuery}". Zkuste jiny vyraz.`
-                  : 'Zadne clanky v teto kategorii.'}
+                  ? t('blog.noSearchResults', { query: searchQuery })
+                  : t('blog.noArticles')}
               </p>
             </div>
           )}

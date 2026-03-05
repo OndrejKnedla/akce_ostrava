@@ -6,15 +6,17 @@ import { PageTransition } from '@/components/layout/PageTransition';
 import { getUpcomingEvents } from '@/data/events';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useLocale } from '@/i18n/useLocale';
 
 export default function HomePage() {
   const events = getUpcomingEvents();
+  const { t, localePath } = useLocale();
 
   return (
     <PageTransition>
       <SeoHead
-        title="AKCE OSTRAVA!!! — Koncerty, Festivaly, Zážitky"
-        description="Nejlepší koncerty, festivaly a show v Ostravě. Ocelové srdce zábavy!!!"
+        title={t('home.seoTitle')}
+        description={t('home.seoDesc')}
         canonical="https://akceostrava.cz/"
       />
 
@@ -52,11 +54,11 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <h2 className="font-heading text-3xl md:text-5xl uppercase text-ostrava-blue mb-4">
-                <SplitText text="Nejbližší akce" onView />
+                <SplitText text={t('home.upcomingEvents')} onView />
                 <span className="text-ostrava-red">!!!</span>
               </h2>
               <p className="text-ostrava-blue/50 text-lg max-w-xl mx-auto">
-                Tři akce, které musíš letos v Ostravě zažít. Kup vstupenky, než bude pozdě.
+                {t('home.upcomingEventsDesc')}
               </p>
             </motion.div>
           </div>
@@ -81,9 +83,9 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <div className="font-heading text-2xl md:text-3xl uppercase text-ostrava-blue mb-2">
-              Brzy oznámíme další akce<span className="text-ostrava-red">!!!</span>
+              {t('home.comingSoon')}<span className="text-ostrava-red">!!!</span>
             </div>
-            <p className="text-ostrava-blue/50 text-sm">Sledujte naše stránky a sociální sítě, ať vám nic neunikne.</p>
+            <p className="text-ostrava-blue/50 text-sm">{t('home.comingSoonDesc')}</p>
           </motion.div>
 
           <motion.div
@@ -93,11 +95,11 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <Link
-              to="/akce"
+              to={localePath('events')}
               className="text-ostrava-blue font-heading uppercase text-sm tracking-wider relative group"
             >
-              Zobrazit všechny akce
-              <span className="ml-1">→</span>
+              {t('home.viewAll')}
+              <span className="ml-1">{'\u2192'}</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ostrava-blue transition-all group-hover:w-full" />
             </Link>
           </motion.div>

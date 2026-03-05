@@ -3,8 +3,9 @@ import { MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Button } from '@/components/ui/Button';
-import { formatCzechDateShort } from '@/utils/formatCzechDate';
+import { formatDateShort } from '@/utils/formatDate';
 import { cn } from '@/utils/cn';
+import { useLocale } from '@/i18n/useLocale';
 import type { EventData } from '@/types';
 
 interface EventCardProps {
@@ -13,7 +14,8 @@ interface EventCardProps {
 }
 
 export function EventCard({ event, index = 0 }: EventCardProps) {
-  const date = formatCzechDateShort(event.date);
+  const { t, lang, localePath } = useLocale();
+  const date = formatDateShort(event.date, lang);
   const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const isSoldOut = event.status === 'sold-out';
   const isLastTickets = event.status === 'last-tickets';
@@ -21,7 +23,7 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
   const isAnnounced = event.status === 'announced';
 
   return (
-    <Link to={`/akce/${event.slug}`} className="block">
+    <Link to={localePath('event', { slug: event.slug })} className="block">
       <GlassCard
         className="group flex flex-col overflow-hidden w-full !bg-white !border-ostrava-blue/10 shadow-md hover:shadow-xl"
         tilt
@@ -58,7 +60,7 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
           {isSoldOut && (
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="bg-ostrava-red/90 text-white font-heading uppercase text-lg px-6 py-2 rounded-lg -rotate-6">
-                Vyprodáno
+                {t('eventCard.soldOut')}
               </span>
             </div>
           )}
@@ -68,7 +70,7 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              Poslední vstupenky!!!
+              {t('eventCard.lastTickets')}
             </motion.div>
           )}
           {isEarlyBird && (
@@ -78,7 +80,7 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
           )}
           {isAnnounced && (
             <div className="absolute top-3 right-3 bg-ostrava-yellow text-ostrava-blue font-heading uppercase text-xs px-3 py-1 rounded font-bold">
-              Brzy!!!
+              {t('eventCard.soon')}
             </div>
           )}
         </div>
@@ -94,14 +96,14 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
           </div>
           <div className="mt-auto flex items-center justify-between pt-3 border-t border-ostrava-blue/10">
             {isAnnounced ? (
-              <span className="font-heading text-sm uppercase text-ostrava-yellow">Brzy oznámíme!!!</span>
+              <span className="font-heading text-sm uppercase text-ostrava-yellow">{t('eventCard.announceSoon')}</span>
             ) : (
               <span className="font-mono text-lg font-bold text-ostrava-blue">
-                od {lowestPrice.toLocaleString('cs-CZ')} Kč
+                {t('eventCard.fromPrice', { price: lowestPrice.toLocaleString('cs-CZ') })}
               </span>
             )}
             {isAnnounced ? (
-              <span className="text-ostrava-blue/30 text-sm font-heading uppercase">Připravujeme</span>
+              <span className="text-ostrava-blue/30 text-sm font-heading uppercase">{t('eventCard.preparing')}</span>
             ) : !isSoldOut ? (
               <Button
                 variant="primary"
@@ -110,10 +112,10 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
                 external
                 onClick={(e: React.MouseEvent) => e.stopPropagation()}
               >
-                Koupit!!!
+                {t('eventCard.buy')}
               </Button>
             ) : (
-              <span className="text-ostrava-blue/30 text-sm font-heading uppercase">Vyprodáno</span>
+              <span className="text-ostrava-blue/30 text-sm font-heading uppercase">{t('eventCard.soldOut')}</span>
             )}
           </div>
         </div>
