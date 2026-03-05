@@ -9,17 +9,34 @@ import { LangLayout } from '@/components/layout/LangLayout';
 import '@/i18n';
 import './index.css';
 
-const HomePage = lazy(() => import('@/pages/HomePage'));
-const EventsPage = lazy(() => import('@/pages/EventsPage'));
-const EventDetailPage = lazy(() => import('@/pages/EventDetailPage'));
-const ContactPage = lazy(() => import('@/pages/ContactPage'));
-const BlogPage = lazy(() => import('@/pages/BlogPage'));
-const BlogDetailPage = lazy(() => import('@/pages/BlogDetailPage'));
-const TermsPage = lazy(() => import('@/pages/TermsPage'));
-const GdprPage = lazy(() => import('@/pages/GdprPage'));
-const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
-const AboutPage = lazy(() => import('@/pages/AboutPage'));
-const FAQPage = lazy(() => import('@/pages/FAQPage'));
+// Auto-reload on stale chunk errors (after deploy, old JS filenames 404)
+function lazyRetry<T extends React.ComponentType<unknown>>(
+  factory: () => Promise<{ default: T }>
+) {
+  return lazy(() =>
+    factory().catch(() => {
+      // If chunk fails to load, force a full page reload (once)
+      const key = 'chunk-reload';
+      if (!sessionStorage.getItem(key)) {
+        sessionStorage.setItem(key, '1');
+        window.location.reload();
+      }
+      return factory();
+    })
+  );
+}
+
+const HomePage = lazyRetry(() => import('@/pages/HomePage'));
+const EventsPage = lazyRetry(() => import('@/pages/EventsPage'));
+const EventDetailPage = lazyRetry(() => import('@/pages/EventDetailPage'));
+const ContactPage = lazyRetry(() => import('@/pages/ContactPage'));
+const BlogPage = lazyRetry(() => import('@/pages/BlogPage'));
+const BlogDetailPage = lazyRetry(() => import('@/pages/BlogDetailPage'));
+const TermsPage = lazyRetry(() => import('@/pages/TermsPage'));
+const GdprPage = lazyRetry(() => import('@/pages/GdprPage'));
+const NotFoundPage = lazyRetry(() => import('@/pages/NotFoundPage'));
+const AboutPage = lazyRetry(() => import('@/pages/AboutPage'));
+const FAQPage = lazyRetry(() => import('@/pages/FAQPage'));
 
 function s(Component: React.LazyExoticComponent<() => JSX.Element | null>) {
   return (
@@ -67,6 +84,13 @@ const router = createBrowserRouter([
     blog: 'blog', blogPost: 'blog/:slug',
     contact: 'contact', terms: 'terms', gdpr: 'gdpr',
     about: 'about', faq: 'faq',
+  }),
+  // Polish
+  langRoutes('/pl', {
+    events: 'wydarzenia', event: 'wydarzenia/:slug',
+    blog: 'blog', blogPost: 'blog/:slug',
+    contact: 'kontakt', terms: 'regulamin', gdpr: 'gdpr',
+    about: 'o-nas', faq: 'faq',
   }),
   // Ukrainian
   langRoutes('/uk', {
