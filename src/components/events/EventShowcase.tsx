@@ -13,8 +13,9 @@ interface EventShowcaseProps {
 }
 
 export function EventShowcase({ event, index, reversed = false }: EventShowcaseProps) {
-  const lowestPrice = Math.min(...event.tickets.map((t) => t.price));
+  const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const daysLeft = getDaysUntil(event.date);
+  const isAnnounced = event.status === 'announced';
   const categoryLabels: Record<string, string> = {
     koncert: 'Koncert',
     festival: 'Festival',
@@ -102,16 +103,25 @@ export function EventShowcase({ event, index, reversed = false }: EventShowcaseP
 
         {/* Price + CTA */}
         <div className="flex items-center gap-4 mt-auto">
-          <div>
-            <div className="text-ostrava-blue/40 text-xs font-heading uppercase">Vstupenky od</div>
-            <div className="font-mono text-2xl font-bold text-ostrava-blue">
-              {lowestPrice.toLocaleString('cs-CZ')} Kč
+          {isAnnounced ? (
+            <div className="bg-ostrava-yellow/20 border border-ostrava-yellow/40 rounded-lg px-5 py-3">
+              <div className="font-heading text-ostrava-blue uppercase text-sm">Brzy oznámíme!!!</div>
+              <div className="text-ostrava-blue/50 text-xs">Sledujte naše stránky</div>
             </div>
-          </div>
-          <Button variant="cta" size="md" href={event.tickets[0].purchaseUrl} external>
-            Koupit
-            <ArrowRight className="w-4 h-4 ml-1" />
-          </Button>
+          ) : (
+            <>
+              <div>
+                <div className="text-ostrava-blue/40 text-xs font-heading uppercase">Vstupenky od</div>
+                <div className="font-mono text-2xl font-bold text-ostrava-blue">
+                  {lowestPrice.toLocaleString('cs-CZ')} Kč
+                </div>
+              </div>
+              <Button variant="cta" size="md" href={event.tickets[0]?.purchaseUrl} external>
+                Koupit
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </motion.div>

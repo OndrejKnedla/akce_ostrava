@@ -14,10 +14,11 @@ interface EventCardProps {
 
 export function EventCard({ event, index = 0 }: EventCardProps) {
   const date = formatCzechDateShort(event.date);
-  const lowestPrice = Math.min(...event.tickets.map((t) => t.price));
+  const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const isSoldOut = event.status === 'sold-out';
   const isLastTickets = event.status === 'last-tickets';
   const isEarlyBird = event.status === 'early-bird';
+  const isAnnounced = event.status === 'announced';
 
   return (
     <GlassCard
@@ -74,6 +75,11 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
             Early Bird
           </div>
         )}
+        {isAnnounced && (
+          <div className="absolute top-3 right-3 bg-ostrava-yellow text-ostrava-blue font-heading uppercase text-xs px-3 py-1 rounded font-bold">
+            Brzy!!!
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -86,11 +92,17 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
           <span>{event.venue.name}</span>
         </div>
         <div className="mt-auto flex items-center justify-between pt-3 border-t border-ostrava-blue/10">
-          <span className="font-mono text-lg font-bold text-ostrava-blue">
-            od {lowestPrice.toLocaleString('cs-CZ')} Kč
-          </span>
-          {!isSoldOut ? (
-            <Button variant="primary" size="sm" href={event.tickets[0].purchaseUrl} external>
+          {isAnnounced ? (
+            <span className="font-heading text-sm uppercase text-ostrava-yellow">Brzy oznámíme!!!</span>
+          ) : (
+            <span className="font-mono text-lg font-bold text-ostrava-blue">
+              od {lowestPrice.toLocaleString('cs-CZ')} Kč
+            </span>
+          )}
+          {isAnnounced ? (
+            <span className="text-ostrava-blue/30 text-sm font-heading uppercase">Připravujeme</span>
+          ) : !isSoldOut ? (
+            <Button variant="primary" size="sm" href={event.tickets[0]?.purchaseUrl} external>
               Koupit!!!
             </Button>
           ) : (

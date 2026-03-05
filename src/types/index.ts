@@ -13,7 +13,7 @@ export interface EventData {
   gallery: string[];
   tickets: TicketTier[];
   lineup?: Artist[];
-  status: 'on-sale' | 'early-bird' | 'last-tickets' | 'sold-out';
+  status: 'on-sale' | 'early-bird' | 'last-tickets' | 'sold-out' | 'announced';
   totalCapacity: number;
   ticketsSold: number;
   earlyBirdDeadline?: string;

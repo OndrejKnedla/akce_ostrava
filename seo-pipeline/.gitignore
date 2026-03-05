@@ -1,0 +1,32 @@
+# Secrets
+config_secrets.py
+*_secrets.*
+.env
+
+# API keys
+hesla/
+*.key
+
+# State files (resume data)
+pipeline_state/
+.upload_state.json
+.translate_state.json
+
+# Generated content (too large for git)
+articles/translations/
+articles/improved/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

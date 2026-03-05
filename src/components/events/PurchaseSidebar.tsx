@@ -7,8 +7,9 @@ interface PurchaseSidebarProps {
 }
 
 export function PurchaseSidebar({ event }: PurchaseSidebarProps) {
-  const lowestPrice = Math.min(...event.tickets.map((t) => t.price));
+  const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const isSoldOut = event.status === 'sold-out';
+  const isAnnounced = event.status === 'announced';
 
   return (
     <motion.div
@@ -20,9 +21,13 @@ export function PurchaseSidebar({ event }: PurchaseSidebarProps) {
       <h3 className="font-heading text-lg uppercase text-ostrava-blue mb-1 line-clamp-2">{event.title}</h3>
       <p className="text-ostrava-blue/40 text-sm mb-4">{event.subtitle}</p>
 
-      <div className="font-mono text-2xl font-bold text-ostrava-blue mb-2">
-        od {lowestPrice.toLocaleString('cs-CZ')} Kč
-      </div>
+      {isAnnounced ? (
+        <div className="font-heading text-lg uppercase text-ostrava-yellow mb-2">Brzy oznámíme!!!</div>
+      ) : (
+        <div className="font-mono text-2xl font-bold text-ostrava-blue mb-2">
+          od {lowestPrice.toLocaleString('cs-CZ')} Kč
+        </div>
+      )}
 
       {event.status === 'last-tickets' && (
         <motion.p
@@ -39,7 +44,9 @@ export function PurchaseSidebar({ event }: PurchaseSidebarProps) {
         </p>
       )}
 
-      {!isSoldOut ? (
+      {isAnnounced ? (
+        <div className="text-center text-ostrava-blue/50 font-heading uppercase py-3 text-sm">Sledujte naše stránky</div>
+      ) : !isSoldOut ? (
         <Button variant="cta" className="w-full" onClick={() => document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' })}>
           Koupit vstupenky!!!
         </Button>

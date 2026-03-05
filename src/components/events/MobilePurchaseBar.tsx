@@ -6,10 +6,11 @@ interface MobilePurchaseBarProps {
 }
 
 export function MobilePurchaseBar({ event }: MobilePurchaseBarProps) {
-  const lowestPrice = Math.min(...event.tickets.map((t) => t.price));
+  const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const isSoldOut = event.status === 'sold-out';
+  const isAnnounced = event.status === 'announced';
 
-  if (isSoldOut) return null;
+  if (isSoldOut || isAnnounced) return null;
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-[6000] bg-white/95 backdrop-blur-xl border-t border-ostrava-blue/10 shadow-lg px-4 py-3 lg:hidden">

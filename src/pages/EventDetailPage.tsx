@@ -45,7 +45,8 @@ export default function EventDetailPage() {
   }
 
   const related = getRelatedEvents(event.id);
-  const lowestPrice = Math.min(...event.tickets.map((t) => t.price));
+  const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
+  const isAnnounced = event.status === 'announced';
 
   const handleShare = async () => {
     const url = window.location.href;
@@ -114,9 +115,15 @@ export default function EventDetailPage() {
                 <MapPin className="w-4 h-4 text-ostrava-cyan" />
                 {event.venue.name}
               </a>
-              <span className="glass px-4 py-2 text-sm font-mono font-bold">
-                od {lowestPrice.toLocaleString('cs-CZ')} Kč
-              </span>
+              {isAnnounced ? (
+                <span className="glass px-4 py-2 text-sm font-heading uppercase text-ostrava-yellow">
+                  Brzy oznámíme!!!
+                </span>
+              ) : (
+                <span className="glass px-4 py-2 text-sm font-mono font-bold">
+                  od {lowestPrice.toLocaleString('cs-CZ')} Kč
+                </span>
+              )}
             </motion.div>
           </div>
         </div>
