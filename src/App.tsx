@@ -10,6 +10,7 @@ import { CookieBanner } from '@/components/ui/CookieBanner';
 import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup';
 
 import { SocialProofToast } from '@/components/ui/SocialProofToast';
+import { Analytics } from '@vercel/analytics/react';
 import { useEffect } from 'react';
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ export default function App() {
       <ExitIntentPopup />
       <SocialProofToast />
       <BackToTop />
+      <Analytics />
     </>
   );
 }
