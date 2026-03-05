@@ -8,6 +8,7 @@ import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { getArticleBySlug, getRelatedArticles, blogClusters } from '@/data/blogArticles';
 import { useLocale } from '@/i18n/useLocale';
+import type { Lang } from '@/i18n/config';
 
 function renderMarkdown(body: string): string {
   let html = body;
@@ -93,12 +94,12 @@ function renderMarkdown(body: string): string {
 
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const article = slug ? getArticleBySlug(slug) : undefined;
-  const { t, localePath } = useLocale();
+  const { t, lang, localePath } = useLocale();
+  const article = slug ? getArticleBySlug(slug, lang as Lang) : undefined;
 
   const related = useMemo(
-    () => (article ? getRelatedArticles(article, 3) : []),
-    [article]
+    () => (article ? getRelatedArticles(article, 3, lang as Lang) : []),
+    [article, lang]
   );
 
   if (!article) {

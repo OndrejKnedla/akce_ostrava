@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { SeoHead } from '@/seo/SeoHead';
 import { motion } from 'framer-motion';
@@ -6,7 +6,7 @@ import { Clock, ArrowRight, Search } from 'lucide-react';
 import { SplitText } from '@/components/ui/SplitText';
 import { Button } from '@/components/ui/Button';
 import { PageTransition } from '@/components/layout/PageTransition';
-import { blogArticles, blogClusters } from '@/data/blogArticles';
+import { getBlogArticles, loadBlogArticles, blogClusters, type BlogArticle } from '@/data/blogArticles';
 import { cn } from '@/utils/cn';
 import { useLocale } from '@/i18n/useLocale';
 
@@ -16,7 +16,12 @@ export default function BlogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [visibleCount, setVisibleCount] = useState(ARTICLES_PER_PAGE);
   const [searchQuery, setSearchQuery] = useState('');
-  const { t, localePath } = useLocale();
+  const { t, lang, localePath } = useLocale();
+  const [articles, setArticles] = useState<BlogArticle[]>(getBlogArticles(lang));
+
+  useEffect(() => {
+    loadBlogArticles(lang).then(setArticles);
+  }, [lang]);
 
   const activeCluster = searchParams.get('tema') || 'all';
 
@@ -31,8 +36,8 @@ export default function BlogPage() {
 
   const filtered = useMemo(() => {
     let result = activeCluster === 'all'
-      ? [...blogArticles]
-      : blogArticles.filter((a) => a.cluster === activeCluster);
+      ? [...articles]
+      : articles.filter((a) => a.cluster === activeCluster);
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -96,8 +101,8 @@ export default function BlogPage() {
               {blogClusters.map((cluster) => {
                 const count =
                   cluster.id === 'all'
-                    ? blogArticles.length
-                    : blogArticles.filter((a) => a.cluster === cluster.id).length;
+                    ? articles.length
+                    : articles.filter((a) => a.cluster === cluster.id).length;
                 if (count === 0 && cluster.id !== 'all') return null;
                 return (
                   <button
