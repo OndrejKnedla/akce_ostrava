@@ -72,6 +72,19 @@ export default function HomePage() {
             ))}
           </div>
 
+          {/* Coming soon teaser */}
+          <motion.div
+            className="mt-16 text-center border-2 border-dashed border-ostrava-cyan/30 rounded-2xl py-10 px-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="font-heading text-2xl md:text-3xl uppercase text-ostrava-blue mb-2">
+              Brzy oznámíme další akce<span className="text-ostrava-red">!!!</span>
+            </div>
+            <p className="text-ostrava-blue/50 text-sm">Sledujte naše stránky a sociální sítě, ať vám nic neunikne.</p>
+          </motion.div>
+
           <motion.div
             className="text-center mt-12"
             initial={{ opacity: 0 }}

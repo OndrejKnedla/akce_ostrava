@@ -277,31 +277,6 @@ Organizátoři kladou důraz na vytváření nezapomenutelných rodinných záž
       { question: 'Mohu přinést vlastní jídlo?', answer: 'Vlastní jídlo a pití není povoleno. Na festivalu je k dispozici food court s nabídkou pro děti i dospělé.' },
     ],
   },
-  {
-    id: '5',
-    slug: 'scooter-ostrava-2026',
-    title: 'Scooter — Ostrava 2026',
-    subtitle: 'Brzy oznámíme podrobnosti!!!',
-    category: 'show',
-    date: '2026-12-01',
-    time: '20:00',
-    venue: {
-      name: 'Bude oznámeno',
-      address: 'Ostrava',
-      city: 'Ostrava',
-      mapQuery: 'Ostrava',
-      transport: 'Bude oznámeno.',
-    },
-    description: `Scooter míří do Ostravy!!! Podrobnosti o této akci budou brzy oznámeny. Sledujte naše stránky a sociální sítě, ať vám nic neunikne!!!`,
-    image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=450&fit=crop',
-    gallery: [],
-    tickets: [],
-    status: 'announced',
-    totalCapacity: 0,
-    ticketsSold: 0,
-    featured: false,
-    faq: [],
-  },
 ];
 
 export function getEventBySlug(slug: string): EventData | undefined {
