@@ -150,11 +150,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="py-6 bg-white border-t border-ostrava-blue/10 text-center">
-        <p className="text-ostrava-blue/40 text-xs">
-          {t('footer.copyright')}
-        </p>
-      </div>
     </PageTransition>
   );
 }
