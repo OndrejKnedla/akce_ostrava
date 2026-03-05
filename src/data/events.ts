@@ -23,12 +23,7 @@ Cimbál, housle a vokály, které roztančí každého — to jsou Kollárovci. 
 
 1. vlna vstupenek je vyprodána! Neváhejte s nákupem 2. vlny, než bude pozdě!!!`,
     image: 'https://storage.googleapis.com/prod-ticketlive/2025/11/zvetsena/ljfd.jpg',
-    gallery: [
-      'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1468359601543-843bfaef291a?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&h=450&fit=crop',
-    ],
+    gallery: [],
     tickets: [
       {
         id: 't1-1',
@@ -92,12 +87,7 @@ Středověké hradby se rozezní disco beaty, pop-rockovými hymny a tanečními
 
 Tohle je festival pro všechny generace!!! Slezskoostravský hrad nabízí jedinečnou kulisu, kterou žádný jiný festival v Česku nemá.`,
     image: 'https://storage.googleapis.com/prod-ticketlive/2025/08/zvetsena/navrh-bez-nazvu-2025-08-29t083959-663.jpg',
-    gallery: [
-      'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1468359601543-843bfaef291a?w=600&h=450&fit=crop',
-    ],
+    gallery: [],
     tickets: [
       {
         id: 't2-1',
@@ -129,10 +119,10 @@ Tohle je festival pro všechny generace!!! Slezskoostravský hrad nabízí jedin
       },
     ],
     lineup: [
-      { name: 'Village People', genre: 'Disco', image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop' },
-      { name: 'Michal David & band', genre: 'Pop', image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&h=200&fit=crop' },
-      { name: 'East 17', genre: 'Pop / R&B', image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=200&h=200&fit=crop' },
-      { name: 'Tublatanka', genre: 'Rock', image: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=200&h=200&fit=crop' },
+      { name: 'Village People', genre: 'Disco', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/VillagePeople1978.jpg/960px-VillagePeople1978.jpg' },
+      { name: 'Michal David & band', genre: 'Pop', image: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/DavidMic.jpg' },
+      { name: 'East 17', genre: 'Pop / R&B', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/East-17-Band-2019-V2.jpg/960px-East-17-Band-2019-V2.jpg' },
+      { name: 'Tublatanka', genre: 'Rock', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Tublatanka.jpg/960px-Tublatanka.jpg' },
     ],
     status: 'on-sale',
     totalCapacity: 5000,
@@ -166,12 +156,7 @@ Everybody, Chihuahua, Freedom a desítky dalších hitů v novém velkolepém pr
 
 Ostrava je jednou z mála zastávek v České republice. Neváhejte s nákupem vstupenek!`,
     image: 'https://storage.googleapis.com/prod-ticketlive/2025/09/zvetsena/600x300-483.jpg',
-    gallery: [
-      'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=600&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=600&h=450&fit=crop',
-    ],
+    gallery: [],
     tickets: [
       {
         id: 't3-1',
@@ -234,12 +219,7 @@ Skákací hrady, malování na obličej, jízdy vláčkem, balónkové aktivity,
 
 Organizátoři kladou důraz na vytváření nezapomenutelných rodinných zážitků prostřednictvím hudby, zábavy a vzdělávání. Stáhněte si aplikaci Fesťáček pro aktuální informace o festivalu.`,
     image: 'https://tvujticket.cz/wp-content/uploads/2026/02/ostrava-26.jpg',
-    gallery: [
-      'https://festacekfestival.cz/wp-content/uploads/2024/03/23-1024x731.png',
-      'https://festacekfestival.cz/wp-content/uploads/2024/03/Kopie-navrhu-bg-festacek24-1-1-1024x556.png',
-      'https://festacekfestival.cz/wp-content/uploads/2024/03/bezpecnost-1024x804.png',
-      'https://festacekfestival.cz/wp-content/uploads/2024/03/game-1024x870.png',
-    ],
+    gallery: [],
     tickets: [
       {
         id: 't4-1',
