@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { SeoHead } from '@/seo/SeoHead';
 import { BreadcrumbJsonLd } from '@/seo/BreadcrumbJsonLd';
@@ -6,7 +6,7 @@ import { BlogPostingJsonLd } from '@/seo/BlogPostingJsonLd';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
-import { getArticleBySlug, getRelatedArticles, blogClusters } from '@/data/blogArticles';
+import { getArticleBySlug, getRelatedArticles, loadBlogArticles, blogClusters, type BlogArticle } from '@/data/blogArticles';
 import { useLocale } from '@/i18n/useLocale';
 import type { Lang } from '@/i18n/config';
 
@@ -95,15 +95,31 @@ function renderMarkdown(body: string): string {
 export default function BlogDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { t, lang, localePath } = useLocale();
-  const article = slug ? getArticleBySlug(slug, lang as Lang) : undefined;
+  const [article, setArticle] = useState<BlogArticle | undefined>(
+    slug ? getArticleBySlug(slug, lang as Lang) : undefined
+  );
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    loadBlogArticles(lang as Lang).then(() => {
+      if (slug) {
+        setArticle(getArticleBySlug(slug, lang as Lang));
+      }
+      setLoaded(true);
+    });
+  }, [lang, slug]);
 
   const related = useMemo(
     () => (article ? getRelatedArticles(article, 3, lang as Lang) : []),
     [article, lang]
   );
 
-  if (!article) {
+  if (loaded && !article) {
     return <Navigate to={localePath('blog')} replace />;
+  }
+
+  if (!article) {
+    return null; // Loading translations
   }
 
   const htmlContent = renderMarkdown(article.body);

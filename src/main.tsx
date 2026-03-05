@@ -21,7 +21,7 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const FAQPage = lazy(() => import('@/pages/FAQPage'));
 
-function s(Component: React.LazyExoticComponent<() => JSX.Element>) {
+function s(Component: React.LazyExoticComponent<() => JSX.Element | null>) {
   return (
     <Suspense fallback={<SuspenseFallback />}>
       <Component />
