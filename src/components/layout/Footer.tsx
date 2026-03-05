@@ -70,7 +70,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
-          <span>© 2026 RESTARTSTAGE PRODUCTION s.r.o.</span>
+          <span>© 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104</span>
           <span>Ocelové srdce zábavy!!!</span>
         </div>
       </div>

@@ -24,7 +24,7 @@ export default function TermsPage() {
           <h2>1. Úvodní ustanovení</h2>
           <p>
             Tyto obchodní podmínky (dále jen „podmínky") upravují práva a povinnosti mezi společností
-            RESTARTSTAGE PRODUCTION s.r.o., IČO: 22340025, se sídlem v Ostravě (dále jen „pořadatel"),
+            RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104, se sídlem Žitná 562/10, Nové Město, 120 00 Praha 2 (dále jen „pořadatel"),
             a kupujícím vstupenek na kulturní akce organizované pořadatelem (dále jen „zákazník").
           </p>
           <p>

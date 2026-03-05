@@ -23,8 +23,8 @@ export default function GdprPage() {
 
           <h2>1. Správce osobních údajů</h2>
           <p>
-            Správcem osobních údajů je společnost RESTARTSTAGE PRODUCTION s.r.o., IČO: 22340025,
-            se sídlem v Ostravě (dále jen „správce"). Správce zpracovává osobní údaje v souladu
+            Správcem osobních údajů je společnost RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104,
+            se sídlem Žitná 562/10, Nové Město, 120 00 Praha 2 (dále jen „správce"). Správce zpracovává osobní údaje v souladu
             s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR) a zákonem č. 110/2019 Sb.,
             o zpracování osobních údajů.
           </p>
