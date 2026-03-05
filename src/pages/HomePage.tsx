@@ -4,13 +4,14 @@ import { EventShowcase } from '@/components/events/EventShowcase';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { getUpcomingEvents } from '@/data/events';
+import { translateEvents } from '@/utils/translateEvent';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLocale } from '@/i18n/useLocale';
 
 export default function HomePage() {
-  const events = getUpcomingEvents();
-  const { t, localePath } = useLocale();
+  const { t, lang, localePath } = useLocale();
+  const events = translateEvents(getUpcomingEvents(), lang);
 
   return (
     <PageTransition>

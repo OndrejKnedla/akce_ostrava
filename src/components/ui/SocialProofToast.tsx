@@ -3,10 +3,11 @@ import { usePopupStore } from '@/store/usePopupStore';
 import { useToast } from './Toast';
 import { socialProofPool } from '@/data/socialProof';
 import { events } from '@/data/events';
-import { useTranslation } from 'react-i18next';
+import { translateEvent } from '@/utils/translateEvent';
+import { useLocale } from '@/i18n/useLocale';
 
 export function SocialProofToast() {
-  const { t } = useTranslation();
+  const { t, lang } = useLocale();
   const { canShowToast, incrementToast } = usePopupStore();
   const { addToast } = useToast();
 
@@ -18,7 +19,8 @@ export function SocialProofToast() {
     const showProof = () => {
       if (canShowToast()) {
         const person = socialProofPool[Math.floor(Math.random() * socialProofPool.length)];
-        const event = events[Math.floor(Math.random() * events.length)];
+        const rawEvent = events[Math.floor(Math.random() * events.length)];
+        const event = translateEvent(rawEvent, lang);
         const ticketStr = person.tickets === 1
           ? t('socialProof.ticket_one')
           : person.tickets < 5
@@ -37,7 +39,7 @@ export function SocialProofToast() {
     timer = setTimeout(showProof, getRandomInterval());
 
     return () => clearTimeout(timer);
-  }, [canShowToast, incrementToast, addToast, t]);
+  }, [canShowToast, incrementToast, addToast, t, lang]);
 
   return null;
 }

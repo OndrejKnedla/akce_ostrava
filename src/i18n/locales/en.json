@@ -72,7 +72,7 @@
     "concert": "Concert",
     "festival": "Festival",
     "show": "VIP Show",
-    "inDays": "in <1>{{days}}</1> days",
+    "inDays": "in {{days}} days",
     "ticketsFrom": "Tickets from",
     "buy": "Buy"
   },

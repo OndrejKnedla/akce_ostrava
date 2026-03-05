@@ -5,14 +5,15 @@ import { formatDate } from '@/utils/formatDate';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { getFeaturedEvent } from '@/data/events';
+import { translateEvent } from '@/utils/translateEvent';
 import { useLocale } from '@/i18n/useLocale';
 
 export function FeaturedSpotlight() {
-  const event = getFeaturedEvent();
+  const { t, lang, localePath } = useLocale();
+  const event = translateEvent(getFeaturedEvent(), lang);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const reduced = useReducedMotion();
-  const { t, lang, localePath } = useLocale();
 
   const { scrollYProgress } = useScroll({
     target: containerRef,

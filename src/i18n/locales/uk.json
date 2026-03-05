@@ -72,7 +72,7 @@
     "concert": "Концерт",
     "festival": "Фестиваль",
     "show": "VIP Шоу",
-    "inDays": "через <1>{{days}}</1> днів",
+    "inDays": "через {{days}} днів",
     "ticketsFrom": "Квитки від",
     "buy": "Купити"
   },

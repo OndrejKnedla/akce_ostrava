@@ -72,7 +72,7 @@
     "concert": "Koncert",
     "festival": "Festival",
     "show": "VIP Show",
-    "inDays": "za <1>{{days}}</1> dní",
+    "inDays": "za {{days}} dní",
     "ticketsFrom": "Vstupenky od",
     "buy": "Kúpiť"
   },

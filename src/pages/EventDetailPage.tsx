@@ -4,6 +4,7 @@ import { SeoHead } from '@/seo/SeoHead';
 import { BreadcrumbJsonLd } from '@/seo/BreadcrumbJsonLd';
 import { Calendar, MapPin, Share2 } from 'lucide-react';
 import { getEventBySlug, getRelatedEvents } from '@/data/events';
+import { translateEvent, translateEvents } from '@/utils/translateEvent';
 import { formatDate } from '@/utils/formatDate';
 import { downloadICS } from '@/utils/generateICS';
 import { TicketTier } from '@/components/events/TicketTier';
@@ -23,11 +24,12 @@ import { useLocale } from '@/i18n/useLocale';
 
 export default function EventDetailPage() {
   const { slug } = useParams<{ slug: string }>();
-  const event = getEventBySlug(slug || '');
+  const rawEvent = getEventBySlug(slug || '');
   const { addToast } = useToast();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const { t, lang, localePath } = useLocale();
+  const event = rawEvent ? translateEvent(rawEvent, lang) : undefined;
 
   const openLightbox = useCallback((i: number) => {
     setLightboxIndex(i);
@@ -47,7 +49,7 @@ export default function EventDetailPage() {
     );
   }
 
-  const related = getRelatedEvents(event.id);
+  const related = translateEvents(getRelatedEvents(event.id), lang);
   const lowestPrice = event.tickets.length > 0 ? Math.min(...event.tickets.map((t) => t.price)) : 0;
   const isAnnounced = event.status === 'announced';
 
@@ -130,7 +132,7 @@ export default function EventDetailPage() {
                 </span>
               ) : (
                 <span className="glass px-4 py-2 text-sm font-mono font-bold">
-                  od {lowestPrice.toLocaleString('cs-CZ')} Kč
+                  {t('eventCard.fromPrice', { price: lowestPrice.toLocaleString('cs-CZ') })}
                 </span>
               )}
             </motion.div>

@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { usePopupStore } from '@/store/usePopupStore';
 import { getFeaturedEvent } from '@/data/events';
+import { translateEvent } from '@/utils/translateEvent';
 import { Modal } from './Modal';
 import { Button } from './Button';
 import { useLocale } from '@/i18n/useLocale';
 
 export function ExitIntentPopup() {
-  const { t, localePath } = useLocale();
+  const { t, lang, localePath } = useLocale();
   const [show, setShow] = useState(false);
   const { canShowExitIntent, showExitIntent, setActiveModal } = usePopupStore();
-  const event = getFeaturedEvent();
+  const event = translateEvent(getFeaturedEvent(), lang);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;

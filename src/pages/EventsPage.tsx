@@ -7,13 +7,15 @@ import { EventGrid } from '@/components/events/EventGrid';
 import { FilterBar } from '@/components/events/FilterBar';
 import { Button } from '@/components/ui/Button';
 import { PageTransition } from '@/components/layout/PageTransition';
-import { events } from '@/data/events';
+import { events as rawEvents } from '@/data/events';
+import { translateEvents } from '@/utils/translateEvent';
 import { useLocale } from '@/i18n/useLocale';
 
 export default function EventsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [visibleCount, setVisibleCount] = useState(6);
-  const { t } = useLocale();
+  const { t, lang } = useLocale();
+  const events = useMemo(() => translateEvents(rawEvents, lang), [lang]);
 
   const category = searchParams.get('kategorie') || 'all';
   const sortBy = searchParams.get('razeni') || 'date';
@@ -48,7 +50,7 @@ export default function EventsPage() {
         result.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     }
     return result;
-  }, [category, sortBy]);
+  }, [category, sortBy, events]);
 
   const visible = filtered.slice(0, visibleCount);
 
