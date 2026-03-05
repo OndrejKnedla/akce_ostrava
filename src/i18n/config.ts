@@ -1,10 +1,11 @@
-export const SUPPORTED_LANGS = ['cs', 'en', 'uk', 'sk'] as const;
+export const SUPPORTED_LANGS = ['cs', 'en', 'pl', 'uk', 'sk'] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 export const DEFAULT_LANG: Lang = 'cs';
 
 export const LANG_LABELS: Record<Lang, string> = {
   cs: 'CZ',
   en: 'EN',
+  pl: 'PL',
   uk: 'UA',
   sk: 'SK',
 };
@@ -12,6 +13,7 @@ export const LANG_LABELS: Record<Lang, string> = {
 export const LOCALE_MAP: Record<Lang, string> = {
   cs: 'cs_CZ',
   en: 'en_US',
+  pl: 'pl_PL',
   uk: 'uk_UA',
   sk: 'sk_SK',
 };
@@ -19,6 +21,7 @@ export const LOCALE_MAP: Record<Lang, string> = {
 export const HTML_LANG_MAP: Record<Lang, string> = {
   cs: 'cs',
   en: 'en',
+  pl: 'pl',
   uk: 'uk',
   sk: 'sk',
 };
@@ -47,6 +50,18 @@ export const ROUTE_MAP: Record<Lang, Record<string, string>> = {
     terms: 'terms',
     gdpr: 'gdpr',
     about: 'about',
+    faq: 'faq',
+  },
+  pl: {
+    home: '',
+    events: 'wydarzenia',
+    event: 'wydarzenia/:slug',
+    blog: 'blog',
+    blogPost: 'blog/:slug',
+    contact: 'kontakt',
+    terms: 'regulamin',
+    gdpr: 'gdpr',
+    about: 'o-nas',
     faq: 'faq',
   },
   uk: {

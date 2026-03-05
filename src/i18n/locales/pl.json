@@ -1,0 +1,300 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "events": "Wydarzenia",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "search": "Szukaj",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu"
+  },
+  "footer": {
+    "tagline": "Stalowe serce rozrywki. Najlepsze koncerty, festiwale i show w Ostrawie i okolicach.",
+    "navigation": "Nawigacja",
+    "info": "Informacje",
+    "terms": "Regulamin",
+    "gdpr": "Polityka GDPR",
+    "social": "Media społecznościowe",
+    "copyright": "© 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104",
+    "taglineBrand": "Stalowe serce rozrywki!!!"
+  },
+  "hero": {
+    "title": "Odkryj świat <1>rozrywki</1> w <3>Ostrawie</3><5>!!!</5>",
+    "subtitle": "Koncerty, festiwale i show, które musisz przeżyć",
+    "cta": "Zobacz wydarzenia",
+    "contact": "Skontaktuj się z nami"
+  },
+  "home": {
+    "seoTitle": "AKCE OSTRAVA!!! — Koncerty, Festiwale, Doświadczenia",
+    "seoDesc": "Najlepsze koncerty, festiwale i show w Ostrawie. Stalowe serce rozrywki!!!",
+    "upcomingEvents": "Najbliższe wydarzenia",
+    "upcomingEventsDesc": "Trzy wydarzenia, które musisz w tym roku przeżyć w Ostrawie. Kup bilety, zanim będzie za późno.",
+    "comingSoon": "Wkrótce ogłosimy kolejne wydarzenia",
+    "comingSoonDesc": "Śledź naszą stronę i media społecznościowe, żeby niczego nie przegapić.",
+    "viewAll": "Zobacz wszystkie wydarzenia"
+  },
+  "events": {
+    "seoTitle": "Wszystkie wydarzenia",
+    "seoDesc": "Przejrzyj pełną ofertę koncertów, festiwali i show w Ostrawie.",
+    "title": "Wszystkie wydarzenia",
+    "loadMore": "Załaduj więcej!!!",
+    "noResults": "Żadne wydarzenia nie pasują do filtra. Spróbuj innego wyboru.",
+    "notFound": "Wydarzenie nie znalezione",
+    "backToEvents": "← Powrót do wydarzeń",
+    "copied": "Skopiowano!!!",
+    "linkCopied": "Link skopiowany",
+    "countdownLabel": "Do rozpoczęcia wydarzenia pozostało",
+    "aboutEvent": "O wydarzeniu",
+    "lineup": "Line-up",
+    "tickets": "Bilety",
+    "venue": "Miejsce",
+    "gallery": "Galeria",
+    "faq": "Często zadawane pytania",
+    "share": "Udostępnij:",
+    "copyLink": "Kopiuj link",
+    "addToCalendar": "Dodaj do kalendarza",
+    "relatedEvents": "Może Cię również zainteresować",
+    "mapTitle": "Mapa - {{name}}"
+  },
+  "eventCard": {
+    "soldOut": "Wyprzedane",
+    "lastTickets": "Ostatnie bilety!!!",
+    "earlyBird": "Early Bird",
+    "soon": "Wkrótce!!!",
+    "announceSoon": "Wkrótce ogłosimy!!!",
+    "preparing": "Przygotowujemy",
+    "buy": "Kup!!!",
+    "buyTickets": "Kup bilety!!!",
+    "fromPrice": "od {{price}} Kč",
+    "followUs": "Śledź nas"
+  },
+  "eventShowcase": {
+    "concert": "Koncert",
+    "festival": "Festiwal",
+    "show": "VIP Show",
+    "inDays": "za {{days}} dni",
+    "ticketsFrom": "Bilety od",
+    "buy": "Kup"
+  },
+  "filter": {
+    "all": "Wszystko",
+    "concert": "Koncert",
+    "festival": "Festiwal",
+    "show": "Show",
+    "date": "Data",
+    "price": "Cena",
+    "name": "Nazwa"
+  },
+  "countdown": {
+    "days": "dni",
+    "hours": "godzin",
+    "minutes": "minut",
+    "seconds": "sekund"
+  },
+  "ticket": {
+    "mostPopular": "Najpopularniejszy",
+    "save": "Oszczędzasz {{amount}} Kč!!!",
+    "remaining": "Pozostało {{count}} biletów!!!",
+    "remainingOf": "Pozostało {{available}} z {{total}}",
+    "buy": "Kup",
+    "buyHighlight": "Kup!!!"
+  },
+  "purchase": {
+    "lastTickets": "Ostatnie bilety!!!",
+    "earlyBirdUntil": "Early Bird do {{date}}",
+    "viewing": "Aktualnie ogląda {{count}} osób"
+  },
+  "cookie": {
+    "title": "Ochrona Twojej prywatności",
+    "description": "Używamy plików cookie do prawidłowego działania strony i analizy ruchu.",
+    "moreInfo": "polityce ochrony danych osobowych",
+    "moreInfoPrefix": "Więcej informacji znajdziesz w ",
+    "acceptAll": "Zaakceptuj wszystkie",
+    "rejectOptional": "Tylko niezbędne",
+    "settings": "Ustawienia",
+    "saveSettings": "Zapisz ustawienia",
+    "necessary": "Niezbędne",
+    "necessaryDesc": "Zapewniają podstawowe funkcje strony, takie jak nawigacja i dostęp do zabezpieczonych obszarów. Bez tych plików cookie strona nie może prawidłowo działać.",
+    "analytics": "Analityczne",
+    "analyticsDesc": "Pomagają nam zrozumieć, jak odwiedzający korzystają ze strony. Dane są anonimizowane (Vercel Analytics).",
+    "alwaysActive": "Zawsze aktywne"
+  },
+  "exitIntent": {
+    "dontMiss": "Nie chcesz przegapić {{title}}?!!",
+    "buyTickets": "Kup bilety!!!",
+    "subscribe": "Subskrybuj"
+  },
+  "newsletter": {
+    "title": "Bądź pierwszy",
+    "description": "Bądź pierwszy, który dowie się o nowych wydarzeniach. Subskrybenci otrzymują bilety 48 godzin wcześniej.",
+    "placeholder": "Twój e-mail",
+    "submit": "Subskrybuj!!!",
+    "presale": "Ekskluzywna przedsprzedaż",
+    "discounts": "Zniżki",
+    "insider": "Insider info",
+    "thanks": "Dziękujemy za subskrypcję!!!"
+  },
+  "newsletterPopup": {
+    "title": "Subskrybenci otrzymują bilety 48 godzin wcześniej!!!",
+    "description": "Bądź pierwszy, który dowie się o nowych wydarzeniach.",
+    "placeholder": "Twój e-mail",
+    "submit": "Subskrybuj!!!",
+    "thanks": "Dziękujemy za subskrypcję!!!"
+  },
+  "socialProof": {
+    "bought_male": "{{name}} z {{city}} właśnie kupił {{tickets}} na {{event}}",
+    "bought_female": "{{name}} z {{city}} właśnie kupiła {{tickets}} na {{event}}",
+    "ticket_one": "bilet",
+    "ticket_few": "bilety",
+    "ticket_many": "biletów"
+  },
+  "contact": {
+    "seoTitle": "Kontakt",
+    "seoDesc": "Skontaktuj się z RESTARTSTAGE PRODUCTION — organizatorami wydarzeń w Ostrawie.",
+    "title": "Kontakt",
+    "connectTitle": "Skontaktuj się z nami",
+    "formTitle": "Napisz do nas",
+    "nameLabel": "Imię *",
+    "namePlaceholder": "Twoje imię",
+    "emailLabel": "E-mail *",
+    "emailPlaceholder": "twoj@email.pl",
+    "subjectLabel": "Temat",
+    "subjectGeneral": "Zapytanie ogólne",
+    "subjectCooperation": "Współpraca",
+    "subjectComplaint": "Reklamacja",
+    "subjectOther": "Inne",
+    "messageLabel": "Wiadomość *",
+    "messagePlaceholder": "Twoja wiadomość...",
+    "submit": "Wyślij wiadomość!!!",
+    "validEmail": "Wprowadź prawidłowy e-mail",
+    "minLength": "Wiadomość musi mieć co najmniej 10 znaków",
+    "success": "Wiadomość wysłana!!! Odpowiemy w ciągu 24 godzin."
+  },
+  "about": {
+    "seoTitle": "O nas | AKCE OSTRAVA!!!",
+    "seoDesc": "Historia RESTARTSTAGE PRODUCTION — jak zmieniliśmy Ostrawę w kulturalną metropolię.",
+    "title": "O nas",
+    "story1": "RESTARTSTAGE PRODUCTION przynosi do Ostrawy to, co najlepsze ze światowej rozrywki od 2016 roku. Zaczynaliśmy od małych klubowych wydarzeń, a dziś wypełniamy największe hale w regionie.",
+    "story2": "Naszą misją jest przekształcenie industrialnej duszy Ostrawy w tętniące centrum rozrywki. Każdy koncert, każdy festiwal, każdy show — to nasz sposób, by powiedzieć światu:",
+    "ostravaLives": " Ostrawa żyje!!!",
+    "timeline": "Nasza droga",
+    "team": "Nasz zespół",
+    "cooperate": "Współpracuj z nami",
+    "cooperateDesc": "Zainteresowany współpracą lub chcesz zorganizować własne wydarzenie? Odezwij się do nas.",
+    "contactUs": "Skontaktuj się z nami!!!",
+    "t2016": "Założenie",
+    "t2016d": "Założenie RESTARTSTAGE PRODUCTION. Pierwsze klubowe wydarzenia w Ostrawie.",
+    "t2018": "Ostravar Aréna",
+    "t2018d": "Pierwsze wydarzenie w Ostravar Aréna — 5 000 entuzjastycznych widzów.",
+    "t2020": "Streaming online",
+    "t2020d": "Seria \"Ostrawa z domu\" — koncerty online podczas lockdownu.",
+    "t2022": "Dolní Vítkovice",
+    "t2022d": "Ekspansja do Dolní Vítkovice. Pierwsze festiwale open-air.",
+    "t2024": "50 000. odwiedzający",
+    "t2024d": "Kamień milowy — 50 000. odwiedzający na naszych wydarzeniach!!!",
+    "t2026": "Rekordowy sezon",
+    "t2026d": "Najbardziej ambitny sezon w historii. 6 dużych wydarzeń.",
+    "member1": "Jakub Novotný",
+    "role1": "Założyciel & CEO",
+    "bio1": "Ostrawianin ciałem i duszą. 15 lat w event production.",
+    "member2": "Tereza Kovářová",
+    "role2": "Dyrektor kreatywna",
+    "bio2": "Wizjonerka za każdym wizualem i brandingiem.",
+    "member3": "Martin Svoboda",
+    "role3": "Manager produkcji",
+    "bio3": "Geniusz logistyki. Poradzi sobie z każdym wyzwaniem."
+  },
+  "faqPage": {
+    "seoTitle": "FAQ | AKCE OSTRAVA!!!",
+    "seoDesc": "Często zadawane pytania o wydarzeniach, biletach i miejscach.",
+    "title": "FAQ",
+    "searchPlaceholder": "Szukaj w pytaniach...",
+    "all": "Wszystko",
+    "catTickets": "Bilety",
+    "catVenue": "Miejsce",
+    "catRefund": "Zwroty",
+    "catVip": "VIP",
+    "catGeneral": "Ogólne",
+    "noResults": "Nie znaleźliśmy odpowiedzi na Twoje pytanie.",
+    "contactUs": "Napisz do nas!!!"
+  },
+  "blog": {
+    "seoTitle": "Blog",
+    "seoDesc": "Przewodnik po koncertach, festiwalach i życiu kulturalnym w Ostrawie. Porady, recenzje i nowości ze świata muzyki na żywo.",
+    "title": "Blog",
+    "subtitle": "Przewodnik po koncertach, festiwalach i życiu kulturalnym w Ostrawie",
+    "searchPlaceholder": "Szukaj artykułów...",
+    "readTime": "{{time}} min czytania",
+    "readMore": "Czytaj dalej",
+    "loadMore": "Załaduj więcej ({{count}} pozostałych)",
+    "noSearchResults": "Brak artykułów dla \"{{query}}\". Spróbuj innego wyrażenia.",
+    "noArticles": "Brak artykułów w tej kategorii.",
+    "backToBlog": "Powrót do bloga",
+    "keywords": "Słowa kluczowe",
+    "relatedArticles": "Powiązane artykuły"
+  },
+  "blogClusters": {
+    "all": "Wszystko",
+    "koncerty_ostrava": "Koncerty",
+    "festivaly": "Festiwale",
+    "venues": "Miejsca",
+    "vstupenky": "Bilety",
+    "tipy_navstevnici": "Porady",
+    "ostrava_kultura": "Ostrawa",
+    "zanry": "Gatunki",
+    "sezona": "Sezon",
+    "zakulisi": "Za kulisami",
+    "rodiny": "Rodziny"
+  },
+  "stats": {
+    "title": "Ostrawa żyje",
+    "visitors": "Odwiedzających",
+    "visitorsLabel": "rocznie",
+    "eventsCount": "Wydarzeń",
+    "eventsLabel": "zorganizowanych",
+    "artists": "Artystów",
+    "artistsLabel": "międzynarodowych",
+    "experience": "Doświadczenia",
+    "experienceLabel": "lat na scenie"
+  },
+  "aboutMini": {
+    "title": "Dlaczego Ostrawa",
+    "description": "Ostrawa — stalowe serce republiki. Miasto, gdzie energię czuć na każdej ulicy, na każdym koncercie, w każdej chwili. Tę energię zamieniamy w niezapomniane doświadczenia.",
+    "worldArtists": "Światowi artyści",
+    "worldArtistsDesc": "Sprowadzamy najlepszych wykonawców ze światowej sceny prosto do Ostrawy.",
+    "iconicVenues": "Ikoniczne miejsca",
+    "iconicVenuesDesc": "Od Ostravar Arény po industrialne Dolní Vítkovice — unikalne scenerie dla niezapomnianych show.",
+    "unforgettable": "Niezapomniane doświadczenia",
+    "unforgettableDesc": "Każde wydarzenie jest starannie produkowane, aby dać Ci więcej niż tylko muzykę.",
+    "moreAbout": "Więcej o nas →"
+  },
+  "notFound": {
+    "seoTitle": "404 — Strona nie znaleziona",
+    "seoDesc": "Strona nie znaleziona. Sprawdź nasze wydarzenia w Ostrawie.",
+    "title": "Nic tu nie ma",
+    "cta": "Ale wydarzenia mamy →",
+    "checkOut": "Na razie sprawdź:"
+  },
+  "breadcrumb": {
+    "home": "Strona główna",
+    "events": "Wydarzenia",
+    "blog": "Blog"
+  },
+  "skipLink": "Przejdź do treści",
+  "months": {
+    "full": ["stycznia", "lutego", "marca", "kwietnia", "maja", "czerwca", "lipca", "sierpnia", "września", "października", "listopada", "grudnia"],
+    "short": ["STY", "LUT", "MAR", "KWI", "MAJ", "CZE", "LIP", "SIE", "WRZ", "PAŹ", "LIS", "GRU"]
+  },
+  "gdprPage": {
+    "seoTitle": "Polityka ochrony danych osobowych",
+    "seoDesc": "Polityka ochrony danych osobowych (GDPR) firmy RESTARTSTAGE PRODUCTION s.r.o.",
+    "title": "Polityka GDPR",
+    "lastUpdated": "Ostatnia aktualizacja: 1. 3. 2026"
+  },
+  "termsPage": {
+    "seoTitle": "Regulamin",
+    "seoDesc": "Regulamin RESTARTSTAGE PRODUCTION s.r.o. dotyczący zakupu biletów na wydarzenia w Ostrawie.",
+    "title": "Regulamin",
+    "lastUpdated": "Ostatnia aktualizacja: 1. 3. 2026"
+  }
+}

@@ -286,6 +286,98 @@ Organizátori kladú dôraz na vytváranie nezabudnuteľných rodinných zážit
       },
     },
   },
+
+  pl: {
+    'kollarovci-slezskoostravsky-hrad-2026': {
+      title: 'Kollárovci – Zamek Slezskoostravský',
+      subtitle: 'Niezapomniany wieczór pod gołym niebem z legendarnym słowackim zespołem',
+      description: `Kollárovci jadą do Ostrawy!!! Niezapomniany wieczór pod gołym niebem na dziedzińcu zamku Slezskoostravský z legendarnym słowackim zespołem, który od 1997 roku łączy pokolenia.
+
+Cymbały, skrzypce i wokal, który roztańczy każdego — to Kollárovci. Temperamentny występ pełen energii, legendarnych hitów i atmosfery, którą pokochacie. Koncert pod gwiazdami w unikatowej scenerii średniowiecznego zamku.
+
+1. fala biletów wyprzedana! Nie zwlekaj z zakupem 2. fali, zanim będzie za późno!!!`,
+      transport: 'Tramwaj nr 6, 12 – przystanek Slezskoostravská radnice, 10 minut pieszo. Parking przy Vodafone Arena (15 minut pieszo).',
+      tickets: {
+        't1-1': { name: 'Standard (2. fala)', features: ['Wstęp na wydarzenie', 'Miejsca stojące na dziedzińcu zamku'] },
+        't1-2': { name: 'VIP stojące przed sceną', features: ['Wstęp na wydarzenie', 'VIP miejsca stojące tuż przed sceną', 'Najlepszy widok'] },
+        't1-3': { name: 'VIP taras', features: ['Wstęp na wydarzenie', 'Ekskluzywny VIP taras', 'Premiumowy widok', 'VIP bar'] },
+      },
+      faq: [
+        { question: 'Od jakiego wieku jest wstęp?', answer: 'Wydarzenie jest dostępne dla wszystkich grup wiekowych. Dzieci do 10 lat wchodzą za darmo w towarzystwie osoby dorosłej.' },
+        { question: 'Co jeśli będzie padać?', answer: 'Wydarzenie odbywa się w każdych warunkach pogodowych. Zalecamy zabranie peleryny przeciwdeszczowej. W przypadku ekstremalnej pogody śledź informacje w mediach społecznościowych.' },
+        { question: 'Kiedy otwierają się bramy?', answer: 'Bramy zamku otwierają się o 17:00.' },
+      ],
+      genres: {},
+    },
+    'hradni-oldies-festival-2026': {
+      title: 'Castle Oldies Festival 2026',
+      subtitle: 'Cały dzień legend, nieśmiertelnych hitów i wspaniałej atmosfery',
+      description: `Lato, zamek i największe hity lat 70., 80. i 90.!!! Castle Oldies Festival wraca na dziedziniec zamku Slezskoostravský z line-upem, od którego zakręci Ci się w głowie. Village People, Michal David & band, East 17 i Tublatanka — cztery legendy na jednej scenie.
+
+Średniowieczne mury rozbrzmią disco beatami, pop-rockowymi hymnami i tanecznymi hitami, których nie da się zapomnieć. Od popołudnia do nocy — osiem godzin nieprzerwanej zabawy z food courtem, retro drinkami i atmosferą, która przeniesie Cię w czasie.
+
+To festiwal dla wszystkich pokoleń!!! Zamek Slezskoostravský oferuje unikatową scenerię, której nie ma żaden inny festiwal w Czechach.`,
+      transport: 'Tramwaj nr 6, 12 – przystanek Slezskoostravská radnice, 10 minut pieszo. Parking przy Vodafone Arena (15 minut pieszo).',
+      tickets: {
+        't2-1': { name: 'Standard', features: ['Wstęp na festiwal', 'Dostęp do wszystkich scen', 'Food court'] },
+        't2-2': { name: 'VIP stojące przed sceną', features: ['Wstęp na festiwal', 'VIP miejsca stojące tuż przed sceną', 'Najlepszy widok na główną scenę'] },
+        't2-3': { name: 'VIP taras', features: ['Wstęp na festiwal', 'Ekskluzywny VIP taras', 'Premiumowy widok', 'VIP bar', 'Wygodne miejsca siedzące'] },
+      },
+      faq: [
+        { question: 'Czy festiwal jest odpowiedni dla dzieci?', answer: 'Tak! Festiwal jest odpowiedni dla wszystkich grup wiekowych.' },
+        { question: 'Co zabrać ze sobą?', answer: 'Zalecamy wygodne ubranie i obuwie, pelerynę (open-air), okulary przeciwsłoneczne. Własne jedzenie i napoje nie są dozwolone.' },
+      ],
+      genres: {
+        'Disco': 'Disco',
+        'Pop': 'Pop',
+        'Pop / R&B': 'Pop / R&B',
+        'Rock': 'Rock',
+      },
+    },
+    'dj-bobo-adventure-ostrava-2026': {
+      title: 'DJ BoBo – Great Adventure / Arena Tour 2026',
+      subtitle: 'Przeżyj show, które zmienia wszystko',
+      description: `DJ BoBo wraca do Ostrawy z wielkolepą Arena Tour 2026!!! Great Adventure przywiezie do Ostravar Areny show, które zmienia wszystko. Przygotuj się na największe hity, pokazy pirotechniczne, choreografie i mega-produkcję, która uczyniła DJ BoBo jedną z najodniejszych europejskich ikon pop-dance.
+
+Everybody, Chihuahua, Freedom i dziesiątki innych hitów w nowym, wspaniałym wykonaniu. Laser show, ekrany LED, zespół taneczny — to nie jest koncert, to doświadczenie!!!
+
+Ostrawa jest jednym z nielicznych przystanków w Czechach. Nie zwlekaj z zakupem biletów!`,
+      transport: 'Tramwaj nr 1, 2, 11 – przystanek Městský stadion. Parking P1 (Cinstar) 200 m od areny.',
+      tickets: {
+        't3-1': { name: 'Trybuna', features: ['Wstęp na show', 'Miejsce na trybunie', 'Dostęp do barów'] },
+        't3-2': { name: 'VIP Trybuna', features: ['Wstęp na show', 'Premiumowe miejsce', 'VIP bar', 'Lepszy widok'] },
+        't3-3': { name: 'Golden Seating', features: ['Wstęp na show', 'Najlepsze miejsca w hali', 'Prywatne wejście', 'Welcome drink', 'VIP bar'] },
+      },
+      faq: [
+        { question: 'Od jakiego wieku jest wstęp?', answer: 'Wydarzenie jest dostępne od 12 lat. Dzieci do 15 lat muszą być w towarzystwie osoby dorosłej.' },
+        { question: 'Czy mogę przynieść własne napoje?', answer: 'Nie, własne napoje nie są dozwolone. W arenie dostępne są bary z szeroką ofertą.' },
+        { question: 'Kiedy otwierają się bramy?', answer: 'Bramy areny otwierają się o 18:30, czyli 90 minut przed rozpoczęciem show.' },
+      ],
+      genres: {},
+    },
+    'festacek-ostrava-2026': {
+      title: 'Fesťáček Ostrava 2026',
+      subtitle: 'Największy festiwal dla dzieci pełen muzyki, zabawy i niezapomnianych przeżyć dla całej rodziny',
+      description: `Fesťáček jedzie do Ostrawy!!! Jeden z największych festiwali dla dzieci w Czechach, który co roku przyciąga tysiące dzieci i rodzin. Koncerty na żywo popularnych wykonawców dla dzieci, interaktywne zajęcia, strefy edukacyjne i atrakcje rozrywkowe.
+
+Dmuchane zamki, malowanie twarzy, przejażdżki pociągiem, zabawy z balonami, klauni, maskotki, karuzele, zoo kontaktowe, pianowe imprezy, trampoliny i wiele więcej!!!
+
+Organizatorzy kładą nacisk na tworzenie niezapomnianych rodzinnych przeżyć poprzez muzykę, rozrywkę i edukację. Pobierz aplikację Fesťáček, aby uzyskać aktualne informacje o festiwalu.`,
+      transport: 'Przystanek komunikacji miejskiej Bělský les. Parking w okolicach terenu.',
+      tickets: {
+        't4-1': { name: '3. fala', features: ['Wstęp na festiwal', 'Dostęp do wszystkich stref', 'Wszystkie atrakcje w cenie'] },
+        't4-2': { name: 'Na miejscu', features: ['Wstęp na festiwal', 'Dostęp do wszystkich stref', 'Wszystkie atrakcje w cenie'] },
+      },
+      faq: [
+        { question: 'Czy festiwal jest odpowiedni dla małych dzieci?', answer: 'Tak! Festiwal jest przeznaczony dla dzieci w każdym wieku. Najmłodsze dzieci do 3 lat wchodzą za darmo.' },
+        { question: 'Co jest w cenie biletu?', answer: 'Bilet obejmuje wstęp na festiwal, dostęp do wszystkich stref i atrakcji, w tym dmuchanych zamków, trampolin, karuzeli i innych aktywności.' },
+        { question: 'Czy mogę przynieść własne jedzenie?', answer: 'Własne jedzenie i napoje nie są dozwolone. Na festiwalu dostępny jest food court z ofertą dla dzieci i dorosłych.' },
+      ],
+      genres: {
+        'Dětský program': 'Program dla dzieci',
+      },
+    },
+  },
 };
 
 export function getEventTranslation(slug: string, lang: Lang): EventTextTranslation | undefined {

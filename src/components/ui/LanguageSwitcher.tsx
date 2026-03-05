@@ -34,6 +34,14 @@ function Flag({ lang, className }: { lang: Lang; className?: string }) {
           <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z" />
         </svg>
       );
+    // Poland 🇵🇱
+    case 'pl':
+      return (
+        <svg viewBox="0 0 640 480" width={size} height={size * 0.75} className={cls} aria-hidden="true">
+          <path fill="#fff" d="M0 0h640v240H0z" />
+          <path fill="#dc143c" d="M0 240h640v240H0z" />
+        </svg>
+      );
     // Ukraine 🇺🇦
     case 'uk':
       return (

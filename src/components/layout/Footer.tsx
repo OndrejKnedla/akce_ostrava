@@ -17,7 +17,7 @@ export function Footer() {
       <OstravaSkyline className="text-white/5 absolute top-0 left-0 right-0" />
 
       <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 pt-24 pb-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 text-center md:text-left">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to={localePath('home')} className="font-heading text-2xl tracking-wider inline-block mb-4">
@@ -25,7 +25,7 @@ export function Footer() {
               <span className="text-ostrava-cyan">OSTRAVA</span>
               <span className="text-ostrava-red">!!!</span>
             </Link>
-            <p className="text-white/50 text-sm mb-6 max-w-sm">
+            <p className="text-white/50 text-sm mb-6 max-w-sm mx-auto md:mx-0">
               {t('footer.tagline')}
             </p>
           </div>
@@ -53,7 +53,7 @@ export function Footer() {
             </ul>
 
             <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-3">{t('footer.social')}</h4>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center md:justify-start gap-3">
               {[
                 { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/restartstage_production/' },
                 { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61569886395898' },
@@ -74,7 +74,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
+        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30 text-center md:text-left">
           <span>{t('footer.copyright')}</span>
           <span>{t('footer.taglineBrand')}</span>
         </div>

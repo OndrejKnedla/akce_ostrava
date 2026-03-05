@@ -58,7 +58,11 @@ export default function ContactPage() {
             >
               <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">{t('contact.connectTitle')}</h2>
 
-              <div className="mb-8" />
+              <div className="mb-6 text-ostrava-blue/60 text-sm space-y-1">
+                <p className="font-heading text-ostrava-blue text-base">RESTARTSTAGE PRODUCTION - FZCO</p>
+                <p>odštěpný závod</p>
+                <p>IČO: 22161104</p>
+              </div>
 
               <div className="flex gap-3 mb-8">
                 {[

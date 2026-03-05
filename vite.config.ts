@@ -7,6 +7,7 @@ function getPrerenderRoutes(): string[] {
   const langs = [
     { prefix: '', events: 'akce', contact: 'kontakt', terms: 'obchodni-podminky', gdpr: 'gdpr', about: 'o-nas', faq: 'faq' },
     { prefix: '/en', events: 'events', contact: 'contact', terms: 'terms', gdpr: 'gdpr', about: 'about', faq: 'faq' },
+    { prefix: '/pl', events: 'wydarzenia', contact: 'kontakt', terms: 'regulamin', gdpr: 'gdpr', about: 'o-nas', faq: 'faq' },
     { prefix: '/uk', events: 'akce', contact: 'kontakt', terms: 'gdpr', gdpr: 'gdpr', about: 'pro-nas', faq: 'faq' },
     { prefix: '/sk', events: 'akcie', contact: 'kontakt', terms: 'obchodne-podmienky', gdpr: 'gdpr', about: 'o-nas', faq: 'faq' },
   ];

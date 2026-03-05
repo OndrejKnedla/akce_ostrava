@@ -10,6 +10,7 @@ const TODAY = new Date().toISOString().split('T')[0];
 const langs = [
   { lang: 'cs', prefix: '', routes: { events: 'akce', contact: 'kontakt', terms: 'obchodni-podminky', gdpr: 'gdpr' } },
   { lang: 'en', prefix: '/en', routes: { events: 'events', contact: 'contact', terms: 'terms', gdpr: 'gdpr' } },
+  { lang: 'pl', prefix: '/pl', routes: { events: 'wydarzenia', contact: 'kontakt', terms: 'regulamin', gdpr: 'gdpr' } },
   { lang: 'uk', prefix: '/uk', routes: { events: 'akce', contact: 'kontakt', terms: 'gdpr', gdpr: 'gdpr' } },
   { lang: 'sk', prefix: '/sk', routes: { events: 'akcie', contact: 'kontakt', terms: 'obchodne-podmienky', gdpr: 'gdpr' } },
 ];
