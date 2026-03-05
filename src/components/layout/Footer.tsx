@@ -44,8 +44,8 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-4">Informace</h4>
             <ul className="space-y-2 mb-6">
-              <li><span className="text-white/50 text-sm cursor-default">Obchodní podmínky</span></li>
-              <li><span className="text-white/50 text-sm cursor-default">Zásady GDPR</span></li>
+              <li><Link to="/obchodni-podminky" className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">Obchodní podmínky</Link></li>
+              <li><Link to="/gdpr" className="text-white/50 text-sm hover:text-ostrava-cyan transition-colors">Zásady GDPR</Link></li>
             </ul>
 
             <h4 className="font-heading text-sm uppercase tracking-wider text-white mb-3">Sociální sítě</h4>

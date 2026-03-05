@@ -14,6 +14,8 @@ const EventDetailPage = lazy(() => import('@/pages/EventDetailPage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
 const FAQPage = lazy(() => import('@/pages/FAQPage'));
+const TermsPage = lazy(() => import('@/pages/TermsPage'));
+const GdprPage = lazy(() => import('@/pages/GdprPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
 const router = createBrowserRouter([
@@ -66,6 +68,22 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<SuspenseFallback />}>
             <FAQPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'obchodni-podminky',
+        element: (
+          <Suspense fallback={<SuspenseFallback />}>
+            <TermsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'gdpr',
+        element: (
+          <Suspense fallback={<SuspenseFallback />}>
+            <GdprPage />
           </Suspense>
         ),
       },

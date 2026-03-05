@@ -62,6 +62,20 @@
     animation: shimmer 2s ease-in-out infinite;
   }
 
+  /* Prose styling for legal pages */
+  .prose-ostrava h2 {
+    @apply font-heading text-xl uppercase text-ostrava-blue mt-10 mb-4;
+  }
+  .prose-ostrava p {
+    @apply text-ostrava-blue/70 leading-relaxed mb-4 text-sm;
+  }
+  .prose-ostrava ul {
+    @apply text-ostrava-blue/70 text-sm mb-4 ml-6 list-disc space-y-2;
+  }
+  .prose-ostrava li {
+    @apply leading-relaxed;
+  }
+
   /* Section separator */
   .section-separator {
     @apply flex items-center justify-center gap-2 py-4;
