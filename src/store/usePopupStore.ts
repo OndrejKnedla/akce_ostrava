@@ -6,7 +6,7 @@ interface PopupState {
   exitIntentShown: boolean;
   toastCount: number;
   activeModal: string | null;
-  dismissCookie: () => void;
+  dismissCookie: (consent?: string) => void;
   showNewsletter: () => void;
   showExitIntent: () => void;
   incrementToast: () => void;
@@ -23,8 +23,8 @@ export const usePopupStore = create<PopupState>((set, get) => ({
   toastCount: 0,
   activeModal: null,
 
-  dismissCookie: () => {
-    localStorage.setItem('cookie-consent', 'true');
+  dismissCookie: (consent?: string) => {
+    localStorage.setItem('cookie-consent', consent || 'all');
     set({ cookieDismissed: true });
   },
 
