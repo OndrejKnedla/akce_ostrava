@@ -9,18 +9,22 @@ import { getArticleBySlug, getRelatedArticles, blogClusters } from '@/data/blogA
 function renderMarkdown(body: string): string {
   let html = body;
 
-  // Headers
-  html = html.replace(/^### (.+)$/gm, '<h3 class="text-lg font-heading uppercase text-ostrava-blue mt-8 mb-3">$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2 class="text-xl md:text-2xl font-heading uppercase text-ostrava-blue mt-10 mb-4 pb-2 border-b-2 border-ostrava-cyan/30">$1</h2>');
+  // Fix double dashes to em-dashes
+  html = html.replace(/ -- /g, ' — ');
+  html = html.replace(/--/g, '—');
+
+  // Headers - readable, NOT uppercase
+  html = html.replace(/^### (.+)$/gm, '<h3 class="text-lg font-bold text-ostrava-blue/90 mt-8 mb-3">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 class="text-[22px] md:text-2xl font-bold text-ostrava-blue mt-10 mb-4 pb-2 border-b border-ostrava-blue/10">$1</h2>');
 
   // Bold and italic
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="text-ostrava-blue font-semibold">$1</strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-ostrava-blue/80">$1</strong>');
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
   // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-ostrava-cyan hover:underline">$1</a>');
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-ostrava-cyan underline decoration-ostrava-cyan/30 hover:decoration-ostrava-cyan transition-colors">$1</a>');
 
-  // Tables
+  // Tables - separator detection
   html = html.replace(/^\|(.+)\|$/gm, (match) => {
     const cells = match.split('|').filter((c) => c.trim());
     if (cells.every((c) => /^[\s-:]+$/.test(c))) {
@@ -40,17 +44,17 @@ function renderMarkdown(body: string): string {
       if (!inTable) {
         inTable = true;
         isFirstRow = true;
-        result.push('<div class="overflow-x-auto my-6"><table class="w-full border-collapse text-sm rounded-lg overflow-hidden shadow-sm">');
+        result.push('<div class="overflow-x-auto my-8 rounded-xl border border-ostrava-blue/10 shadow-sm"><table class="w-full border-collapse text-sm">');
       }
       const cells = line.split('|').filter((c) => c.trim()).map((c) => c.trim());
       if (isFirstRow) {
-        result.push('<thead><tr>' + cells.map((c) => `<th class="bg-ostrava-blue text-white px-4 py-3 text-left font-heading uppercase text-xs tracking-wider">${c}</th>`).join('') + '</tr></thead><tbody>');
+        result.push('<thead><tr>' + cells.map((c) => `<th class="bg-ostrava-blue/[0.06] px-4 py-3 text-left text-xs font-semibold text-ostrava-blue/70 uppercase tracking-wider border-b border-ostrava-blue/10">${c}</th>`).join('') + '</tr></thead><tbody>');
         isFirstRow = false;
       } else {
-        result.push('<tr class="even:bg-ostrava-blue/[0.03] hover:bg-ostrava-cyan/5 transition-colors">' + cells.map((c) => `<td class="px-4 py-2.5 border-b border-ostrava-blue/10">${c}</td>`).join('') + '</tr>');
+        result.push('<tr class="hover:bg-ostrava-cyan/[0.03] transition-colors">' + cells.map((c) => `<td class="px-4 py-3 border-b border-ostrava-blue/[0.06] text-ostrava-blue/65">${c}</td>`).join('') + '</tr>');
       }
     } else if (line.includes('<!-- separator -->')) {
-      // skip separator rows
+      // skip
     } else {
       if (inTable) {
         result.push('</tbody></table></div>');
@@ -66,19 +70,19 @@ function renderMarkdown(body: string): string {
   html = result.join('\n');
 
   // Unordered lists
-  html = html.replace(/^- (.+)$/gm, '<li class="ml-5 mb-1.5 list-disc text-ostrava-blue/70">$1</li>');
-  html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/g, (match) => `<ul class="my-4">${match}</ul>`);
+  html = html.replace(/^- (.+)$/gm, '<li class="mb-2">$1</li>');
+  html = html.replace(/(<li class="mb-2">.*<\/li>\n?)+/g, (match) => `<ul class="my-5 pl-5 space-y-0 list-disc marker:text-ostrava-cyan/50 text-[15px] leading-relaxed text-ostrava-blue/65">${match}</ul>`);
 
   // Ordered lists
-  html = html.replace(/^\d+\. (.+)$/gm, '<li class="ml-5 mb-1.5 list-decimal text-ostrava-blue/70">$1</li>');
+  html = html.replace(/^\d+\. (.+)$/gm, '<li class="mb-2">$1</li>');
 
   // Blockquotes
-  html = html.replace(/^> (.+)$/gm, '<blockquote class="border-l-4 border-ostrava-cyan pl-4 py-2 my-4 bg-ostrava-cyan/5 rounded-r-lg italic text-ostrava-blue/70">$1</blockquote>');
+  html = html.replace(/^> (.+)$/gm, '<blockquote class="border-l-4 border-ostrava-cyan/40 pl-5 py-3 my-6 bg-ostrava-cyan/[0.04] rounded-r-lg text-ostrava-blue/65 italic">$1</blockquote>');
 
-  // Paragraphs (lines that aren't already HTML)
-  html = html.replace(/^(?!<[a-z/!]|$)(.+)$/gm, '<p class="text-ostrava-blue/70 leading-relaxed mb-4">$1</p>');
+  // Paragraphs
+  html = html.replace(/^(?!<[a-z/!]|$)(.+)$/gm, '<p class="text-[15px] md:text-base text-ostrava-blue/65 leading-[1.8] mb-5">$1</p>');
 
-  // Clean up empty paragraphs
+  // Clean up
   html = html.replace(/<p[^>]*>\s*<\/p>/g, '');
 
   return html;
@@ -110,50 +114,52 @@ export default function BlogDetailPage() {
       </Helmet>
 
       {/* Hero with image */}
-      <section className="relative pt-20 md:pt-24">
+      <section className="relative">
         {/* Background image */}
-        <div className="absolute inset-0 h-[360px] md:h-[420px]">
+        <div className="h-[320px] md:h-[400px] relative">
           <img
             src={article.image.replace('w=800', 'w=1400').replace('h=500', 'h=600')}
             alt={article.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ostrava-blue via-ostrava-blue/80 to-ostrava-blue/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ostrava-blue via-ostrava-blue/70 to-ostrava-blue/30" />
         </div>
 
-        <div className="relative max-w-content mx-auto px-4 md:px-6 lg:px-8 pt-16 pb-12 md:pt-24 md:pb-16">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-white/50 hover:text-ostrava-cyan text-sm mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Zpet na blog
-          </Link>
+        <div className="absolute bottom-0 left-0 right-0">
+          <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 pb-10 md:pb-14">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 text-white/50 hover:text-ostrava-cyan text-sm mb-5 transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Zpet na blog
+            </Link>
 
-          <div className="flex items-center gap-3 mb-4">
-            <span className="px-3 py-1 rounded text-xs font-semibold bg-ostrava-cyan/20 text-ostrava-cyan border border-ostrava-cyan/30">
-              {clusterLabel}
-            </span>
-            <div className="flex items-center gap-1.5 text-white/50 text-xs">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>{new Date(article.date).toLocaleDateString('cs-CZ')}</span>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-white backdrop-blur-sm border border-white/20">
+                {clusterLabel}
+              </span>
+              <div className="flex items-center gap-1.5 text-white/60 text-xs">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>{new Date(article.date).toLocaleDateString('cs-CZ')}</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-white/60 text-xs">
+                <Clock className="w-3.5 h-3.5" />
+                <span>{article.readingTime} min</span>
+              </div>
             </div>
-            <div className="flex items-center gap-1.5 text-white/50 text-xs">
-              <Clock className="w-3.5 h-3.5" />
-              <span>{article.readingTime} min cteni</span>
-            </div>
+
+            <h1 className="text-2xl md:text-3xl lg:text-[38px] font-bold text-white max-w-3xl leading-tight">
+              {article.title}
+            </h1>
           </div>
-
-          <h1 className="font-heading text-2xl md:text-3xl lg:text-4xl uppercase text-white max-w-4xl leading-tight">
-            {article.title}
-          </h1>
         </div>
       </section>
 
       {/* Article body */}
-      <section className="py-10 md:py-16 bg-white">
+      <section className="py-10 md:py-14 bg-white">
         <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-[720px] mx-auto">
             <motion.article
               className="blog-article"
               initial={{ opacity: 0, y: 20 }}
@@ -164,12 +170,13 @@ export default function BlogDetailPage() {
 
             {/* Keywords */}
             {article.keywords.length > 0 && (
-              <div className="mt-12 pt-6 border-t border-ostrava-blue/10">
+              <div className="mt-14 pt-6 border-t border-ostrava-blue/10">
+                <p className="text-xs text-ostrava-blue/30 mb-3 font-medium uppercase tracking-wider">Klicova slova</p>
                 <div className="flex flex-wrap gap-2">
                   {article.keywords.map((kw) => (
                     <span
                       key={kw}
-                      className="px-3 py-1 rounded-full text-xs bg-ostrava-blue/5 text-ostrava-blue/50"
+                      className="px-3 py-1.5 rounded-full text-xs bg-ostrava-blue/[0.04] text-ostrava-blue/50 border border-ostrava-blue/[0.06]"
                     >
                       {kw}
                     </span>
@@ -183,17 +190,17 @@ export default function BlogDetailPage() {
 
       {/* Related articles */}
       {related.length > 0 && (
-        <section className="py-12 bg-ostrava-blue/[0.03]">
+        <section className="py-14 bg-[#f8f9fb]">
           <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8">
-            <h2 className="font-heading text-xl uppercase text-ostrava-blue mb-8 text-center">
-              Související články
+            <h2 className="text-xl font-bold text-ostrava-blue mb-8 text-center">
+              Souvisejici clanky
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {related.map((rel) => (
                 <Link
                   key={rel.id}
                   to={`/blog/${rel.slug}`}
-                  className="group block bg-white border border-ostrava-blue/10 rounded-xl overflow-hidden hover:shadow-md hover:border-ostrava-cyan/20 transition-all"
+                  className="group block bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-ostrava-cyan/15"
                 >
                   <div className="overflow-hidden" style={{ aspectRatio: '16/9' }}>
                     <img
@@ -204,7 +211,7 @@ export default function BlogDetailPage() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-bold text-sm text-ostrava-blue mb-2 line-clamp-2 group-hover:text-ostrava-cyan transition-colors">
+                    <h3 className="font-bold text-sm text-ostrava-blue mb-2 line-clamp-2 group-hover:text-ostrava-cyan transition-colors leading-snug">
                       {rel.title}
                     </h3>
                     <p className="text-ostrava-blue/50 text-xs leading-relaxed line-clamp-2 mb-3">
