@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { HeroSection } from '@/components/hero/HeroSection';
 import { EventShowcase } from '@/components/events/EventShowcase';
-import { StatsSection } from '@/components/sections/StatsSection';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
 import { getUpcomingEvents } from '@/data/events';
@@ -103,14 +102,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section separator */}
-      <div className="section-separator bg-white">
-        <div className="w-16 h-px bg-ostrava-blue/20" />
-        <span className="text-ostrava-red">!</span><span className="text-ostrava-red">!</span><span className="text-ostrava-red">!</span>
-        <div className="w-16 h-px bg-ostrava-blue/20" />
-      </div>
-
-      <StatsSection />
     </PageTransition>
   );
 }
