@@ -31,7 +31,7 @@ export default function HomePage() {
         <div
           className="flex w-max items-center"
           style={{
-            animation: 'marquee-scroll 10s linear infinite',
+            animation: 'marquee-scroll 30s linear infinite',
           }}
         >
           {[0, 1].map((setIdx) => (
