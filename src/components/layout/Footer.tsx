@@ -19,18 +19,6 @@ export function Footer() {
             <p className="text-white/50 text-sm mb-6 max-w-sm">
               Ocelové srdce zábavy. Nejlepší koncerty, festivaly a show v Ostravě a okolí.
             </p>
-            <div className="flex items-center gap-2 text-sm text-white/50 mb-2">
-              <span>📧</span>
-              <a href="mailto:info@akceostrava.cz" className="hover:text-ostrava-cyan transition-colors">
-                info@akceostrava.cz
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-white/50">
-              <span>📱</span>
-              <a href="tel:+420596123456" className="hover:text-ostrava-cyan transition-colors">
-                +420 596 123 456
-              </a>
-            </div>
           </div>
 
           {/* Nav */}

@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from 'lucide-react';
+import { Instagram, Facebook, Youtube } from 'lucide-react';
 import { SplitText } from '@/components/ui/SplitText';
 import { Button } from '@/components/ui/Button';
-import { Accordion } from '@/components/ui/Accordion';
 import { useToast } from '@/components/ui/Toast';
 import { PageTransition } from '@/components/layout/PageTransition';
-import { generalFaq } from '@/data/faq';
 
 export default function ContactPage() {
   const { addToast } = useToast();
@@ -57,35 +55,7 @@ export default function ContactPage() {
             >
               <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">Spojte se s námi</h2>
 
-              <div className="space-y-5 mb-8">
-                <div className="flex items-start gap-4">
-                  <Mail className="w-5 h-5 text-ostrava-cyan mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-ostrava-blue/40 text-xs uppercase mb-1">E-mail</p>
-                    <a href="mailto:info@akceostrava.cz" className="text-ostrava-blue hover:text-ostrava-cyan transition-colors">
-                      info@akceostrava.cz
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Phone className="w-5 h-5 text-ostrava-cyan mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-ostrava-blue/40 text-xs uppercase mb-1">Telefon</p>
-                    <a href="tel:+420596123456" className="text-ostrava-blue hover:text-ostrava-cyan transition-colors">
-                      +420 596 123 456
-                    </a>
-                    <p className="text-ostrava-blue/30 text-xs mt-0.5">Po–Pá 9:00–17:00</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-ostrava-cyan mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-ostrava-blue/40 text-xs uppercase mb-1">Adresa</p>
-                    <p className="text-ostrava-blue">Stodolní 12</p>
-                    <p className="text-ostrava-blue/60">702 00 Ostrava</p>
-                  </div>
-                </div>
-              </div>
+              <div className="mb-8" />
 
               <div className="flex gap-3 mb-8">
                 {[Instagram, Facebook, Youtube].map((Icon, i) => (
@@ -99,16 +69,6 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Map */}
-              <div className="rounded-lg overflow-hidden" style={{ aspectRatio: '16/10' }}>
-                <iframe
-                  src="https://maps.google.com/maps?q=Stodolní+12+Ostrava&output=embed"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  title="Mapa kanceláře"
-                  allowFullScreen
-                />
-              </div>
             </motion.div>
 
             {/* Form */}
@@ -175,15 +135,6 @@ export default function ContactPage() {
             </motion.div>
           </div>
 
-          {/* FAQ */}
-          <div className="mt-16">
-            <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6 text-center">
-              Často kladené otázky
-            </h2>
-            <div className="max-w-2xl mx-auto">
-              <Accordion items={generalFaq.slice(0, 5)} />
-            </div>
-          </div>
         </div>
       </section>
     </PageTransition>
