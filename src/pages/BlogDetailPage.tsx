@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { SeoHead } from '@/seo/SeoHead';
+import { BreadcrumbJsonLd } from '@/seo/BreadcrumbJsonLd';
+import { BlogPostingJsonLd } from '@/seo/BlogPostingJsonLd';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, ChevronRight } from 'lucide-react';
 import { PageTransition } from '@/components/layout/PageTransition';
@@ -106,12 +108,36 @@ export default function BlogDetailPage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>{article.title} | AKCE OSTRAVA!!!</title>
-        <meta name="description" content={article.metaDescription} />
-        <meta name="keywords" content={article.keywords.join(', ')} />
-        <link rel="canonical" href={`https://akceostrava.cz/blog/${article.slug}`} />
-      </Helmet>
+      <SeoHead
+        title={article.title}
+        description={article.metaDescription}
+        canonical={`https://akceostrava.cz/blog/${article.slug}`}
+        ogType="article"
+        ogImage={article.image}
+        keywords={article.keywords.join(', ')}
+        article={{
+          publishedTime: article.date,
+          section: clusterLabel,
+          tags: article.keywords,
+        }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Domů', url: 'https://akceostrava.cz/' },
+          { name: 'Blog', url: 'https://akceostrava.cz/blog' },
+          { name: article.title, url: `https://akceostrava.cz/blog/${article.slug}` },
+        ]}
+      />
+      <BlogPostingJsonLd
+        title={article.title}
+        description={article.metaDescription}
+        datePublished={article.date}
+        image={article.image}
+        url={`https://akceostrava.cz/blog/${article.slug}`}
+        keywords={article.keywords}
+        wordCount={article.wordCount}
+        section={clusterLabel}
+      />
 
       {/* Hero with image */}
       <section className="relative">

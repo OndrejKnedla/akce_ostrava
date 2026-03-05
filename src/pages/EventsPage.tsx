@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useSearchParams } from 'react-router-dom';
+import { SeoHead } from '@/seo/SeoHead';
 import { motion } from 'framer-motion';
 import { SplitText } from '@/components/ui/SplitText';
 import { EventGrid } from '@/components/events/EventGrid';
@@ -52,10 +52,11 @@ export default function EventsPage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>Všechny akce | AKCE OSTRAVA!!!</title>
-        <meta name="description" content="Prohlédněte si kompletní nabídku koncertů, festivalů a show v Ostravě." />
-      </Helmet>
+      <SeoHead
+        title="Všechny akce"
+        description="Prohlédněte si kompletní nabídku koncertů, festivalů a show v Ostravě."
+        canonical="https://akceostrava.cz/akce"
+      />
 
       {/* Mini hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">

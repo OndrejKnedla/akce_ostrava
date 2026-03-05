@@ -9,6 +9,7 @@ import { CookieBanner } from '@/components/ui/CookieBanner';
 import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup';
 
 import { SocialProofToast } from '@/components/ui/SocialProofToast';
+import { OrganizationJsonLd } from '@/seo/OrganizationJsonLd';
 import { Analytics } from '@vercel/analytics/react';
 import { useEffect } from 'react';
 
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <>
+      <OrganizationJsonLd />
       <SkipLink />
 
       <ScrollProgress />

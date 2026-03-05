@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { SeoHead } from '@/seo/SeoHead';
+import { BreadcrumbJsonLd } from '@/seo/BreadcrumbJsonLd';
 import { Calendar, MapPin, Share2 } from 'lucide-react';
 import { getEventBySlug, getRelatedEvents } from '@/data/events';
 import { formatCzechDate } from '@/utils/formatCzechDate';
@@ -70,14 +71,20 @@ export default function EventDetailPage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>{event.title} | AKCE OSTRAVA!!!</title>
-        <meta name="description" content={event.subtitle} />
-        <meta property="og:title" content={`${event.title} | AKCE OSTRAVA!!!`} />
-        <meta property="og:description" content={event.subtitle} />
-        <meta property="og:image" content={event.image} />
-      </Helmet>
+      <SeoHead
+        title={event.title}
+        description={event.subtitle}
+        canonical={`https://akceostrava.cz/akce/${event.slug}`}
+        ogImage={event.image}
+      />
       <EventJsonLd event={event} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Domů', url: 'https://akceostrava.cz/' },
+          { name: 'Akce', url: 'https://akceostrava.cz/akce' },
+          { name: event.title, url: `https://akceostrava.cz/akce/${event.slug}` },
+        ]}
+      />
 
       {/* Hero */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">

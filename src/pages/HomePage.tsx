@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SeoHead } from '@/seo/SeoHead';
 import { HeroSection } from '@/components/hero/HeroSection';
 import { EventShowcase } from '@/components/events/EventShowcase';
 import { SplitText } from '@/components/ui/SplitText';
@@ -12,10 +12,11 @@ export default function HomePage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>AKCE OSTRAVA!!! — Koncerty, Festivaly, Zážitky</title>
-        <meta name="description" content="Nejlepší koncerty, festivaly a show v Ostravě. Ocelové srdce zábavy!!!" />
-      </Helmet>
+      <SeoHead
+        title="AKCE OSTRAVA!!! — Koncerty, Festivaly, Zážitky"
+        description="Nejlepší koncerty, festivaly a show v Ostravě. Ocelové srdce zábavy!!!"
+        canonical="https://akceostrava.cz/"
+      />
 
       <HeroSection />
 

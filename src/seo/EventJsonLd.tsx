@@ -17,9 +17,7 @@ export function EventJsonLd({ event }: EventJsonLdProps) {
     name: event.title,
     description: event.description.substring(0, 300),
     startDate,
-    eventStatus: event.status === 'sold-out'
-      ? 'https://schema.org/EventCancelled'
-      : 'https://schema.org/EventScheduled',
+    eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
@@ -46,7 +44,7 @@ export function EventJsonLd({ event }: EventJsonLdProps) {
     image: event.image,
     organizer: {
       '@type': 'Organization',
-      name: 'RESTARTSTAGE PRODUCTION s.r.o.',
+      name: 'RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod',
       url: 'https://akceostrava.cz',
     },
   };

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Link, useSearchParams } from 'react-router-dom';
+import { SeoHead } from '@/seo/SeoHead';
 import { motion } from 'framer-motion';
 import { Clock, ArrowRight, Search } from 'lucide-react';
 import { SplitText } from '@/components/ui/SplitText';
@@ -54,13 +54,11 @@ export default function BlogPage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>Blog | AKCE OSTRAVA!!!</title>
-        <meta
-          name="description"
-          content="Pruvodce koncerty, festivaly a kulturnim zivotem v Ostrave. Tipy, recenze a novinky ze sveta zive hudby."
-        />
-      </Helmet>
+      <SeoHead
+        title="Blog"
+        description="Pruvodce koncerty, festivaly a kulturnim zivotem v Ostrave. Tipy, recenze a novinky ze sveta zive hudby."
+        canonical="https://akceostrava.cz/blog"
+      />
 
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">

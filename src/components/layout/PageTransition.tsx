@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 interface PageTransitionProps {
@@ -8,6 +8,10 @@ interface PageTransitionProps {
 
 export function PageTransition({ children }: PageTransitionProps) {
   const reduced = useReducedMotion();
+
+  useEffect(() => {
+    document.dispatchEvent(new Event('prerender-ready'));
+  }, []);
 
   if (reduced) {
     return <>{children}</>;

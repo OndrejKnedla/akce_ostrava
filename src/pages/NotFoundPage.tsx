@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { SeoHead } from '@/seo/SeoHead';
 import { Button } from '@/components/ui/Button';
 import { EventCard } from '@/components/events/EventCard';
 import { PageTransition } from '@/components/layout/PageTransition';
@@ -10,9 +10,11 @@ export default function NotFoundPage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>404 — Stránka nenalezena | AKCE OSTRAVA!!!</title>
-      </Helmet>
+      <SeoHead
+        title="404 — Stránka nenalezena"
+        description="Stránka nebyla nalezena. Podívejte se na naše akce v Ostravě."
+        noindex
+      />
 
       <section className="min-h-screen flex items-center justify-center bg-dark relative overflow-hidden pt-20">
         {/* Floating particles */}

@@ -1,14 +1,15 @@
-import { Helmet } from 'react-helmet-async';
+import { SeoHead } from '@/seo/SeoHead';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
 
 export default function TermsPage() {
   return (
     <PageTransition>
-      <Helmet>
-        <title>Obchodní podmínky | AKCE OSTRAVA!!!</title>
-        <meta name="description" content="Obchodní podmínky RESTARTSTAGE PRODUCTION s.r.o. pro nákup vstupenek na akce v Ostravě." />
-      </Helmet>
+      <SeoHead
+        title="Obchodní podmínky"
+        description="Obchodní podmínky RESTARTSTAGE PRODUCTION s.r.o. pro nákup vstupenek na akce v Ostravě."
+        canonical="https://akceostrava.cz/obchodni-podminky"
+      />
 
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white">

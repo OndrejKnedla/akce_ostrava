@@ -1,14 +1,15 @@
-import { Helmet } from 'react-helmet-async';
+import { SeoHead } from '@/seo/SeoHead';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
 
 export default function GdprPage() {
   return (
     <PageTransition>
-      <Helmet>
-        <title>Zásady ochrany osobních údajů | AKCE OSTRAVA!!!</title>
-        <meta name="description" content="Zásady ochrany osobních údajů (GDPR) společnosti RESTARTSTAGE PRODUCTION s.r.o." />
-      </Helmet>
+      <SeoHead
+        title="Zásady ochrany osobních údajů"
+        description="Zásady ochrany osobních údajů (GDPR) společnosti RESTARTSTAGE PRODUCTION s.r.o."
+        canonical="https://akceostrava.cz/gdpr"
+      />
 
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
         <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl uppercase text-white">

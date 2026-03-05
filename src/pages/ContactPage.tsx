@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { SeoHead } from '@/seo/SeoHead';
 import { Instagram, Facebook } from 'lucide-react';
 import { SplitText } from '@/components/ui/SplitText';
 import { Button } from '@/components/ui/Button';
@@ -30,10 +30,11 @@ export default function ContactPage() {
 
   return (
     <PageTransition>
-      <Helmet>
-        <title>Kontakt | AKCE OSTRAVA!!!</title>
-        <meta name="description" content="Kontaktujte RESTARTSTAGE PRODUCTION — organizátory akcí v Ostravě." />
-      </Helmet>
+      <SeoHead
+        title="Kontakt"
+        description="Kontaktujte RESTARTSTAGE PRODUCTION — organizátory akcí v Ostravě."
+        canonical="https://akceostrava.cz/kontakt"
+      />
 
       {/* Hero */}
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-ostrava-blue to-ostrava-blue/80 text-center">
@@ -142,6 +143,12 @@ export default function ContactPage() {
 
         </div>
       </section>
+
+      <div className="py-6 bg-white border-t border-ostrava-blue/10 text-center">
+        <p className="text-ostrava-blue/40 text-xs">
+          &copy; 2026 RESTARTSTAGE PRODUCTION - FZCO, odštěpný závod, IČO: 22161104
+        </p>
+      </div>
     </PageTransition>
   );
 }
