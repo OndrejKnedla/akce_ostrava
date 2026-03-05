@@ -14,6 +14,8 @@ const EventDetailPage = lazy(() => import('@/pages/EventDetailPage'));
 const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
 const FAQPage = lazy(() => import('@/pages/FAQPage'));
+const BlogPage = lazy(() => import('@/pages/BlogPage'));
+const BlogDetailPage = lazy(() => import('@/pages/BlogDetailPage'));
 const TermsPage = lazy(() => import('@/pages/TermsPage'));
 const GdprPage = lazy(() => import('@/pages/GdprPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
@@ -68,6 +70,22 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<SuspenseFallback />}>
             <FAQPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'blog',
+        element: (
+          <Suspense fallback={<SuspenseFallback />}>
+            <BlogPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'blog/:slug',
+        element: (
+          <Suspense fallback={<SuspenseFallback />}>
+            <BlogDetailPage />
           </Suspense>
         ),
       },

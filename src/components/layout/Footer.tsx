@@ -28,6 +28,7 @@ export function Footer() {
               {[
                 { to: '/akce', label: 'Akce' },
                 { to: '/o-nas', label: 'O nás' },
+                { to: '/blog', label: 'Blog' },
                 { to: '/kontakt', label: 'Kontakt' },
                 { to: '/faq', label: 'FAQ' },
               ].map((link) => (

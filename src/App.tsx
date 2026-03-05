@@ -4,7 +4,6 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 
-import { BackToTop } from '@/components/ui/BackToTop';
 import { SkipLink } from '@/components/ui/SkipLink';
 import { CookieBanner } from '@/components/ui/CookieBanner';
 import { ExitIntentPopup } from '@/components/ui/ExitIntentPopup';
@@ -44,7 +43,6 @@ export default function App() {
       <CookieBanner />
       <ExitIntentPopup />
       <SocialProofToast />
-      <BackToTop />
       <Analytics />
     </>
   );
