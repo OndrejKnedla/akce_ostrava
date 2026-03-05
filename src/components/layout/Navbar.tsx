@@ -9,10 +9,8 @@ import { MobileMenu } from './MobileMenu';
 const navLinks = [
   { to: '/', label: 'Úvod' },
   { to: '/akce', label: 'Akce' },
-  { to: '/o-nas', label: 'O nás' },
   { to: '/blog', label: 'Blog' },
   { to: '/kontakt', label: 'Kontakt' },
-  { to: '/faq', label: 'FAQ' },
 ];
 
 export function Navbar() {

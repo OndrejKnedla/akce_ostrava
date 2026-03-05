@@ -11,9 +11,7 @@ import './index.css';
 const HomePage = lazy(() => import('@/pages/HomePage'));
 const EventsPage = lazy(() => import('@/pages/EventsPage'));
 const EventDetailPage = lazy(() => import('@/pages/EventDetailPage'));
-const AboutPage = lazy(() => import('@/pages/AboutPage'));
 const ContactPage = lazy(() => import('@/pages/ContactPage'));
-const FAQPage = lazy(() => import('@/pages/FAQPage'));
 const BlogPage = lazy(() => import('@/pages/BlogPage'));
 const BlogDetailPage = lazy(() => import('@/pages/BlogDetailPage'));
 const TermsPage = lazy(() => import('@/pages/TermsPage'));
@@ -50,26 +48,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: 'o-nas',
-        element: (
-          <Suspense fallback={<SuspenseFallback />}>
-            <AboutPage />
-          </Suspense>
-        ),
-      },
-      {
         path: 'kontakt',
         element: (
           <Suspense fallback={<SuspenseFallback />}>
             <ContactPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'faq',
-        element: (
-          <Suspense fallback={<SuspenseFallback />}>
-            <FAQPage />
           </Suspense>
         ),
       },
