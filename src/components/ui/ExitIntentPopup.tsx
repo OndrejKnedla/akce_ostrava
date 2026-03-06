@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { usePopupStore } from '@/store/usePopupStore';
-import { getFeaturedEvent } from '@/data/events';
+import { getEventBySlug } from '@/data/events';
 import { translateEvent } from '@/utils/translateEvent';
 import { Modal } from './Modal';
 import { Button } from './Button';
@@ -10,7 +10,8 @@ export function ExitIntentPopup() {
   const { t, lang, localePath } = useLocale();
   const [show, setShow] = useState(false);
   const { canShowExitIntent, showExitIntent, setActiveModal } = usePopupStore();
-  const event = translateEvent(getFeaturedEvent(), lang);
+  const rawEvent = getEventBySlug('hradni-oldies-festival-2026');
+  const event = rawEvent ? translateEvent(rawEvent, lang) : null;
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -36,6 +37,8 @@ export function ExitIntentPopup() {
     setShow(false);
     setActiveModal(null);
   };
+
+  if (!event) return null;
 
   return (
     <Modal isOpen={show} onClose={handleClose} title="Exit intent">
