@@ -95,7 +95,7 @@ export default function EventDetailPage() {
         <img
           src={event.image}
           alt={event.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-bottom"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
