@@ -281,8 +281,8 @@ Předprodej vstupenek začíná v pondělí!!! Buďte u toho, až Ostrava zažij
     gallery: [],
     tickets: [],
     lineup: [
-      { name: 'Scooter', genre: 'Rave / Techno', image: '/images/SCOOTER_FB_FINAL.png' },
-      { name: 'DJ Antoine', genre: 'Dance / House', image: '/images/SCOOTER_FB_FINAL.png' },
+      { name: 'Scooter', genre: 'Rave / Techno', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/2022_Rock_im_Park_-_Scooter_-_H_P_Baxxter_-_by_2eight_-_9SC7105.jpg/800px-2022_Rock_im_Park_-_Scooter_-_H_P_Baxxter_-_by_2eight_-_9SC7105.jpg' },
+      { name: 'DJ Antoine', genre: 'Dance / House', image: 'https://upload.wikimedia.org/wikipedia/commons/c/c4/DJ_Antoine_live_2013_3.jpg' },
       { name: 'Merlin', genre: 'Dance', image: '/images/SCOOTER_FB_FINAL.png' },
       { name: 'Vanesa Hardt & Doom', genre: 'DJ Set', image: '/images/SCOOTER_FB_FINAL.png' },
     ],

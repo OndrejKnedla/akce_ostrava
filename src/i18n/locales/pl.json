@@ -31,7 +31,9 @@
     "upcomingEventsDesc": "Trzy wydarzenia, które musisz w tym roku przeżyć w Ostrawie. Kup bilety, zanim będzie za późno.",
     "comingSoon": "Wkrótce ogłosimy kolejne wydarzenia",
     "comingSoonDesc": "Śledź naszą stronę i media społecznościowe, żeby niczego nie przegapić.",
-    "viewAll": "Zobacz wszystkie wydarzenia"
+    "viewAll": "Zobacz wszystkie wydarzenia",
+    "presaleIn": "Przedsprzedaż rusza za",
+    "presaleStarted": "Przedsprzedaż rozpoczęta!!!"
   },
   "events": {
     "seoTitle": "Wszystkie wydarzenia",

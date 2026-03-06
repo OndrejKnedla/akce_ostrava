@@ -1,10 +1,11 @@
 import { SeoHead } from '@/seo/SeoHead';
 import { HeroSection } from '@/components/hero/HeroSection';
 import { EventShowcase } from '@/components/events/EventShowcase';
+import { Countdown } from '@/components/events/Countdown';
 import { SplitText } from '@/components/ui/SplitText';
 import { PageTransition } from '@/components/layout/PageTransition';
-import { getUpcomingEvents } from '@/data/events';
-import { translateEvents } from '@/utils/translateEvent';
+import { getUpcomingEvents, getEventBySlug } from '@/data/events';
+import { translateEvents, translateEvent } from '@/utils/translateEvent';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useLocale } from '@/i18n/useLocale';
@@ -12,6 +13,8 @@ import { useLocale } from '@/i18n/useLocale';
 export default function HomePage() {
   const { t, lang, localePath } = useLocale();
   const events = translateEvents(getUpcomingEvents(), lang);
+  const rawScooter = getEventBySlug('steel-rave-ostrava-2026');
+  const scooter = rawScooter ? translateEvent(rawScooter, lang) : null;
 
   return (
     <PageTransition>
@@ -22,6 +25,58 @@ export default function HomePage() {
       />
 
       <HeroSection />
+
+      {/* Steel Rave — Pre-sale countdown */}
+      {scooter && (
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={scooter.image} alt={scooter.title} className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
+          </div>
+          <div className="relative z-10 max-w-content mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
+            <div className="max-w-2xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <p className="font-heading text-ostrava-cyan text-sm uppercase tracking-wider mb-2">18. 9. 2026 · Ostravar Aréna</p>
+                <h2 className="font-heading text-3xl md:text-5xl uppercase text-white mb-3">
+                  {scooter.title}
+                </h2>
+                <p className="text-white/60 text-sm md:text-base mb-8">{scooter.subtitle}</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <p className="font-heading text-white uppercase text-sm tracking-wider mb-4">
+                  {t('home.presaleIn')}<span className="text-ostrava-red">!!!</span>
+                </p>
+                <Countdown targetDate="2026-03-09" targetTime="18:00" />
+              </motion.div>
+
+              <motion.div
+                className="mt-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+              >
+                <Link
+                  to={localePath('event', { slug: scooter.slug })}
+                  className="inline-block font-heading uppercase text-sm tracking-wider text-ostrava-cyan border border-ostrava-cyan/40 rounded-lg px-6 py-3 hover:bg-ostrava-cyan/10 transition-all"
+                >
+                  {t('events.aboutEvent')} →
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Partner logos marquee */}
       <div className="relative py-8 overflow-hidden bg-ostrava-blue">

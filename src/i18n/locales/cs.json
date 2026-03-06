@@ -31,7 +31,9 @@
     "upcomingEventsDesc": "Tři akce, které musíš letos v Ostravě zažít. Kup vstupenky, než bude pozdě.",
     "comingSoon": "Brzy oznámíme další akce",
     "comingSoonDesc": "Sledujte naše stránky a sociální sítě, ať vám nic neunikne.",
-    "viewAll": "Zobrazit všechny akce"
+    "viewAll": "Zobrazit všechny akce",
+    "presaleIn": "Předprodej startuje za",
+    "presaleStarted": "Předprodej spuštěn!!!"
   },
   "events": {
     "seoTitle": "Všechny akce",

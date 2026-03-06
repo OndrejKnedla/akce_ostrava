@@ -31,7 +31,9 @@
     "upcomingEventsDesc": "Tri akcie, ktoré musíte tento rok v Ostrave zažiť. Kúpte vstupenky, kým nie je neskoro.",
     "comingSoon": "Čoskoro oznámime ďalšie akcie",
     "comingSoonDesc": "Sledujte naše stránky a sociálne siete, aby vám nič neuniklo.",
-    "viewAll": "Zobraziť všetky akcie"
+    "viewAll": "Zobraziť všetky akcie",
+    "presaleIn": "Predpredaj štartuje za",
+    "presaleStarted": "Predpredaj spustený!!!"
   },
   "events": {
     "seoTitle": "Všetky akcie",

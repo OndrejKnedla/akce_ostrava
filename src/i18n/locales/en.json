@@ -31,7 +31,9 @@
     "upcomingEventsDesc": "Three events you have to experience in Ostrava this year. Get your tickets before it's too late.",
     "comingSoon": "More events coming soon",
     "comingSoonDesc": "Follow our website and social media so you don't miss a thing.",
-    "viewAll": "View all events"
+    "viewAll": "View all events",
+    "presaleIn": "Pre-sale starts in",
+    "presaleStarted": "Pre-sale is live!!!"
   },
   "events": {
     "seoTitle": "All events",
