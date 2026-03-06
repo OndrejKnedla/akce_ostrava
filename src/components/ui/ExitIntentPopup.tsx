@@ -43,7 +43,7 @@ export function ExitIntentPopup() {
         <img
           src={event.image}
           alt={event.title}
-          className="w-full h-40 object-cover rounded-lg mb-4"
+          className="w-full h-56 md:h-64 object-cover rounded-lg mb-6"
         />
         <h3 className="font-heading text-2xl uppercase text-ostrava-blue mb-2">
           {t('exitIntent.dontMiss', { title: event.title })}

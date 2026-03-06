@@ -35,7 +35,7 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
         >
           <div className="absolute inset-0 bg-black/70" onClick={onClose} />
           <motion.div
-            className="glass relative z-10 w-full max-w-lg p-6 md:p-8"
+            className="glass relative z-10 w-full max-w-xl p-6 md:p-8"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
