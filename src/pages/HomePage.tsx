@@ -29,8 +29,11 @@ export default function HomePage() {
       {/* Steel Rave — Pre-sale countdown */}
       {scooter && (
         <section className="bg-ostrava-blue">
-          <Link to={localePath('event', { slug: scooter.slug })}>
-            <img src={scooter.image} alt={scooter.title} className="w-full h-auto block" />
+          <Link to={localePath('event', { slug: scooter.slug })} className="relative block overflow-hidden">
+            {/* Blurred background fill */}
+            <img src={scooter.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110" />
+            {/* Original size image centered */}
+            <img src={scooter.image} alt={scooter.title} className="relative mx-auto max-w-content w-full h-auto block" />
           </Link>
           <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10 text-center">
             <motion.p
