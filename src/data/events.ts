@@ -263,7 +263,7 @@ Organizátoři kladou důraz na vytváření nezapomenutelných rodinných záž
     subtitle: 'Největší rave festival v Ostravě s legendárním Scooterem!!!',
     category: 'festival',
     date: '2026-09-18',
-    time: '16:00',
+    time: '18:00',
     endTime: '23:59',
     venue: {
       name: 'Ostravar Aréna',
@@ -292,7 +292,7 @@ Předprodej vstupenek začíná v pondělí!!! Buďte u toho, až Ostrava zažij
     featured: true,
     faq: [
       { question: 'Kdy začíná předprodej?', answer: 'Předprodej vstupenek startuje v pondělí. Sledujte naše stránky a sociální sítě pro více informací.' },
-      { question: 'Kdy se otevírají brány?', answer: 'Brány Ostravar Arény se otevírají v 16:00.' },
+      { question: 'Kdy se otevírají brány?', answer: 'Brány Ostravar Arény se otevírají v 18:00.' },
       { question: 'Od kolika let je vstup?', answer: 'Akce je přístupná od 15 let. Osoby do 18 let musí být v doprovodu dospělé osoby.' },
     ],
   },
