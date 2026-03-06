@@ -91,12 +91,11 @@ export default function EventDetailPage() {
       />
 
       {/* Hero */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <img
-          src={event.image}
-          alt={event.title}
-          className="w-full h-full object-cover object-bottom"
-        />
+      <section className="relative overflow-hidden">
+        <div className="relative">
+          <img src={event.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110" />
+          <img src={event.image} alt={event.title} className="relative mx-auto max-w-content w-full h-auto block" />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
           <div className="max-w-content mx-auto">
