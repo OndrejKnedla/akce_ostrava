@@ -39,7 +39,7 @@ export function Navbar() {
           'fixed top-0 left-0 right-0 z-[7000] transition-all duration-300',
           scrolled
             ? 'bg-white/95 backdrop-blur-xl border-b border-ostrava-blue/10 shadow-sm'
-            : 'bg-transparent'
+            : 'bg-gradient-to-b from-black/50 to-transparent'
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
