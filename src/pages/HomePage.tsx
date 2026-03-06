@@ -28,16 +28,10 @@ export default function HomePage() {
 
       {/* Steel Rave — Pre-sale countdown */}
       {scooter && (
-        <section className="bg-ostrava-blue">
-          <Link to={localePath('event', { slug: scooter.slug })} className="relative block overflow-hidden">
-            {/* Blurred background fill */}
-            <img src={scooter.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110" />
-            {/* Original size image centered */}
-            <img src={scooter.image} alt={scooter.title} className="relative mx-auto max-w-content w-full h-auto block" />
-          </Link>
-          <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10 text-center">
+        <section className="bg-white">
+          <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 pt-10 pb-6 md:pt-12 md:pb-8 text-center">
             <motion.p
-              className="font-heading text-white uppercase text-sm md:text-base tracking-wider mb-4"
+              className="font-heading text-ostrava-blue uppercase text-sm md:text-base tracking-wider mb-4"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -45,21 +39,13 @@ export default function HomePage() {
               {t('home.presaleIn')}<span className="text-ostrava-red">!!!</span>
             </motion.p>
             <Countdown targetDate="2026-03-09" targetTime="18:00" />
-            <motion.div
-              className="mt-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link
-                to={localePath('event', { slug: scooter.slug })}
-                className="inline-block font-heading uppercase text-sm tracking-wider text-ostrava-cyan border border-ostrava-cyan/40 rounded-lg px-6 py-3 hover:bg-ostrava-cyan/10 transition-all"
-              >
-                {t('events.aboutEvent')} →
-              </Link>
-            </motion.div>
           </div>
+          <Link to={localePath('event', { slug: scooter.slug })} className="relative block overflow-hidden bg-ostrava-blue">
+            {/* Blurred background fill */}
+            <img src={scooter.image} alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110" />
+            {/* Original size image centered */}
+            <img src={scooter.image} alt={scooter.title} className="relative mx-auto max-w-content w-full h-auto block" />
+          </Link>
         </section>
       )}
 
