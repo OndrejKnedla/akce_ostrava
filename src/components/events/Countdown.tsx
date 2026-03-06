@@ -51,8 +51,9 @@ export function Countdown({ targetDate, targetTime }: CountdownProps) {
         <div key={seg.label} className="flex items-center gap-3 md:gap-4">
           <div className="text-center">
             <div className="flex gap-1">
-              <FlipDigit value={String(seg.value).padStart(2, '0')[0]} />
-              <FlipDigit value={String(seg.value).padStart(2, '0')[1]} />
+              {String(seg.value).padStart(2, '0').split('').map((digit, j) => (
+                <FlipDigit key={j} value={digit} />
+              ))}
             </div>
             <span className="text-[10px] md:text-xs text-ostrava-blue/40 mt-1 block uppercase tracking-wider">
               {seg.label}
