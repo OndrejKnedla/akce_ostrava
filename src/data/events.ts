@@ -127,7 +127,7 @@ Tohle je festival pro všechny generace!!! Slezskoostravský hrad nabízí jedin
     status: 'on-sale',
     totalCapacity: 5000,
     ticketsSold: 2200,
-    featured: true,
+    featured: false,
     faq: [
       { question: 'Je festival vhodný pro děti?', answer: 'Ano! Festival je vhodný pro všechny věkové kategorie.' },
       { question: 'Co si vzít s sebou?', answer: 'Doporučujeme pohodlné oblečení a obuv, pláštěnku (open-air), sluneční brýle. Vlastní jídlo a pití není povoleno.' },
@@ -254,6 +254,46 @@ Organizátoři kladou důraz na vytváření nezapomenutelných rodinných záž
       { question: 'Je festival vhodný pro malé děti?', answer: 'Ano! Festival je určen pro děti všech věkových kategorií. Nejmenší děti do 3 let mají vstup zdarma.' },
       { question: 'Co je v ceně vstupenky?', answer: 'Vstupenka zahrnuje vstup na festival, přístup ke všem zónám a atrakcím včetně skákacích hradů, trampolín, kolotočů a dalších aktivit.' },
       { question: 'Mohu přinést vlastní jídlo?', answer: 'Vlastní jídlo a pití není povoleno. Na festivalu je k dispozici food court s nabídkou pro děti i dospělé.' },
+    ],
+  },
+  {
+    id: '5',
+    slug: 'steel-rave-ostrava-2026',
+    title: 'Steel Rave Ostrava 2026 — Scooter, DJ Antoine & more',
+    subtitle: 'Největší rave festival v Ostravě s legendárním Scooterem!!!',
+    category: 'festival',
+    date: '2026-09-18',
+    time: '16:00',
+    endTime: '23:59',
+    venue: {
+      name: 'Ostravar Aréna',
+      address: 'Ruská 3077/135, 700 30 Ostrava-Vítkovice',
+      city: 'Ostrava',
+      mapQuery: 'Ostravar+Aréna+Ostrava',
+      transport: 'Tramvaj č. 1, 2, 11 – zastávka Městský stadion. Parkování P1 (Cinstar) 200m od arény.',
+    },
+    description: `Steel Rave Ostrava!!! Legendární Scooter míří do Ostravar Arény a přiveze s sebou megashow plnou energie, laseru a nezapomenutelných hitů. Hyper Hyper, How Much Is the Fish, Fire a desítky dalších hitů, které znáte nazpaměť.
+
+Na jednom pódiu se představí Scooter, DJ Antoine, Merlin a Vanesa Hardt & Doom — čtyři jména, která zaručují nonstop party od prvního beatu do posledního.
+
+Předprodej vstupenek začíná v pondělí!!! Buďte u toho, až Ostrava zažije největší rave festival roku.`,
+    image: '/images/SCOOTER_FB_FINAL.png',
+    gallery: [],
+    tickets: [],
+    lineup: [
+      { name: 'Scooter', genre: 'Rave / Techno', image: '/images/SCOOTER_FB_FINAL.png' },
+      { name: 'DJ Antoine', genre: 'Dance / House', image: '/images/SCOOTER_FB_FINAL.png' },
+      { name: 'Merlin', genre: 'Dance', image: '/images/SCOOTER_FB_FINAL.png' },
+      { name: 'Vanesa Hardt & Doom', genre: 'DJ Set', image: '/images/SCOOTER_FB_FINAL.png' },
+    ],
+    status: 'announced',
+    totalCapacity: 10000,
+    ticketsSold: 0,
+    featured: true,
+    faq: [
+      { question: 'Kdy začíná předprodej?', answer: 'Předprodej vstupenek startuje v pondělí. Sledujte naše stránky a sociální sítě pro více informací.' },
+      { question: 'Kdy se otevírají brány?', answer: 'Brány Ostravar Arény se otevírají v 16:00.' },
+      { question: 'Od kolika let je vstup?', answer: 'Akce je přístupná od 15 let. Osoby do 18 let musí být v doprovodu dospělé osoby.' },
     ],
   },
 ];
