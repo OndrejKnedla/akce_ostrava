@@ -153,8 +153,17 @@ export default function EventDetailPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  <p className="text-ostrava-blue/40 text-sm mb-3 font-heading uppercase tracking-wider">{t('events.countdownLabel')}</p>
-                  <Countdown targetDate={event.date} targetTime={event.time} />
+                  {isAnnounced ? (
+                    <>
+                      <p className="text-ostrava-yellow text-sm mb-3 font-heading uppercase tracking-wider">{t('home.presaleIn')}<span className="text-ostrava-red">!!!</span></p>
+                      <Countdown targetDate="2026-03-09" targetTime="18:00" />
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-ostrava-blue/40 text-sm mb-3 font-heading uppercase tracking-wider">{t('events.countdownLabel')}</p>
+                      <Countdown targetDate={event.date} targetTime={event.time} />
+                    </>
+                  )}
                 </motion.div>
               )}
 
