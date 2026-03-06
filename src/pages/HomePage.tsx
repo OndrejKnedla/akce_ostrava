@@ -46,6 +46,7 @@ export default function HomePage() {
             {/* Original size image centered */}
             <img src={scooter.image} alt={scooter.title} className="relative mx-auto max-w-content w-full h-auto block" />
           </Link>
+          <div className="h-10 md:h-14 bg-white" />
         </section>
       )}
 
