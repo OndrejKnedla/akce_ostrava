@@ -30,8 +30,8 @@ export default function HomePage() {
       {scooter && (
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <img src={scooter.image} alt={scooter.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
+            <img src={scooter.image} alt={scooter.title} className="w-full h-full object-cover object-right" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/30" />
           </div>
           <div className="relative z-10 max-w-content mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
             <div className="max-w-2xl">
