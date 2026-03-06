@@ -207,11 +207,18 @@ export default function EventDetailPage() {
                 <h2 className="font-heading text-2xl uppercase text-ostrava-blue mb-6">
                   {t('events.tickets')}<span className="text-ostrava-cyan">!!!</span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {event.tickets.map((tier, i) => (
-                    <TicketTier key={tier.id} tier={tier} index={i} />
-                  ))}
-                </div>
+                {event.tickets.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {event.tickets.map((tier, i) => (
+                      <TicketTier key={tier.id} tier={tier} index={i} />
+                    ))}
+                  </div>
+                ) : isAnnounced && (
+                  <div className="glass p-8 text-center">
+                    <p className="font-heading text-lg uppercase text-ostrava-yellow mb-1">{t('eventCard.presaleMonday')}</p>
+                    <p className="text-ostrava-blue/50 text-sm">{t('eventCard.followUs')}</p>
+                  </div>
+                )}
               </div>
 
               {/* Venue */}
