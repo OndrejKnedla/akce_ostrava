@@ -28,52 +28,34 @@ export default function HomePage() {
 
       {/* Steel Rave — Pre-sale countdown */}
       {scooter && (
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={scooter.image} alt={scooter.title} className="w-full h-full object-cover object-right" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/30" />
-          </div>
-          <div className="relative z-10 max-w-content mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
-            <div className="max-w-2xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+        <section className="bg-ostrava-blue">
+          <Link to={localePath('event', { slug: scooter.slug })}>
+            <img src={scooter.image} alt={scooter.title} className="w-full h-auto block" />
+          </Link>
+          <div className="max-w-content mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-10 text-center">
+            <motion.p
+              className="font-heading text-white uppercase text-sm md:text-base tracking-wider mb-4"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {t('home.presaleIn')}<span className="text-ostrava-red">!!!</span>
+            </motion.p>
+            <Countdown targetDate="2026-03-09" targetTime="18:00" />
+            <motion.div
+              className="mt-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Link
+                to={localePath('event', { slug: scooter.slug })}
+                className="inline-block font-heading uppercase text-sm tracking-wider text-ostrava-cyan border border-ostrava-cyan/40 rounded-lg px-6 py-3 hover:bg-ostrava-cyan/10 transition-all"
               >
-                <p className="font-heading text-ostrava-cyan text-sm uppercase tracking-wider mb-2">18. 9. 2026 · Ostravar Aréna</p>
-                <h2 className="font-heading text-3xl md:text-5xl uppercase text-white mb-3">
-                  {scooter.title}
-                </h2>
-                <p className="text-white/60 text-sm md:text-base mb-8">{scooter.subtitle}</p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-              >
-                <p className="font-heading text-white uppercase text-sm tracking-wider mb-4">
-                  {t('home.presaleIn')}<span className="text-ostrava-red">!!!</span>
-                </p>
-                <Countdown targetDate="2026-03-09" targetTime="18:00" />
-              </motion.div>
-
-              <motion.div
-                className="mt-8"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-              >
-                <Link
-                  to={localePath('event', { slug: scooter.slug })}
-                  className="inline-block font-heading uppercase text-sm tracking-wider text-ostrava-cyan border border-ostrava-cyan/40 rounded-lg px-6 py-3 hover:bg-ostrava-cyan/10 transition-all"
-                >
-                  {t('events.aboutEvent')} →
-                </Link>
-              </motion.div>
-            </div>
+                {t('events.aboutEvent')} →
+              </Link>
+            </motion.div>
           </div>
         </section>
       )}

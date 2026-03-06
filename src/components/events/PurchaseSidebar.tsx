@@ -24,7 +24,10 @@ export function PurchaseSidebar({ event }: PurchaseSidebarProps) {
       <p className="text-ostrava-blue/40 text-sm mb-4">{event.subtitle}</p>
 
       {isAnnounced ? (
-        <div className="font-heading text-lg uppercase text-ostrava-yellow mb-2">{t('eventCard.announceSoon')}</div>
+        <>
+          <div className="font-heading text-lg uppercase text-ostrava-yellow mb-1">{t('eventCard.announceSoon')}</div>
+          <p className="text-ostrava-blue/50 text-sm mb-2">{t('eventCard.presaleMonday')}</p>
+        </>
       ) : (
         <div className="font-mono text-2xl font-bold text-ostrava-blue mb-2">
           {t('eventCard.fromPrice', { price: lowestPrice.toLocaleString('cs-CZ') })}
